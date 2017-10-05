@@ -4,7 +4,8 @@
 
 <Workspace>
 	<Local Expanded="Yes">
-		<Model Expanded="Yes" ID="{EFF8F0F7-D0B1-4B0D-B055-6ABF7CCF8679}" Name="Monopoly" Type="{FF4B6538-9856-42CF-B9B9-304ED370CEAA}" URL="file:///C|/Users/ribb0001/Documents/Monopoly/Monopoly.prj"/>
+		<Model Expanded="Yes" ID="{EFF8F0F7-D0B1-4B0D-B055-6ABF7CCF8679}" Loaded="No" Name="Monopoly" Type="{FF4B6538-9856-42CF-B9B9-304ED370CEAA}" URL="file:///C|/Users/ribb0001/Documents/Monopoly/Monopoly.prj"/>
+		<Model Expanded="Yes" ID="{19618921-1777-4C32-BCF5-4F584FC2B6F8}" Name="Définition de cas d&#39;utilisation_1" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="UseCase.moo"/>
 	</Local>
 	<BrowserModule Name="Référentiel"/>
 </Workspace>
