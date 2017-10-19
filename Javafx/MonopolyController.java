@@ -1,3 +1,9 @@
+import java.lang.Class;
+import java.lang.reflect.Field;
+import javafx.scene.control.SplitPane;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.Label;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -19,6 +25,19 @@ public class MonopolyController {
     private ResourceBundle bundle;
     @FXML
     private ImageView plateauImg;
+    @FXML
+    private Button bouton;
+    @FXML
+    private Button boutonPropriete;
+    @FXML
+    private Label recapLabel;
+    @FXML
+    private ScrollPane recapPane;
+    @FXML
+    private ScrollPane encherePane;
+    @FXML
+    private ScrollPane proprietePane;
+    
     
     /**
      * Constructeur.
@@ -33,7 +52,10 @@ public class MonopolyController {
      */
     @FXML
     protected void initialize() {
-    
+        this.encherePane.setOpacity(0);
+        this.encherePane.setDisable(true);
+        this.proprietePane.setOpacity(0);
+        this.proprietePane.setDisable(true);
     }
     
     /**
@@ -61,6 +83,38 @@ public class MonopolyController {
     @FXML
     public boolean onWindowCloseRequest() {
         return true;
+    }
+    
+    @FXML
+    public void hideOtherPane(String pane){
+        Field[] fields = this.getDeclaredFields();
+    }
+    
+    @FXML
+    public void onClickButtonTest(){
+        System.out.println("lol ça marche");
+        this.encherePane.setOpacity(1);
+        this.encherePane.setDisable(false);
+    }
+    
+    @FXML
+    public void onClickPropriete(){
+        this.changePane("Propriété");
+    }
+    
+    @FXML
+    public void changePane(String type){
+        if(type.equals("Enchere")){
+            
+        }
+        else if (type.equals("Propriété")){
+            this.recapPane.setOpacity(0);
+            this.recapPane.setDisable(true);
+            this.encherePane.setOpacity(0);
+            this.encherePane.setDisable(true);
+            this.proprietePane.setOpacity(1);
+            this.proprietePane.setDisable(false);
+        }
     }
 
 }

@@ -5,16 +5,17 @@
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <VBox fillWidth="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/8.0.91" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MonopolyController">
     
@@ -22,9 +23,9 @@
         <URL value="@Monopoly.css" />
     </stylesheets>
    <children>
-      <SplitPane dividerPositions="0.6695594125500668" prefHeight="1000.0" prefWidth="1500.0">
-        <items>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+      <HBox prefHeight="1000.0" prefWidth="1500.0">
+         <children>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1000.0" prefWidth="1000.0">
                <children>
                   <StackPane prefHeight="1000.0" prefWidth="1500.0">
                      <children>
@@ -88,8 +89,16 @@
                               <Pane prefHeight="84.0" prefWidth="128.0" GridPane.columnIndex="11" GridPane.rowIndex="7" />
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="11" GridPane.rowIndex="6" />
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="11" GridPane.rowIndex="5" />
-                              <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="11" GridPane.rowIndex="4" />
-                              <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="11" GridPane.rowIndex="3" />
+                              <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="11" GridPane.rowIndex="4">
+                                 <children>
+                                    <Button fx:id="boutonPropriete" mnemonicParsing="false" onAction="#onClickPropriete" prefHeight="81.0" prefWidth="128.0" text="Button" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="11" GridPane.rowIndex="3">
+                                 <children>
+                                    <Button fx:id="bouton" layoutY="1.0" mnemonicParsing="false" onAction="#onClickButtonTest" prefHeight="81.0" prefWidth="128.0" text="Button" />
+                                 </children>
+                              </Pane>
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="11" GridPane.rowIndex="2" />
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="11" GridPane.rowIndex="1" />
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="10" />
@@ -110,24 +119,53 @@
                   </StackPane>
                </children>
             </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+            <StackPane alignment="CENTER_RIGHT" prefHeight="1000.0" prefWidth="500.0">
                <children>
-                  <ScrollPane prefHeight="1000.0" prefWidth="491.0">
+                  <ScrollPane fx:id="recapPane" prefHeight="1000.0" prefWidth="491.0">
                     <content>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1000.0" prefWidth="500.0">
                            <children>
-                              <Button layoutX="90.0" layoutY="329.0" mnemonicParsing="false" text="Button" />
-                              <Label layoutX="145.0" layoutY="137.0" text="Label" />
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="7.0" layoutY="6.0" prefHeight="50.0" prefWidth="460.0" text="Récapitulatif" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="40.0" />
+                                 </font>
+                              </Label>
                               <Button layoutX="101.0" layoutY="378.0" mnemonicParsing="false" text="Button" />
                               <CheckBox layoutX="77.0" layoutY="272.0" mnemonicParsing="false" text="CheckBox" />
                            </children>
                         </AnchorPane>
                     </content>
                   </ScrollPane>
+                  <ScrollPane fx:id="encherePane" prefHeight="200.0" prefWidth="200.0">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1000.0" prefWidth="500.0">
+                           <children>
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="5.0" layoutY="4.0" prefHeight="50.0" prefWidth="460.0" text="Enchères" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="40.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </ScrollPane>
+                  <ScrollPane fx:id="proprietePane" prefHeight="200.0" prefWidth="200.0">
+                     <content>
+                        <AnchorPane prefHeight="1000.0" prefWidth="500.0">
+                           <children>
+                              <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="460.0" text="Propriété" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="40.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </ScrollPane>
                </children>
-            </AnchorPane>
-        </items>
-      </SplitPane>
+            </StackPane>
+         </children>
+      </HBox>
    </children>
     
 </VBox>
