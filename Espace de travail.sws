@@ -1,3 +1,15 @@
+<<<<<<< HEAD
+<?xml version="1.0" encoding="UTF-8"?>
+<?PowerDesigner signature="Workspace" version="15.3.0.3445"?>
+<!-- Veuillez ne pas modifier ce fichier -->
+
+<Workspace>
+	<Local Expanded="Yes">
+		<Model Expanded="Yes" ID="{EFF8F0F7-D0B1-4B0D-B055-6ABF7CCF8679}" Name="Monopoly" Type="{FF4B6538-9856-42CF-B9B9-304ED370CEAA}" URL="file:///C|/Users/ribb0001/Documents/Monopoly/Monopoly.prj"/>
+	</Local>
+	<BrowserModule Name="Référentiel"/>
+</Workspace>
+=======
 <?xml version="1.0" encoding="UTF-8"?>
 <?PowerDesigner signature="Workspace" version="15.3.0.3445"?>
 <!-- Veuillez ne pas modifier ce fichier -->
@@ -11,3 +23,4 @@
 	</Local>
 	<BrowserModule Name="Référentiel"/>
 </Workspace>
+>>>>>>> 968d653a125b9311d339528db81ebb801825b8a5
