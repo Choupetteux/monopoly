@@ -45,6 +45,7 @@ public class MonopolyApplication extends Application {
             // primaryStage.getIcons().add(new Image("votre_icone"));
 
             primaryStage.show();
+
         }
         catch (Exception e) {
             System.err.println(e.getMessage());

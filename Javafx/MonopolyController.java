@@ -1,3 +1,8 @@
+import javafx.scene.input.MouseEvent;
+import javafx.event.EventHandler;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.control.ListView;
 import java.lang.Class;
 import java.lang.reflect.Field;
 import javafx.scene.control.SplitPane;
@@ -37,6 +42,8 @@ public class MonopolyController {
     private ScrollPane encherePane;
     @FXML
     private ScrollPane proprietePane;
+    @FXML
+    private ListView listeJoueur;
     
     
     /**
@@ -56,6 +63,10 @@ public class MonopolyController {
         this.encherePane.setDisable(true);
         this.proprietePane.setOpacity(0);
         this.proprietePane.setDisable(true);
+        ObservableList<String> joueurList = FXCollections.observableArrayList("Joueur 1", "fag");
+        this.listeJoueur.setItems(joueurList);
+          
+          
     }
     
     /**
@@ -86,20 +97,13 @@ public class MonopolyController {
     }
     
     @FXML
-    public void hideOtherPane(String pane){
-        Field[] fields = this.getDeclaredFields();
-    }
-    
-    @FXML
-    public void onClickButtonTest(){
-        System.out.println("lol ça marche");
-        this.encherePane.setOpacity(1);
-        this.encherePane.setDisable(false);
-    }
-    
-    @FXML
     public void onClickPropriete(){
         this.changePane("Propriété");
+    }
+    
+    @FXML
+    public void onClickCase(){
+        this.changePane("Case");
     }
     
     @FXML
@@ -114,6 +118,14 @@ public class MonopolyController {
             this.encherePane.setDisable(true);
             this.proprietePane.setOpacity(1);
             this.proprietePane.setDisable(false);
+        }
+        else if (type.equals("Case")){
+            this.recapPane.setOpacity(0);
+            this.recapPane.setDisable(true);
+            this.encherePane.setOpacity(1);
+            this.encherePane.setDisable(false);
+            this.proprietePane.setOpacity(0);
+            this.proprietePane.setDisable(true);
         }
     }
 
