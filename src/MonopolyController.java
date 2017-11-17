@@ -1,3 +1,4 @@
+
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.event.Event;
@@ -85,7 +86,7 @@ public class MonopolyController {
     }
     
     /**
-     * Méthode invoquée lorsque la fenêtre dont la scène est associée à ce contrôleur
+     * Méthode invoquée lor<sque la fenêtre dont la scène est associée à ce contrôleur
      * est sur le point d'être fermée par le système.
      * Si nécessaire, complétez cette méthode pour autoriser/empêcher la fermeture
      * de la fenêtre.
