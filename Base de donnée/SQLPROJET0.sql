@@ -13,8 +13,7 @@ drop table CASEPARKING cascade constraints;
 drop table CASESERVICE cascade constraints;
 drop table CASEACHETABLE cascade constraints;
 drop table CASEPROPRIETE cascade constraints;
-drop table CARTECHANCE cascade constraints;
-drop table CARTECOMMUNAUTE cascade constraints;
+
 
 
 create table JOUEUR (
@@ -43,30 +42,12 @@ create table PLATEAU(
 
 
 )
-*/
+
 create table CARTE(
-   IDCarte               INTEGER,
-   nomCarte              CHAR(25),
-  CONSTRAINT PK_CARTE primary key (IDCarte)
-)
-
-create table CARTECHANCE(
- IDCarte               INTEGER,
-CONSTRAINT PK_CarteChance primary key (IDCarte), 
-CONSTRAINT FK_CaseChance foreign Key (IDCarte) references CARTE (IDCarte) ON DELETE CASCADE
-
+   IDCarte               INTEGER
+		CONSTRAINT PK_CARTE primary key
 
 )
-
-create table CARTECOMMUNAUTE(
- IDCarte               INTEGER,
-CONSTRAINT PK_CaseCommunaute primary key (IDCarte), 
-CONSTRAINT FK_CaseCommunaute foreign Key (IDCarte) references CARTE (IDCarte) ON DELETE CASCADE
-
-
-)
-/*
-
 
 
 create table CASEPARKING(
@@ -92,13 +73,14 @@ CONSTRAINT FK_CaseGoPrison foreign Key (IDCase) references CASE (IdCase) ON DELE
 
 )
 
+
 create table CASEACHETABLE(
  IDCase               INTEGER,
- IdPersonne          INTEGER, 
 CONSTRAINT PK_CaseAchetable primary key (IDCase), 
-CONSTRAINT FK_CaseAchetable foreign Key (IDCase) references CASE (IdCase) ON DELETE CASCADE,
-CONSTRAINT FK_CaseAchetableJoueur foreign Key (IdPersonne) references JOUEUR (IdPersonne) ON DELETE CASCADE)
+CONSTRAINT FK_CaseAchetable foreign Key (IDCase) references CASE (IdCase) ON DELETE CASCADE
+
 )
+
 
 
 --HERITENT DE CASE ACHETABLE
@@ -106,8 +88,7 @@ CONSTRAINT FK_CaseAchetableJoueur foreign Key (IdPersonne) references JOUEUR (Id
 create table CASESERVICE(
  IDCase               INTEGER,
 CONSTRAINT PK_CaseService primary key (IDCase), 
-CONSTRAINT FK_CaseService foreign Key (IDCase) references CASEACHETABLE (IdCase) ON DELETE CASCADE,
-
+CONSTRAINT FK_CaseService foreign Key (IDCase) references CASEACHETABLE (IdCase) ON DELETE CASCADE
 )
 
 
@@ -124,14 +105,4 @@ CONSTRAINT PK_CaseGare primary key (IDCase),
 CONSTRAINT FK_CaseGare foreign Key (IDCase) references CASEACHETABLE (IdCase) ON DELETE CASCADE
 )
 */
-
---Insertion des cartes--
-/*
-INSERT INTO CARTECHANCE VALUES('
-  */
-
-
---Insertion des cases--
-
-
 

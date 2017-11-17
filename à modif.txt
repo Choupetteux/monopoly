@@ -1,0 +1,9 @@
+MS project à avancer
+ajouter enum pour case propriété
+method prix hypothèque caseachetable
+method goupe couleur case propriété
+Choses à modifier dans le MCD
+Case Achetable et Joueur sont liés: Une case achetable peut être possédé par un joueur.
+Il faut aussi ajouter un double héritage: Carte a 2 enfants CarteChance et CarteCommunuate.
+
+
