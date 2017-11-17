@@ -1,0 +1,20 @@
+#BlueJ class context
+comment0.params=
+comment0.target=MonopolyController()
+comment0.text=\n\ Constructeur.\n
+comment1.params=
+comment1.target=void\ initialize()
+comment1.text=\n\ M\u00E9thode\ invoqu\u00E9e\ automatiquement\ apr\u00E8s\ instanciation\ de\ ce\ contr\u00F4leur\ par\ JavaFX.\n
+comment2.params=
+comment2.target=void\ onWindowShown()
+comment2.text=\n\ M\u00E9thode\ invoqu\u00E9e\ lorsque\ la\ fen\u00EAtre\ dont\ la\ sc\u00E8ne\ est\ associ\u00E9e\ \u00E0\ ce\ contr\u00F4leur\n\ est\ affich\u00E9e.\n\ Si\ n\u00E9cessaire,\ compl\u00E9tez\ cette\ m\u00E9thode\ pour\ ex\u00E9cuter\ du\ code\ apr\u00E8s\ l'affichage\ de\n\ la\ fen\u00EAtre.\n
+comment3.params=
+comment3.target=boolean\ onWindowCloseRequest()
+comment3.text=\n\ M\u00E9thode\ invoqu\u00E9e\ lorsque\ la\ fen\u00EAtre\ dont\ la\ sc\u00E8ne\ est\ associ\u00E9e\ \u00E0\ ce\ contr\u00F4leur\n\ est\ sur\ le\ point\ d'\u00EAtre\ ferm\u00E9e\ par\ le\ syst\u00E8me.\n\ Si\ n\u00E9cessaire,\ compl\u00E9tez\ cette\ m\u00E9thode\ pour\ autoriser/emp\u00EAcher\ la\ fermeture\n\ de\ la\ fen\u00EAtre.\n\ \n\ @return\ {@code\ true}\ si\ la\ fen\u00EAtre\ peut\ \u00EAtre\ ferm\u00E9e,\ ou\ {@code\ false}\n\ \ \ \ \ \ \ \ \ sinon\ (par\ exemple\ pour\ permettre\ \u00E0\ l'utilisateur\ d'enregistrer\n\ \ \ \ \ \ \ \ \ un\ document).\n\ \n
+comment4.params=
+comment4.target=void\ onClickPropriete()
+comment5.params=
+comment5.target=void\ onClickCase()
+comment6.params=type
+comment6.target=void\ changePane(java.lang.String)
+numComments=7
