@@ -18,12 +18,6 @@ public class Joueur {
 	private CaseGare[] gares;
 	private CaseService[] services;
 	
-	Joueur jeankev = new Joueur("jeankev");
-	Joueur jeanmic = new Joueur("jeanmic");
-	Joueur jeanpaul = new Joueur("jeanpaul");
-	
-	private Joueur[] joueurs = {jeankev, jeanmic,jeanpaul};
-	
 	public Joueur(String nom){
 		this.nom = nom;
 		this.money = 1500;
