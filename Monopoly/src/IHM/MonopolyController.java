@@ -1,4 +1,5 @@
 package IHM;
+
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.event.Event;
@@ -24,148 +25,184 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 
 /**
- * Classe contrôleur pour l'interface décrite dans le document <b>Monopoly.fxml</b>.
+ * Classe contrôleur pour l'interface décrite dans le document
+ * <b>Monopoly.fxml</b>.
  *
- * Cette classe contient principalement les méthodes appelées en réaction aux événements utilisateur.  
- * Une instance de cette classe est créée automatiquement chaque fois que le document <b>Monopoly.fxml</b> est chargé.
+ * Cette classe contient principalement les méthodes appelées en réaction aux
+ * événements utilisateur. Une instance de cette classe est créée
+ * automatiquement chaque fois que le document <b>Monopoly.fxml</b> est chargé.
  */
 public class MonopolyController {
-    @FXML
-    private Stage stage;
-    private ResourceBundle bundle;
-    @FXML
-    private ImageView plateauImg;
-    @FXML
-    private Button bouton;
-    @FXML
-    private Label resLancer;
-    @FXML
-    private Button boutonPropriete;
-    @FXML
-    private Label recapLabel;
-    @FXML
-    private ScrollPane recapPane;
-    @FXML
-    private ScrollPane encherePane;
-    @FXML
-    private ScrollPane proprietePane;
-    @FXML
-    private ListView<String> listeJoueur;
-    @FXML
-    private GridPane plateauGrille;
-    @FXML
-    private ImageView de1;
-    @FXML
-    private ImageView de2;
-    
-   
-    private Jeu jeu;
-    private String currentPane = "Récapitulatif";
-    
-    
-    /**
-     * Constructeur.
-     */
-    public MonopolyController() {
-        this.bundle = ResourceBundle.getBundle("IHM.Monopoly");
-        
-    }
+	@FXML
+	private Stage stage;
+	private ResourceBundle bundle;
+	@FXML
+	private ImageView plateauImg;
+	@FXML
+	private Button bouton;
+	@FXML
+	private Label resLancer;
+	@FXML
+	private Button boutonPropriete;
+	@FXML
+	private Label recapLabel;
+	@FXML
+	private ScrollPane recapPane;
+	@FXML
+	private ScrollPane encherePane;
+	@FXML
+	private ScrollPane proprietePane;
+	@FXML
+	private ListView<String> listeJoueur;
+	@FXML
+	private GridPane plateauGrille;
+	@FXML
+	private ImageView de1;
+	@FXML
+	private ImageView de2;
 
-    /**
-     * Méthode invoquée automatiquement après instanciation de ce contrôleur par JavaFX.
-     */
-    @FXML
-    protected void initialize() {
-        this.encherePane.setOpacity(0);
-        this.encherePane.setDisable(true);
-        this.proprietePane.setOpacity(0);
-        this.proprietePane.setDisable(true);
-        ObservableList<String> joueurList = FXCollections.observableArrayList("Joueur 1", "fag");
-        this.listeJoueur.setItems(joueurList);
-        this.jeu = new Jeu();
-    }
-    
-    /**
-     * Méthode invoquée lorsque la fenêtre dont la scène est associée à ce contrôleur
-     * est affichée.
-     * Si nécessaire, complétez cette méthode pour exécuter du code après l'affichage de
-     * la fenêtre.
-     */
-    @FXML
-    public void onWindowShown() {
-        
-    }
-    
-    /**
-     * Méthode invoquée lor<sque la fenêtre dont la scène est associée à ce contrôleur
-     * est sur le point d'être fermée par le système.
-     * Si nécessaire, complétez cette méthode pour autoriser/empêcher la fermeture
-     * de la fenêtre.
-     * 
-     * @return {@code true} si la fenêtre peut être fermée, ou {@code false}
-     *         sinon (par exemple pour permettre à l'utilisateur d'enregistrer
-     *         un document).
-     * 
-     */
-    @FXML
-    public boolean onWindowCloseRequest() {
-        return true;
-    }
-    
-    @FXML
-    public void onClickPropriete(){
-        this.changePane("Propriété");
-        this.currentPane = "Propriété";
-    }
-    
-    @FXML
-    public void onClickEnchere(){
-        this.changePane("Enchere");
-        this.currentPane = "Enchere";
-    }
-    
-    @FXML
-    public void onClickRecapitulatif(){
-    	this.changePane("Recapitulatif");
-    }
-    
-    @FXML
-    public void onClickBackToCurrent(){
-    	this.changePane(currentPane);
-    }
-    
-    @FXML
-    public void btnLancerDes(){
-    	this.
-    	this.resLancer.setText(Integer.toString(jeu.getValeurLancerDes()));
-    }
-    
-    @FXML
-    public void changePane(String type){
-        if (type.equals("Propriété")){
-            this.recapPane.setOpacity(0);
-            this.recapPane.setDisable(true);
-            this.encherePane.setOpacity(0);
-            this.encherePane.setDisable(true);
-            this.proprietePane.setOpacity(1);
-            this.proprietePane.setDisable(false);
-        }
-        else if (type.equals("Enchere")){
-            this.recapPane.setOpacity(0);
-            this.recapPane.setDisable(true);
-            this.encherePane.setOpacity(1);
-            this.encherePane.setDisable(false);
-            this.proprietePane.setOpacity(0);
-            this.proprietePane.setDisable(true);
-        }
-        else if (type.equals("Recapitulatif")){
-        	this.recapPane.setOpacity(1);
-            this.recapPane.setDisable(false);
-            this.encherePane.setOpacity(0);
-            this.encherePane.setDisable(true);
-            this.proprietePane.setOpacity(0);
-            this.proprietePane.setDisable(true);
-        }
-    }
+	private Jeu jeu;
+	private String currentPane = "Récapitulatif";
+
+	/**
+	 * Constructeur.
+	 */
+	public MonopolyController() {
+		this.bundle = ResourceBundle.getBundle("IHM.Monopoly");
+
+	}
+
+	/**
+	 * Méthode invoquée automatiquement après instanciation de ce contrôleur par
+	 * JavaFX.
+	 */
+	@FXML
+	protected void initialize() {
+		this.encherePane.setOpacity(0);
+		this.encherePane.setDisable(true);
+		this.proprietePane.setOpacity(0);
+		this.proprietePane.setDisable(true);
+		ObservableList<String> joueurList = FXCollections.observableArrayList("Joueur 1", "fag");
+		this.listeJoueur.setItems(joueurList);
+		this.jeu = new Jeu();
+	}
+
+	/**
+	 * Méthode invoquée lorsque la fenêtre dont la scène est associée à ce
+	 * contrôleur est affichée. Si nécessaire, complétez cette méthode pour
+	 * exécuter du code après l'affichage de la fenêtre.
+	 */
+	@FXML
+	public void onWindowShown() {
+
+	}
+
+	/**
+	 * Méthode invoquée lor<sque la fenêtre dont la scène est associée à ce
+	 * contrôleur est sur le point d'être fermée par le système. Si nécessaire,
+	 * complétez cette méthode pour autoriser/empêcher la fermeture de la
+	 * fenêtre.
+	 * 
+	 * @return {@code true} si la fenêtre peut être fermée, ou {@code false}
+	 *         sinon (par exemple pour permettre à l'utilisateur d'enregistrer
+	 *         un document).
+	 * 
+	 */
+	@FXML
+	public boolean onWindowCloseRequest() {
+		return true;
+	}
+
+	@FXML
+	public void onClickPropriete() {
+		this.changePane("Propriété");
+		this.currentPane = "Propriété";
+	}
+
+	@FXML
+	public void onClickEnchere() {
+		this.changePane("Enchere");
+		this.currentPane = "Enchere";
+	}
+
+	@FXML
+	public void onClickRecapitulatif() {
+		this.changePane("Recapitulatif");
+	}
+
+	@FXML
+	public void onClickBackToCurrent() {
+		this.changePane(currentPane);
+	}
+
+	@FXML
+	public void btnLancerDes(){
+		switch(this.jeu.getDes(1).getLancer()){
+		case 1:
+			this.de1.setImage(new Image("Dice1.gif"));
+			break;
+		case 2:
+			this.de1.setImage(new Image("Dice2.gif"));
+			break;
+		case 3:
+			this.de1.setImage(new Image("Dice3.gif"));
+			break;
+		case 4:
+			this.de1.setImage(new Image("Dice4.gif"));
+			break;
+		case 5:
+			this.de1.setImage(new Image("Dice5.gif"));
+			break;
+		case 6:
+			this.de1.setImage(new Image("Dice6.gif"));
+			break;
+		}
+		switch(this.jeu.getDes(2).getLancer()){
+		case 1:
+			this.de2.setImage(new Image("Dice1.gif"));
+			break;
+		case 2:
+			this.de2.setImage(new Image("Dice2.gif"));
+			break;
+		case 3:
+			this.de2.setImage(new Image("Dice3.gif"));
+			break;
+		case 4:
+			this.de2.setImage(new Image("Dice4.gif"));
+			break;
+		case 5:
+			this.de2.setImage(new Image("Dice5.gif"));
+			break;
+		case 6:
+			this.de2.setImage(new Image("Dice6.gif"));
+			break;
+		}
+		this.resLancer.setText(Integer.toString(jeu.getValeurLancerDes()));}
+
+	@FXML
+	public void changePane(String type) {
+		if (type.equals("Propriété")) {
+			this.recapPane.setOpacity(0);
+			this.recapPane.setDisable(true);
+			this.encherePane.setOpacity(0);
+			this.encherePane.setDisable(true);
+			this.proprietePane.setOpacity(1);
+			this.proprietePane.setDisable(false);
+		} else if (type.equals("Enchere")) {
+			this.recapPane.setOpacity(0);
+			this.recapPane.setDisable(true);
+			this.encherePane.setOpacity(1);
+			this.encherePane.setDisable(false);
+			this.proprietePane.setOpacity(0);
+			this.proprietePane.setDisable(true);
+		} else if (type.equals("Recapitulatif")) {
+			this.recapPane.setOpacity(1);
+			this.recapPane.setDisable(false);
+			this.encherePane.setOpacity(0);
+			this.encherePane.setDisable(true);
+			this.proprietePane.setOpacity(0);
+			this.proprietePane.setDisable(true);
+		}
+	}
 
 }
