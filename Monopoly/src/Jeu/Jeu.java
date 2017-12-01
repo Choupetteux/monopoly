@@ -9,7 +9,7 @@ public class Jeu {
 	private De[] des = new De[2];
 	private Plateau plateau;
 	private int argentInitial;
-	private Joueur[] joueurs;
+	private Joueur[] joueurs = new Joueur[2];
 	private int tour;
 	private int valeurLancerDes;
 	
@@ -18,6 +18,10 @@ public class Jeu {
 		this.des[1] = new De();
 		this.des[2] = new De();
 		this.plateau = new Plateau(this);
+		this.argentInitial = 1500;
+		this.joueurs[1] = new Joueur("Michel");
+		this.joueurs[2] = new Joueur("Robert");
+		this.tour = 0;
 	}
 	
 	public int getJoueurMax() {
