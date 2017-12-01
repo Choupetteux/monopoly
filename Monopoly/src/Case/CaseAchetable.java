@@ -57,4 +57,10 @@ public class CaseAchetable extends Case{
 		}
 	}
 
+	@Override
+	public void jouerAction() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
