@@ -23,7 +23,7 @@ public class Joueur {
 	
 	public Joueur(String nom){
 		this.nom = nom;
-		this.money = 1500;
+		this.money = this.jeu.getArgentInitial();
 		//this.position = CaseDepart;
 	}
 	
