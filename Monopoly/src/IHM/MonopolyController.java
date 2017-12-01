@@ -137,47 +137,51 @@ public class MonopolyController {
 
 	@FXML
 	public void btnLancerDes(){
+		for(int i = 0; i < 2; i++){
+			jeu.getDes(i).relancerDe();
+		}
+		switch(this.jeu.getDes(0).getLancer()){
+		case 1:
+			this.de1.setImage(new Image("/IHM/Dice1.gif"));
+			break;
+		case 2:
+			this.de1.setImage(new Image("/IHM/Dice2.gif"));
+			break;
+		case 3:
+			this.de1.setImage(new Image("/IHM/Dice3.gif"));
+			break;
+		case 4:
+			this.de1.setImage(new Image("/IHM/Dice4.gif"));
+			break;
+		case 5:
+			this.de1.setImage(new Image("/IHM/Dice5.gif"));
+			break;
+		case 6:
+			this.de1.setImage(new Image("/IHM/Dice6.gif"));
+			break;
+		}
 		switch(this.jeu.getDes(1).getLancer()){
 		case 1:
-			this.de1.setImage(new Image("Dice1.gif"));
+			this.de2.setImage(new Image("/IHM/Dice1.gif"));
 			break;
 		case 2:
-			this.de1.setImage(new Image("Dice2.gif"));
+			this.de2.setImage(new Image("/IHM/Dice2.gif"));
 			break;
 		case 3:
-			this.de1.setImage(new Image("Dice3.gif"));
+			this.de2.setImage(new Image("/IHM/Dice3.gif"));
 			break;
 		case 4:
-			this.de1.setImage(new Image("Dice4.gif"));
+			this.de2.setImage(new Image("/IHM/Dice4.gif"));
 			break;
 		case 5:
-			this.de1.setImage(new Image("Dice5.gif"));
+			this.de2.setImage(new Image("/IHM/Dice5.gif"));
 			break;
 		case 6:
-			this.de1.setImage(new Image("Dice6.gif"));
+			this.de2.setImage(new Image("/IHM/Dice6.gif"));
 			break;
 		}
-		switch(this.jeu.getDes(2).getLancer()){
-		case 1:
-			this.de2.setImage(new Image("Dice1.gif"));
-			break;
-		case 2:
-			this.de2.setImage(new Image("Dice2.gif"));
-			break;
-		case 3:
-			this.de2.setImage(new Image("Dice3.gif"));
-			break;
-		case 4:
-			this.de2.setImage(new Image("Dice4.gif"));
-			break;
-		case 5:
-			this.de2.setImage(new Image("Dice5.gif"));
-			break;
-		case 6:
-			this.de2.setImage(new Image("Dice6.gif"));
-			break;
+		this.resLancer.setText("" + jeu.getValeurLancerDes());
 		}
-		this.resLancer.setText(Integer.toString(jeu.getValeurLancerDes()));}
 
 	@FXML
 	public void changePane(String type) {
