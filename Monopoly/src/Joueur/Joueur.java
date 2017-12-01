@@ -7,10 +7,12 @@ import Case.CaseAchetable;
 import Case.CaseGare;
 import Case.CasePropriete;
 import Case.CaseService;
+import Jeu.Jeu;
 
 public class Joueur {
 	
 	private Hashtable groupeCouleurs;
+	private Jeu jeu;
 	private boolean enPrison;
 	private int money;
 	private String nom;
