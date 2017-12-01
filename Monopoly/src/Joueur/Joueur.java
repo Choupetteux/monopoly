@@ -1,4 +1,5 @@
 package Joueur;
+import java.util.ArrayList;
 import java.util.Hashtable;
 
 import Case.Case;
@@ -14,9 +15,9 @@ public class Joueur {
 	private int money;
 	private String nom;
 	private Case position;
-	private CasePropriete[] proprietes;
-	private CaseGare[] gares;
-	private CaseService[] services;
+	private ArrayList<CasePropriete> proprietes;
+	private ArrayList<CaseGare> gares;
+	private ArrayList<CaseService> services;
 	
 	public Joueur(String nom){
 		this.nom = nom;
@@ -25,7 +26,7 @@ public class Joueur {
 	}
 	
 	public void acheterPropriete(){
-		// FX
+		this.proprietes
 	}
 	
 	public boolean peutAcheterMaison(){
@@ -52,7 +53,8 @@ public class Joueur {
 	}
 	
 	/*public Type getMonopole(){
-	 * return qqchose;} 
+	 * return qqchose;
+	 *} 
 	 */
 	
 	public String getNom(){
