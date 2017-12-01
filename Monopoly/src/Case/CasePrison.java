@@ -4,7 +4,7 @@ public class CasePrison extends Case{
 	private int prixSortie;
 
 	public CasePrison() {
-		super(false, "Prison", null);
+		super();
 		this.prixSortie = 50;		
 	}
 	
