@@ -15,12 +15,12 @@ public class Jeu {
 	
 	public Jeu(){
 		this.joueurMax = 2;
+		this.des[0] = new De();
 		this.des[1] = new De();
-		this.des[2] = new De();
 		this.plateau = new Plateau(this);
 		this.argentInitial = 1500;
-		this.joueurs[1] = new Joueur("Michel");
-		this.joueurs[2] = new Joueur("Robert");
+		this.joueurs[0] = new Joueur("Michel", this);
+		this.joueurs[1] = new Joueur("Robert", this);
 		this.tour = 0;
 	}
 	
@@ -46,7 +46,7 @@ public class Jeu {
 		return tour;
 	}
 	public int getValeurLancerDes() {
-		return getDes(1).getLancer() + getDes(2).getLancer();
+		return getDes(0).getLancer() + getDes(1).getLancer();
 	}
 	
 	/**public void deplacerJoueur(){
