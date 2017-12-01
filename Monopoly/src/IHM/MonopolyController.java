@@ -1,4 +1,7 @@
+package IHM;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.GridPane;
+import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -43,14 +46,18 @@ public class MonopolyController {
     @FXML
     private ScrollPane proprietePane;
     @FXML
-    private ListView listeJoueur;
+    private ListView<String> listeJoueur;
+    @FXML
+    private GridPane plateauGrille;
+    
+    private String currentPane = "Récapitulatif";
     
     
     /**
      * Constructeur.
      */
     public MonopolyController() {
-        this.bundle = ResourceBundle.getBundle("Monopoly");
+        this.bundle = ResourceBundle.getBundle("IHM.Monopoly");
         
     }
 
@@ -65,8 +72,6 @@ public class MonopolyController {
         this.proprietePane.setDisable(true);
         ObservableList<String> joueurList = FXCollections.observableArrayList("Joueur 1", "fag");
         this.listeJoueur.setItems(joueurList);
-          
-          
     }
     
     /**
@@ -79,9 +84,9 @@ public class MonopolyController {
     public void onWindowShown() {
         
     }
-
+    
     /**
-     * Méthode invoquée lorsque la fenêtre dont la scène est associée à ce contrôleur
+     * Méthode invoquée lor<sque la fenêtre dont la scène est associée à ce contrôleur
      * est sur le point d'être fermée par le système.
      * Si nécessaire, complétez cette méthode pour autoriser/empêcher la fermeture
      * de la fenêtre.
@@ -99,19 +104,28 @@ public class MonopolyController {
     @FXML
     public void onClickPropriete(){
         this.changePane("Propriété");
+        this.currentPane = "Propriété";
     }
     
     @FXML
-    public void onClickCase(){
-        this.changePane("Case");
+    public void onClickEnchere(){
+        this.changePane("Enchere");
+        this.currentPane = "Enchere";
+    }
+    
+    @FXML
+    public void onClickRecapitulatif(){
+    	this.changePane("Recapitulatif");
+    }
+    
+    @FXML
+    public void onClickBackToCurrent(){
+    	this.changePane(currentPane);
     }
     
     @FXML
     public void changePane(String type){
-        if(type.equals("Enchere")){
-            
-        }
-        else if (type.equals("Propriété")){
+        if (type.equals("Propriété")){
             this.recapPane.setOpacity(0);
             this.recapPane.setDisable(true);
             this.encherePane.setOpacity(0);
@@ -119,11 +133,19 @@ public class MonopolyController {
             this.proprietePane.setOpacity(1);
             this.proprietePane.setDisable(false);
         }
-        else if (type.equals("Case")){
+        else if (type.equals("Enchere")){
             this.recapPane.setOpacity(0);
             this.recapPane.setDisable(true);
             this.encherePane.setOpacity(1);
             this.encherePane.setDisable(false);
+            this.proprietePane.setOpacity(0);
+            this.proprietePane.setDisable(true);
+        }
+        else if (type.equals("Recapitulatif")){
+        	this.recapPane.setOpacity(1);
+            this.recapPane.setDisable(false);
+            this.encherePane.setOpacity(0);
+            this.encherePane.setDisable(true);
             this.proprietePane.setOpacity(0);
             this.proprietePane.setDisable(true);
         }

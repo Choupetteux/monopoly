@@ -17,7 +17,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fillWidth="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/8.0.91" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MonopolyController">
+<VBox fillWidth="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/8.0.91" xmlns:fx="http://javafx.com/fxml/1" fx:controller="IHM.MonopolyController">
     
     <stylesheets>
         <URL value="@Monopoly.css" />
@@ -31,7 +31,7 @@
                      <children>
                         <ImageView fx:id="plateauImg" fitHeight="1000.0" fitWidth="1000.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER_LEFT">
                            <image>
-                              <Image url="@ihm/plateau.jpg" />
+                              <Image url="@plateau.jpg" />
                            </image>
                         </ImageView>
                         <GridPane gridLinesVisible="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="0.0" prefHeight="1000.0" prefWidth="1000.0" StackPane.alignment="CENTER_LEFT">
@@ -96,7 +96,7 @@
                               </Pane>
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="11" GridPane.rowIndex="3">
                                  <children>
-                                    <Button fx:id="bouton" layoutY="1.0" mnemonicParsing="false" onAction="#onClickCase" prefHeight="81.0" prefWidth="128.0" text="Button" />
+                                    <Button fx:id="bouton" layoutY="1.0" mnemonicParsing="false" prefHeight="81.0" prefWidth="128.0" text="Button" />
                                  </children>
                               </Pane>
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="11" GridPane.rowIndex="2" />

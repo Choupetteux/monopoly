@@ -1,6 +1,4 @@
-
-
-
+package IHM;
 import java.util.ResourceBundle;
 import info.util.javafx.FXUtil;
 import javafx.application.Application;
@@ -32,7 +30,7 @@ public class MonopolyApplication extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("Monopoly.fxml"), ResourceBundle.getBundle("Monopoly"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Monopoly.fxml"), ResourceBundle.getBundle("IHM.Monopoly"));
 
             Parent root = loader.load();
 
