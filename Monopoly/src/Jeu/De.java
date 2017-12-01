@@ -2,13 +2,13 @@ package Jeu;
 
 public class De {
 	
-	int valeurLancer;
+	int valeurDe;
 	
 	public De(){
-		this.valeurLancer = (int)(1+6*Math.random()) + (int) (1+6*Math.random());
+		this.valeurDe = (int)(1+6*Math.random());
 	}
 	
 	public int getLancer(){
-		return this.valeurLancer;
+		return this.valeurDe;
 	}
 }
