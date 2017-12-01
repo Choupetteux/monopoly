@@ -39,6 +39,7 @@ public class Joueur {
 		// Compare l'argent du joueur avec le prix de la maison
 		// Voir si il possede toutes les proprietes du groupe de couleur
 		// Voir si il ne possede pas déjà 4 maisons ou un hotel
+		return false;
 	}
 	
 	public void verifierPropriete(){
@@ -79,7 +80,7 @@ public class Joueur {
 	}
 	
 	public int getNbrPropriete(){
-		return this.proprietes.length();
+		return this.proprietes.length;
 	}
 	
 	public int getNbrProprieteCouleur(){
@@ -95,11 +96,11 @@ public class Joueur {
 	}
 	
 	public int nbrGare(){
-		return this.gares.length();
+		return this.gares.length;
 	}
 	
 	public int nbrService(){
-		return this.services.length();
+		return this.services.length;
 	}
 	
 	public void payerLoyerA(int loyer, Joueur proprietaire){
@@ -119,10 +120,10 @@ public class Joueur {
 	public void vendre(CaseAchetable propriete){}
 	
 	public void mettreEnPrison(){
-		this.position = CasePrison;
+		//this.position = CasePrison;
 	}
 	
-	public int setArgent(int money){
+	public void setArgent(int money){
 		this.money += money;
 	}
 	
