@@ -95,11 +95,11 @@ public class Joueur {
 	}
 	
 	public int nbrGare(){
-		return this.gares.length;
+		return this.gares.size();
 	}
 	
 	public int nbrService(){
-		return this.services.length;
+		return this.services.size();
 	}
 	
 	public void payerLoyerA(int loyer, Joueur proprietaire){
