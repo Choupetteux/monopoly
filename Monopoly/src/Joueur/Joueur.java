@@ -25,8 +25,8 @@ public class Joueur {
 		//this.position = CaseDepart;
 	}
 	
-	public void acheterPropriete(){
-		this.proprietes
+	public void acheterPropriete(CasePropriete propriete){
+		this.proprietes.add(propriete);
 	}
 	
 	public boolean peutAcheterMaison(){
