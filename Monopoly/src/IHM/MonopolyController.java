@@ -16,6 +16,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 import java.util.ResourceBundle;
+
+import Jeu.Jeu;
 import info.util.javafx.FXUtil;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert.AlertType;
@@ -36,6 +38,8 @@ public class MonopolyController {
     @FXML
     private Button bouton;
     @FXML
+    private Label resLancer;
+    @FXML
     private Button boutonPropriete;
     @FXML
     private Label recapLabel;
@@ -49,7 +53,13 @@ public class MonopolyController {
     private ListView<String> listeJoueur;
     @FXML
     private GridPane plateauGrille;
+    @FXML
+    private ImageView de1;
+    @FXML
+    private ImageView de2;
     
+   
+    private Jeu jeu;
     private String currentPane = "Récapitulatif";
     
     
@@ -72,6 +82,7 @@ public class MonopolyController {
         this.proprietePane.setDisable(true);
         ObservableList<String> joueurList = FXCollections.observableArrayList("Joueur 1", "fag");
         this.listeJoueur.setItems(joueurList);
+        this.jeu = new Jeu();
     }
     
     /**
@@ -125,7 +136,8 @@ public class MonopolyController {
     
     @FXML
     public void btnLancerDes(){
-    	System.out.println((int)(1+6*Math.random()) + (int) (1+6*Math.random()));
+    	this.
+    	this.resLancer.setText(Integer.toString(jeu.getValeurLancerDes()));
     }
     
     @FXML
