@@ -22,8 +22,9 @@ public class Joueur {
 	private ArrayList<CaseGare> gares;
 	private ArrayList<CaseService> services;
 	
-	public Joueur(String nom){
+	public Joueur(String nom, Jeu jeu){
 		this.nom = nom;
+		this.jeu = jeu;
 		this.money = this.jeu.getArgentInitial();
 		//this.position = CaseDepart;
 	}
