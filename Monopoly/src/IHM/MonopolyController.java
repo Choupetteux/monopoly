@@ -124,6 +124,11 @@ public class MonopolyController {
     }
     
     @FXML
+    public void btnLancerDes(){
+    	System.out.println((int)(1+6*Math.random()) + (int) (1+6*Math.random()));
+    }
+    
+    @FXML
     public void changePane(String type){
         if (type.equals("Propriété")){
             this.recapPane.setOpacity(0);
