@@ -1,10 +1,12 @@
 package Plateau;
 
+import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.LinkedList;
 import java.util.Queue;
 
 import Case.Case;
+import Case.CasePropriete;
 import Jeu.Jeu;
 
 public class Plateau {
@@ -51,6 +53,25 @@ public class Plateau {
 	
 	public Case getCase(int pos){
 		return this.cases[pos];
+	}
+	
+	public int getCaseNbr(){
+		return this.cases.length;
+	}
+	
+	public ArrayList<CasePropriete> getPropriete(){
+		//TODO: Retourner une arraylist de toute les carte propriete
+		return null;
+	}
+	
+	public int getProprieteNombreCouleur(){
+		//TODO: Retourner le nombre de propriété possédant une certaines couleur
+		return -1;
+	}
+	
+	public boolean effacerCarte(){
+		//TODO: Effacer carte de l'array.
+		return false;
 	}
 	
 }
