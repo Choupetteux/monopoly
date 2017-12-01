@@ -5,6 +5,10 @@ public class De {
 	int valeurDe;
 	
 	public De(){
+		this.valeurDe = 1;
+	}
+	
+	public void relancerDe(){
 		this.valeurDe = (int)(1+6*Math.random());
 	}
 	

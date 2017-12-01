@@ -17,7 +17,7 @@ public class Plateau {
 	private Queue<Carte> carteCommunaute;
 	private Jeu GM;
 	
-	public Plateau(Hashtable groupeCouleur, Jeu gM) {
+	public Plateau(Jeu gM) {
 		super();
 		this.cases = new Case[41];
 		this.carteChance = new LinkedList<Carte>();

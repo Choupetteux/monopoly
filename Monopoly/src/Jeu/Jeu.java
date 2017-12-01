@@ -13,6 +13,13 @@ public class Jeu {
 	private int tour;
 	private int valeurLancerDes;
 	
+	public Jeu(){
+		this.joueurMax = 2;
+		this.des[1] = new De();
+		this.des[2] = new De();
+		this.plateau = new Plateau(this);
+	}
+	
 	public int getJoueurMax() {
 		return joueurMax;
 	}
