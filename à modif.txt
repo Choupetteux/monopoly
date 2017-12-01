@@ -1,0 +1,9 @@
+MS project à avancer
+Choses à modifier dans le MCD
+Il faut aussi ajouter un double héritage: Carte a 2 enfants CarteChance et CarteCommunuate.
+Voir les connexions IHM et BD Java
+case taxe de luxe et case prison et simple visite a disguter avec Luigi.
+
+https://openclassrooms.com/courses/apprenez-a-programmer-en-java/jdbc-la-porte-d-acces-aux-bases-de-donnees 
+https://www.jmdoudoux.fr/java/dej/chap-jdbc.htm
+
