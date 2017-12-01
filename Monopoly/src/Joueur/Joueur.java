@@ -8,10 +8,11 @@ import Case.CaseGare;
 import Case.CasePropriete;
 import Case.CaseService;
 import Jeu.Jeu;
+import javafx.scene.paint.Color;
 
 public class Joueur {
 	
-	private Hashtable groupeCouleurs;
+	private Hashtable groupeCouleurs = new Hashtable<String, Color>();
 	private Jeu jeu;
 	private boolean enPrison;
 	private int money;
@@ -32,7 +33,7 @@ public class Joueur {
 	}
 	
 	public boolean peutAcheterMaison(){
-		//Sur quelle couleur se pose la maison (ex: blue = 100E vert = 200E)
+		//TODO: Sur quelle couleur se pose la maison (ex: blue = 100E vert = 200E)
 		// Compare l'argent du joueur avec le prix de la maison
 		// Voir si il possede toutes les proprietes du groupe de couleur
 		// Voir si il ne possede pas déjà 4 maisons ou un hotel
@@ -73,15 +74,15 @@ public class Joueur {
 		return this.position;
 	}
 	
-	public CasePropriete[] getProprietes(){
+	public ArrayList<CasePropriete> getProprietes(){
 		return this.proprietes;
 	}
 	
 	public int getNbrPropriete(){
-		return this.proprietes.length;
+		return this.proprietes.size();
 	}
 	
-	public int getNbrProprieteCouleur(){
+	public int getNbrProprieteCouleur(String color){
 		return 0;
 	}
 	
