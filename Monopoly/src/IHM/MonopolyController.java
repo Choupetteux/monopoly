@@ -216,7 +216,7 @@ public class MonopolyController implements Observer{
 		EventMonopoly event = (EventMonopoly)arg;
 		switch(event.type){
 		case CASE_GO_PRISON:
-			this.jeu.getCurrentJoueur().mettreEnPrison();
+			this.jeu.getJoueurs(this.jeu.getCurrentJoueur()).mettreEnPrison();
 		}
 		
 	}
