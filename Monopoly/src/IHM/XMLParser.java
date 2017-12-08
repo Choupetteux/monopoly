@@ -12,8 +12,11 @@ import org.w3c.dom.NodeList;
 
 public class XMLParser {
 	
-	private Node jeu;
 	private Node plateau;
+	private Node joueur;
+	private Node gare;
+	private Node cartes;
+	private Node compagnie;
 	
 	public XMLParser(){
 		try{
@@ -25,8 +28,12 @@ public class XMLParser {
 		document.getDocumentElement().normalize();
 		NodeList root = document.getChildNodes();
 		
-		this.jeu = getNode("jeu", root);
+		Node jeu = getNode("jeu", root);
 		this.plateau = getNode("plateau", jeu.getChildNodes());
+		this.joueur = getNode("joueur", jeu.getChildNodes());
+		this.gare = getNode("gare", jeu.getChildNodes());
+		this.cartes = getNode("cartes", jeu.getChildNodes());
+		this.compagnie = getNode("compagnie", jeu.getChildNodes());
 		}
 		catch(Exception e){
 			
