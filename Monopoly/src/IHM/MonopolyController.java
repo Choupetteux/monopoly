@@ -221,38 +221,39 @@ public class MonopolyController implements Observer{
 			//TODO:
 			break;
 		case CASE_CCC:
-			//TODO:
+			this.jeu.getPlateau().piocherCommunaute();
 			break;
 		case CASE_CHANCE:
-			//TODO:
+			this.jeu.getPlateau().piocherChance();
 			break;
 		case CASE_DEPART:
-			//TODO:
+			this.jeu.getJoueurs(this.jeu.getCurrentJoueur()).setArgent(this.jeu.getJoueurs(this.jeu.getCurrentJoueur()).getArgent() + 200);
 			break;
 		case CASE_GARE:
-			//TODO:
+			//TODO:pay batar mé fo calculer
 			break;
 		case CASE_GARE_ACHETABLE:
-			//TODO:
+			//TODO:Demande au joueur de buy
 			break;
 		case CASE_INCOME_TAX:
-			//TODO:
+			this.jeu.getJoueurs(this.jeu.getCurrentJoueur()).setArgent(this.jeu.getJoueurs(this.jeu.getCurrentJoueur()).getArgent() - 200);
 			break;
 		case CASE_LUXURY_TAX:
-			//TODO:
+			this.jeu.getJoueurs(this.jeu.getCurrentJoueur()).setArgent(this.jeu.getJoueurs(this.jeu.getCurrentJoueur()).getArgent() - 100);
 			break;
 		case CASE_PASSAGE_PRISON:
-			//TODO:
 			break;
 		case CASE_PROPRIETE_ACHETABLE:
-			//TODO:
+			//TODO:Demande au joueur de buy
 			break;
 		case CASE_SERVICE:
-			//TODO:
+			//TODO:Paye batar
 			break;
 		case CASE_SERVICE_ACHETABLE:
-			//TODO:
+			//TODO:Demande au joueur de buy
 			break;
+		case CASE_PROPRIETE:
+			//TODO:Calculus dé maison + paye
 		default:
 			break;
 		}
