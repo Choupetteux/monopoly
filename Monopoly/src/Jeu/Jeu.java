@@ -47,11 +47,17 @@ public class Jeu{
 	public Joueur[] getJoueurs() {
 		return joueurs;
 	}
+	
 	public int getTour() {
 		return tour;
 	}
+	
 	public int getValeurLancerDes() {
 		return getDes(0).getLancer() + getDes(1).getLancer();
+	}
+	
+	public Joueur getCurrentJoueur(){
+		return this.currentJoueur;
 	}
 
 	
