@@ -13,7 +13,7 @@ public class Plateau {
 	
 	private Case[] cases;
 	private Queue<Carte> carteChance;
-	private Hashtable groupeCouleur;
+	private Hashtable<String, Case[]> groupeCouleur;
 	private Queue<Carte> carteCommunaute;
 	private Jeu GM;
 	
@@ -21,7 +21,7 @@ public class Plateau {
 		super();
 		this.cases = new Case[41];
 		this.carteChance = new LinkedList<Carte>();
-		this.groupeCouleur = groupeCouleur;
+		this.groupeCouleur = new Hashtable<String, Case[]>();
 		this.carteCommunaute = new LinkedList<Carte>();
 		GM = gM;
 	}
