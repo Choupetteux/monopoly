@@ -6,7 +6,7 @@ import java.util.Observer;
 import Joueur.Joueur;
 import Plateau.Plateau;
 
-public class Jeu implements Observer{
+public class Jeu{
 	
 	private int joueurMax;
 	private De[] des = new De[2];
@@ -52,12 +52,6 @@ public class Jeu implements Observer{
 	}
 	public int getValeurLancerDes() {
 		return getDes(0).getLancer() + getDes(1).getLancer();
-	}
-
-	@Override
-	public void update(Observable o, Object arg) {
-		// TODO Auto-generated method stub
-		
 	}
 
 	
