@@ -16,9 +16,12 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 import java.util.ResourceBundle;
+
+import org.w3c.dom.Node;
 
 import Jeu.*;
 import info.util.javafx.FXUtil;
@@ -38,31 +41,91 @@ public class MonopolyController implements Observer{
 	@FXML
 	private Stage stage;
 	private ResourceBundle bundle;
+	
 	@FXML
 	private ImageView plateauImg;
 	@FXML
+	private ImageView de1;
+	@FXML
+	private ImageView de2;
+	
+	@FXML
 	private Button bouton;
 	@FXML
-	private Label resLancer;
+	private Button boutonPropriete1;
 	@FXML
-	private Button boutonPropriete;
+	private Button boutonPropriete3;
+	@FXML
+	private Button boutonPropriete6;
+	@FXML
+	private Button boutonPropriete8;
+	@FXML
+	private Button boutonPropriete9;
+	@FXML
+	private Button boutonPropriete11;
+	@FXML
+	private Button boutonPropriete13;
+	@FXML
+	private Button boutonPropriete14;
+	@FXML
+	private Button boutonPropriete16;
+	@FXML
+	private Button boutonPropriete18;
+	@FXML
+	private Button boutonPropriete19;
+	@FXML
+	private Button boutonPropriete21;
+	@FXML
+	private Button boutonPropriete23;
+	@FXML
+	private Button boutonPropriete24;
+	@FXML
+	private Button boutonPropriete26;
+	@FXML
+	private Button boutonPropriete27;
+	@FXML
+	private Button boutonPropriete29;
+	@FXML
+	private Button boutonPropriete31;
+	@FXML
+	private Button boutonPropriete32;
+	@FXML
+	private Button boutonPropriete34;
+	@FXML
+	private Button boutonPropriete37;
+	@FXML
+	private Button boutonPropriete39;
+	
+	
 	@FXML
 	private Label recapLabel;
+	@FXML
+	private Label prixMLabel;
+	@FXML
+	private Label prixHLabel;
+	@FXML
+	private Label loyerLabel;
+	@FXML
+	private Label hypothequeLabel;
+	@FXML
+	private Label proprieteLabel;
+	@FXML
+	private Label resLancer;
+	
 	@FXML
 	private ScrollPane recapPane;
 	@FXML
 	private ScrollPane encherePane;
 	@FXML
 	private ScrollPane proprietePane;
+	
 	@FXML
 	private ListView<String> listeJoueur;
 	@FXML
 	private GridPane plateauGrille;
-	@FXML
-	private ImageView de1;
-	@FXML
-	private ImageView de2;
+	
 
+	private XMLParser parser = new XMLParser();
 	private Jeu jeu;
 	private String currentPane = "Récapitulatif";
 
@@ -87,6 +150,31 @@ public class MonopolyController implements Observer{
 		ObservableList<String> joueurList = FXCollections.observableArrayList("Joueur 1", "fag");
 		this.listeJoueur.setItems(joueurList);
 		this.jeu = new Jeu();
+		//Initialisation des méthodes associés aux boutons
+		boutonPropriete1.setOnAction(e -> onClickPropriete(1));
+		boutonPropriete3.setOnAction(e -> onClickPropriete(3));
+		boutonPropriete6.setOnAction(e -> onClickPropriete(6));
+		boutonPropriete8.setOnAction(e -> onClickPropriete(8));
+		boutonPropriete9.setOnAction(e -> onClickPropriete(9));
+		boutonPropriete11.setOnAction(e -> onClickPropriete(11));
+		boutonPropriete13.setOnAction(e -> onClickPropriete(13));
+		boutonPropriete14.setOnAction(e -> onClickPropriete(14));
+		boutonPropriete16.setOnAction(e -> onClickPropriete(16));
+		boutonPropriete18.setOnAction(e -> onClickPropriete(18));
+		boutonPropriete19.setOnAction(e -> onClickPropriete(19));
+		boutonPropriete21.setOnAction(e -> onClickPropriete(21));
+		boutonPropriete23.setOnAction(e -> onClickPropriete(23));
+		boutonPropriete24.setOnAction(e -> onClickPropriete(24));
+		boutonPropriete26.setOnAction(e -> onClickPropriete(26));
+		boutonPropriete27.setOnAction(e -> onClickPropriete(27));
+		boutonPropriete29.setOnAction(e -> onClickPropriete(29));
+		boutonPropriete31.setOnAction(e -> onClickPropriete(31));
+		boutonPropriete32.setOnAction(e -> onClickPropriete(32));
+		boutonPropriete34.setOnAction(e -> onClickPropriete(34));
+		boutonPropriete37.setOnAction(e -> onClickPropriete(37));
+		boutonPropriete39.setOnAction(e -> onClickPropriete(39));
+		
+
 	}
 
 	/**
@@ -116,9 +204,23 @@ public class MonopolyController implements Observer{
 	}
 
 	@FXML
-	public void onClickPropriete() {
+	public void onClickPropriete(int index) {
+		ArrayList<ArrayList<Node>> terrains = new ArrayList<ArrayList<Node>>();
+		ArrayList<Node> groups = this.parser.getNodeArray("groupe", this.parser.getGroupes());
+		for(Node group : groups){
+			terrains.add(parser.getNodeArray("terrain", group.getChildNodes()));
+		}
+		for(ArrayList<Node> terrain : terrains){
+			for(Node terrai : terrain){
+				if(Integer.parseInt(this.parser.getNodeAttr("id", terrai)) == index){
+					this.proprieteLabel.setText(this.parser.getNodeAttr("nom", terrai));
+				}
+			}
+		}
+		
 		this.changePane("Propriété");
 		this.currentPane = "Propriété";
+		
 	}
 
 	@FXML
