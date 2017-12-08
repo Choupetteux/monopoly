@@ -217,6 +217,44 @@ public class MonopolyController implements Observer{
 		switch(event.type){
 		case CASE_GO_PRISON:
 			this.jeu.getJoueurs(this.jeu.getCurrentJoueur()).mettreEnPrison();
+		case ACHAT_PROPRIETE_REJECT:
+			//TODO:
+			break;
+		case CASE_CCC:
+			//TODO:
+			break;
+		case CASE_CHANCE:
+			//TODO:
+			break;
+		case CASE_DEPART:
+			//TODO:
+			break;
+		case CASE_GARE:
+			//TODO:
+			break;
+		case CASE_GARE_ACHETABLE:
+			//TODO:
+			break;
+		case CASE_INCOME_TAX:
+			//TODO:
+			break;
+		case CASE_LUXURY_TAX:
+			//TODO:
+			break;
+		case CASE_PASSAGE_PRISON:
+			//TODO:
+			break;
+		case CASE_PROPRIETE_ACHETABLE:
+			//TODO:
+			break;
+		case CASE_SERVICE:
+			//TODO:
+			break;
+		case CASE_SERVICE_ACHETABLE:
+			//TODO:
+			break;
+		default:
+			break;
 		}
 		
 	}
