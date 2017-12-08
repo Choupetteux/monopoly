@@ -15,7 +15,7 @@ public class Jeu{
 	private Joueur[] joueurs = new Joueur[2];
 	private int tour;
 	private int valeurLancerDes;
-	private Joueur currentJoueur;
+	private int currentJoueur;
 	
 	public Jeu(){
 		this.joueurMax = 2;
@@ -26,7 +26,7 @@ public class Jeu{
 		this.joueurs[0] = new Joueur("Michel", this);
 		this.joueurs[1] = new Joueur("Robert", this);
 		this.tour = 0;
-		this.currentJoueur = this.joueurs[0];
+		this.currentJoueur = 0;
 	}
 	
 	public int getJoueurMax() {
@@ -56,7 +56,7 @@ public class Jeu{
 		return getDes(0).getLancer() + getDes(1).getLancer();
 	}
 	
-	public Joueur getCurrentJoueur(){
+	public int getCurrentJoueur(){
 		return this.currentJoueur;
 	}
 
