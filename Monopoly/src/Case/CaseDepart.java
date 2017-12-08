@@ -1,5 +1,7 @@
 package Case;
 
+import Joueur.Joueur;
+
 public class CaseDepart extends Case{
 
 	public CaseDepart() {
@@ -11,7 +13,8 @@ public class CaseDepart extends Case{
 	}
 	
 	@Override
-	public void jouerAction(){
+	public void jouerAction(Joueur joueur) {
+		// TODO Auto-generated method stub
 		
 	}
 }

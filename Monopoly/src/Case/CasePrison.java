@@ -1,5 +1,7 @@
 package Case;
 
+import Joueur.Joueur;
+
 public class CasePrison extends Case{
 	private int prixSortie;
 
@@ -13,8 +15,9 @@ public class CasePrison extends Case{
 	}
 	
 	@Override
-	public void jouerAction(){
-		//FX
+	public void jouerAction(Joueur joueur) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }

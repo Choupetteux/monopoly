@@ -56,9 +56,8 @@ public class CaseAchetable extends Case{
 			return "Case : " + this.nom + "\n" + "Disponibilité : " + this.disponible + "\n";
 		}
 	}
-
 	@Override
-	public void jouerAction() {
+	public void jouerAction(Joueur joueur) {
 		// TODO Auto-generated method stub
 		
 	}

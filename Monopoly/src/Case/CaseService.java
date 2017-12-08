@@ -1,5 +1,7 @@
 package Case;
 
+import Joueur.Joueur;
+
 public class CaseService extends CaseAchetable{
 	
 	private int prix;
@@ -20,7 +22,7 @@ public class CaseService extends CaseAchetable{
 	}
 	
 	@Override
-	public void jouerAction() {
+	public void jouerAction(Joueur joueur) {
 		//FX
 	}
 }
