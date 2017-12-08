@@ -44,8 +44,8 @@ public class Jeu{
 		return argentInitial;
 	}
 	
-	public Joueur[] getJoueurs() {
-		return joueurs;
+	public Joueur getJoueurs(int index) {
+		return this.joueurs[index];
 	}
 	
 	public int getTour() {
