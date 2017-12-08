@@ -184,86 +184,6 @@
             </AnchorPane>
             <StackPane alignment="CENTER_RIGHT" prefHeight="1000.0" prefWidth="500.0">
                <children>
-                  <ScrollPane fx:id="encherePane" prefHeight="200.0" prefWidth="200.0">
-                    <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1000.0" prefWidth="500.0">
-                           <children>
-                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="5.0" layoutY="4.0" prefHeight="50.0" prefWidth="460.0" text="Enchères" textAlignment="CENTER">
-                                 <font>
-                                    <Font size="40.0" />
-                                 </font>
-                              </Label>
-                              <Button layoutX="13.0" layoutY="6.0" mnemonicParsing="false" onAction="#onClickRecapitulatif" prefHeight="44.0" prefWidth="54.0" text="←" />
-                           </children>
-                        </AnchorPane>
-                    </content>
-                  </ScrollPane>
-                  <ScrollPane fx:id="proprietePane" prefHeight="200.0" prefWidth="200.0">
-                     <content>
-                        <AnchorPane prefHeight="1000.0" prefWidth="500.0">
-                           <children>
-                              <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="460.0" text="Propriété" textAlignment="CENTER">
-                                 <font>
-                                    <Font size="40.0" />
-                                 </font>
-                              </Label>
-                              <ImageView fitHeight="60.0" fitWidth="475.0" layoutX="6.0" layoutY="57.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../bin/IHM/proprieteVerte2.jpeg" />
-                                 </image>
-                              </ImageView>
-                              <Label layoutX="136.0" layoutY="70.0" text="Avenue Foch">
-                                 <font>
-                                    <Font size="29.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="46.0" layoutY="128.0" text="Loyer :  ">
-                                 <font>
-                                    <Font size="29.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="46.0" layoutY="174.0" text="Hypothèque : ">
-                                 <font>
-                                    <Font size="29.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="156.0" layoutY="128.0" text="BD pioche">
-                                 <font>
-                                    <Font size="29.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="250.0" layoutY="174.0" text="Carte piege BD">
-                                 <font>
-                                    <Font size="29.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="46.0" layoutY="217.0" text="Prix maison :">
-                                 <font>
-                                    <Font size="29.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="46.0" layoutY="258.0" text="Prix hotel :">
-                                 <font>
-                                    <Font size="29.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="244.0" layoutY="217.0" text="Carte piege BD">
-                                 <font>
-                                    <Font size="29.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="214.0" layoutY="258.0" text="Carte piege BD">
-                                 <font>
-                                    <Font size="29.0" />
-                                 </font>
-                              </Label>
-                              <Button disable="true" layoutX="72.0" layoutY="318.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="154.0" text="Acheter : prixBD" />
-                              <Button layoutX="13.0" layoutY="6.0" mnemonicParsing="false" onAction="#onClickRecapitulatif" prefHeight="44.0" prefWidth="54.0" text="←" />
-                              <Button layoutX="248.0" layoutY="318.0" mnemonicParsing="false" onAction="#onClickEnchere" prefHeight="65.0" prefWidth="154.0" text="Ne pas acheter" />
-                           </children>
-                        </AnchorPane>
-                     </content>
-                  </ScrollPane>
                   <ScrollPane fx:id="recapPane" prefHeight="1000.0" prefWidth="491.0">
                     <content>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1000.0" prefWidth="500.0">
@@ -299,6 +219,86 @@
                            </children>
                         </AnchorPane>
                     </content>
+                  </ScrollPane>
+                  <ScrollPane fx:id="encherePane" prefHeight="200.0" prefWidth="200.0">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1000.0" prefWidth="500.0">
+                           <children>
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="5.0" layoutY="4.0" prefHeight="50.0" prefWidth="460.0" text="Enchères" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="40.0" />
+                                 </font>
+                              </Label>
+                              <Button layoutX="13.0" layoutY="6.0" mnemonicParsing="false" onAction="#onClickRecapitulatif" prefHeight="44.0" prefWidth="54.0" text="←" />
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </ScrollPane>
+                  <ScrollPane fx:id="proprietePane" prefHeight="200.0" prefWidth="200.0">
+                     <content>
+                        <AnchorPane prefHeight="1000.0" prefWidth="500.0">
+                           <children>
+                              <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="460.0" text="Propriété" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="40.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fitHeight="60.0" fitWidth="475.0" layoutX="6.0" layoutY="57.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../bin/IHM/proprieteVerte2.jpeg" />
+                                 </image>
+                              </ImageView>
+                              <Label fx:id="proprieteLabel" layoutX="20.0" layoutY="70.0" prefHeight="35.0" prefWidth="451.0" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="29.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="46.0" layoutY="128.0" text="Loyer :  ">
+                                 <font>
+                                    <Font size="29.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="46.0" layoutY="174.0" text="Hypothèque : ">
+                                 <font>
+                                    <Font size="29.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="loyerLabel" layoutX="156.0" layoutY="128.0">
+                                 <font>
+                                    <Font size="29.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="hypothequeLabel" layoutX="250.0" layoutY="174.0">
+                                 <font>
+                                    <Font size="29.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="46.0" layoutY="217.0" text="Prix maison :">
+                                 <font>
+                                    <Font size="29.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="46.0" layoutY="258.0" text="Prix hotel :">
+                                 <font>
+                                    <Font size="29.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="prixMLabel" layoutX="244.0" layoutY="217.0">
+                                 <font>
+                                    <Font size="29.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="prixHLabel" layoutX="214.0" layoutY="258.0">
+                                 <font>
+                                    <Font size="29.0" />
+                                 </font>
+                              </Label>
+                              <Button disable="true" layoutX="72.0" layoutY="318.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="154.0" text="Acheter : prixBD" />
+                              <Button layoutX="13.0" layoutY="6.0" mnemonicParsing="false" onAction="#onClickRecapitulatif" prefHeight="44.0" prefWidth="54.0" text="←" />
+                              <Button layoutX="248.0" layoutY="318.0" mnemonicParsing="false" onAction="#onClickEnchere" prefHeight="65.0" prefWidth="154.0" text="Ne pas acheter" />
+                           </children>
+                        </AnchorPane>
+                     </content>
                   </ScrollPane>
                </children>
             </StackPane>
