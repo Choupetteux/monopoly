@@ -1,6 +1,7 @@
 package Joueur;
 import java.util.ArrayList;
 import java.util.Hashtable;
+import java.util.Observable;
 
 import Case.Case;
 import Case.CaseAchetable;
@@ -8,9 +9,11 @@ import Case.CaseGare;
 import Case.CasePropriete;
 import Case.CaseService;
 import Jeu.Jeu;
+import Jeu.EventMonopoly;
+import Jeu.EventType;
 import javafx.scene.paint.Color;
 
-public class Joueur {
+public class Joueur extends Observable{
 	
 	private Hashtable groupeCouleurs = new Hashtable<String, Color>();
 	private Jeu jeu;
@@ -120,7 +123,8 @@ public class Joueur {
 	public void vendre(CaseAchetable propriete){}
 	
 	public void mettreEnPrison(){
-		//this.position = CasePrison;
+		this.position = this.jeu.getPlateau().getCase(10);
+		this.enPrison = true;
 	}
 	
 	public void setArgent(int money){
@@ -133,6 +137,12 @@ public class Joueur {
 	
 	@Override
 	public String toString(){
-		return "";
+		return this.nom + " : " + this.money;
 	}
+	
+	public void emitEvent(EventType type) {
+        setChanged();
+        notifyObservers(new EventMonopoly(type));
+    }
+
 }
