@@ -16,9 +16,11 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+import java.util.Observable;
+import java.util.Observer;
 import java.util.ResourceBundle;
 
-import Jeu.Jeu;
+import Jeu.*;
 import info.util.javafx.FXUtil;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert.AlertType;
@@ -32,7 +34,7 @@ import javafx.stage.Stage;
  * événements utilisateur. Une instance de cette classe est créée
  * automatiquement chaque fois que le document <b>Monopoly.fxml</b> est chargé.
  */
-public class MonopolyController {
+public class MonopolyController implements Observer{
 	@FXML
 	private Stage stage;
 	private ResourceBundle bundle;
@@ -207,6 +209,16 @@ public class MonopolyController {
 			this.proprietePane.setOpacity(0);
 			this.proprietePane.setDisable(true);
 		}
+	}
+	
+	@Override
+	public void update(Observable o, Object arg) {
+		EventMonopoly event = (EventMonopoly)arg;
+		switch(event.type){
+		case CASE_GO_PRISON:
+			this.jeu.getCurrentJoueur().mettreEnPrison();
+		}
+		
 	}
 
 }
