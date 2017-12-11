@@ -133,7 +133,7 @@ public class MonopolyController implements Observer{
 	private Image cyan = new Image("/IHM/proprieteCyan.png");
 	private Image rouge = new Image("/IHM/proprieteRouge.png");
 	private Image jaune = new Image("/IHM/proprieteJaune.png");
-	
+	private Image orange = new Image("/IHM/proprieteOrange.png");	
 
 	private XMLParser parser = new XMLParser();
 	private Jeu jeu;
@@ -227,9 +227,31 @@ public class MonopolyController implements Observer{
 					this.proprieteLabel.setText(this.parser.getNodeAttr("nom", attribut));
 					//-------------------------------------------------------------------
 					//Changement couleur case
-					if(this.parser.getNodeAttr("couleur", groups).equals("bleu")){
-						this.
+					if(this.parser.getNodeAttr("couleur", attribut.getParentNode()).equals("bleu")){
+						this.couleurCase.setImage(bleu);
 					}
+					else if(this.parser.getNodeAttr("couleur", attribut.getParentNode()).equals("vert")){
+						this.couleurCase.setImage(vert);
+					}
+					else if(this.parser.getNodeAttr("couleur", attribut.getParentNode()).equals("jaune")){
+						this.couleurCase.setImage(jaune);
+					}
+					else if(this.parser.getNodeAttr("couleur", attribut.getParentNode()).equals("rouge")){
+						this.couleurCase.setImage(rouge);
+					}
+					else if(this.parser.getNodeAttr("couleur", attribut.getParentNode()).equals("orange")){
+						this.couleurCase.setImage(orange);
+					}
+					else if(this.parser.getNodeAttr("couleur", attribut.getParentNode()).equals("violet")){
+						this.couleurCase.setImage(magenta);
+					}
+					else if(this.parser.getNodeAttr("couleur", attribut.getParentNode()).equals("mauve")){
+						this.couleurCase.setImage(marron);
+					}
+					else if(this.parser.getNodeAttr("couleur", attribut.getParentNode()).equals("azur")){
+						this.couleurCase.setImage(cyan);
+					}
+					//------------------------------------------------------------------
 				}
 			}
 		}
