@@ -48,6 +48,8 @@ public class MonopolyController implements Observer{
 	private ImageView de1;
 	@FXML
 	private ImageView de2;
+	@FXML
+	private ImageView couleurCase;
 	
 	@FXML
 	private Button bouton;
@@ -226,7 +228,7 @@ public class MonopolyController implements Observer{
 					//-------------------------------------------------------------------
 					//Changement couleur case
 					if(this.parser.getNodeAttr("couleur", groups).equals("bleu")){
-						
+						this.
 					}
 				}
 			}
