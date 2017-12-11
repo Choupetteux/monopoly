@@ -248,7 +248,7 @@
                                     <Image url="@../../bin/IHM/proprieteVerte2.jpeg" />
                                  </image>
                               </ImageView>
-                              <Label fx:id="proprieteLabel" layoutX="20.0" layoutY="70.0" prefHeight="35.0" prefWidth="451.0" textAlignment="CENTER">
+                              <Label fx:id="proprieteLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="19.0" layoutY="70.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="452.0">
                                  <font>
                                     <Font size="29.0" />
                                  </font>

@@ -124,6 +124,14 @@ public class MonopolyController implements Observer{
 	@FXML
 	private GridPane plateauGrille;
 	
+	private Image vert = new Image("/IHM/proprieteVerte2.jpeg");
+	private Image bleu = new Image("/IHM/proprieteBleu.png");
+	private Image marron = new Image("/IHM/proprieteMarron.png");
+	private Image magenta = new Image("/IHM/proprieteMagenta.png");
+	private Image cyan = new Image("/IHM/proprieteCyan.png");
+	private Image rouge = new Image("/IHM/proprieteRouge.png");
+	private Image jaune = new Image("/IHM/proprieteJaune.png");
+	
 
 	private XMLParser parser = new XMLParser();
 	private Jeu jeu;
@@ -208,12 +216,18 @@ public class MonopolyController implements Observer{
 		ArrayList<ArrayList<Node>> terrains = new ArrayList<ArrayList<Node>>();
 		ArrayList<Node> groups = this.parser.getNodeArray("groupe", this.parser.getGroupes());
 		for(Node group : groups){
-			terrains.add(parser.getNodeArray("terrain", group.getChildNodes()));
+			terrains.add(this.parser.getNodeArray("terrain", group.getChildNodes()));
 		}
 		for(ArrayList<Node> terrain : terrains){
-			for(Node terrai : terrain){
-				if(Integer.parseInt(this.parser.getNodeAttr("id", terrai)) == index){
-					this.proprieteLabel.setText(this.parser.getNodeAttr("nom", terrai));
+			for(Node attribut : terrain){
+				if(Integer.parseInt(this.parser.getNodeAttr("id", attribut)) == index){
+					//Changement nom case
+					this.proprieteLabel.setText(this.parser.getNodeAttr("nom", attribut));
+					//-------------------------------------------------------------------
+					//Changement couleur case
+					if(this.parser.getNodeAttr("couleur", groups).equals("bleu")){
+						
+					}
 				}
 			}
 		}
