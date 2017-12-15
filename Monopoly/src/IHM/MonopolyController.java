@@ -216,36 +216,36 @@ public class MonopolyController implements Observer {
 	@FXML
 	public void onClickPropriete(int index) {
 		CasePropriete caseProp = (CasePropriete) this.jeu.getPlateau().getCase(index);
-		
 		this.proprieteLabel.setText(caseProp.getNom());
 		// -------------------------------------------------------------------
-		/** Changement couleur case
-		if (this.parser.getNodeAttr("couleur", attribut.getParentNode()).equals("bleu")) {
+		// Changement couleur case
+		if (caseProp.getGroupeCouleur().equals("bleu")) {
 			this.couleurCase.setImage(bleu);
-		} else if (this.parser.getNodeAttr("couleur", attribut.getParentNode()).equals("vert")) {
+		} else if (caseProp.getGroupeCouleur().equals("vert")) {
 			this.couleurCase.setImage(vert);
-		} else if (this.parser.getNodeAttr("couleur", attribut.getParentNode()).equals("jaune")) {
+		} else if (caseProp.getGroupeCouleur().equals("jaune")) {
 			this.couleurCase.setImage(jaune);
-		} else if (this.parser.getNodeAttr("couleur", attribut.getParentNode()).equals("rouge")) {
+		} else if (caseProp.getGroupeCouleur().equals("rouge")) {
 			this.couleurCase.setImage(rouge);
-		} else if (this.parser.getNodeAttr("couleur", attribut.getParentNode()).equals("orange")) {
+		} else if (caseProp.getGroupeCouleur().equals("orange")) {
 			this.couleurCase.setImage(orange);
-		} else if (this.parser.getNodeAttr("couleur", attribut.getParentNode()).equals("violet")) {
+		} else if (caseProp.getGroupeCouleur().equals("violet")) {
 			this.couleurCase.setImage(magenta);
-		} else if (this.parser.getNodeAttr("couleur", attribut.getParentNode()).equals("mauve")) {
+		} else if (caseProp.getGroupeCouleur().equals("mauve")) {
 			this.couleurCase.setImage(marron);
-		} else if (this.parser.getNodeAttr("couleur", attribut.getParentNode()).equals("azur")) {
+		} else if (caseProp.getGroupeCouleur().equals("azur")) {
 			this.couleurCase.setImage(cyan);
 		}
 		// ------------------------------------------------------------------
 		// Changement des différentes informations
-		this.prixMLabel.setText(this.parser.getNodeAttr("maison", attribut.getParentNode()));
-		this.prixHLabel.setText(this.parser.getNodeAttr("maison", attribut.getParentNode()) + " + 4 maisons");**/
+		this.loyerLabel.setText(Integer.toString(caseProp.getLoyer()));
+		this.prixMLabel.setText(Integer.toString(caseProp.getPrixMaison()));
+		this.prixHLabel.setText(caseProp.getPrixMaison() + " + 4 maisons");
 
 		this.hypothequeLabel.setText(Integer.toString(caseProp.getPrixHypotheque()));
 
-
-	this.changePane("Propriété");this.currentPane="Propriété";
+		this.changePane("Propriété");
+		this.currentPane = "Propriété";
 
 	}
 
