@@ -12,6 +12,7 @@ public class CaseAchetable extends Case{
 	
 	public CaseAchetable(int id) {
 		super();
+		this.ID = id;
 	}
 
 	public String getGroupeCouleur() {

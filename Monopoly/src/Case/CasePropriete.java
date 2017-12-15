@@ -18,6 +18,7 @@ public class CasePropriete extends CaseAchetable{
 		for(ArrayList<Node> terrain : listeTerrain){
 			for(Node attribut : terrain){
 				if(this.ID == Integer.parseInt(this.parser.getNodeAttr("id", attribut))){
+					this.nom = this.parser.getNodeAttr("nom", attribut);
 					this.prixMaison = Integer.parseInt(this.parser.getNodeAttr("maison", attribut.getParentNode()));
 					this.groupeCouleur = this.parser.getNodeAttr("couleur", attribut.getParentNode());
 					this.prixAchat = Integer.parseInt(this.parser.getNodeAttr("prix", attribut));
