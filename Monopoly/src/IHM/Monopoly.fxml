@@ -29,12 +29,16 @@
                <children>
                   <StackPane prefHeight="1000.0" prefWidth="1500.0">
                      <children>
-                        <ImageView fx:id="plateauImg" fitHeight="1000.0" fitWidth="1000.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER_LEFT">
-                           <image>
-                              <Image url="@../../bin/IHM/plateau.jpg" />
-                           </image>
-                        </ImageView>
-                        <GridPane gridLinesVisible="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="0.0" prefHeight="1000.0" prefWidth="1000.0" StackPane.alignment="CENTER_LEFT">
+                        <Pane prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fx:id="plateauImg" fitHeight="1000.0" fitWidth="1000.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../bin/IHM/plateau.jpg" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </Pane>
+                        <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1000.0" StackPane.alignment="CENTER_LEFT">
                           <columnConstraints>
                             <ColumnConstraints hgrow="SOMETIMES" maxWidth="130.0" minWidth="10.0" prefWidth="130.0" />
                             <ColumnConstraints hgrow="SOMETIMES" maxWidth="85.0" minWidth="2.0" prefWidth="2.0" />
@@ -66,121 +70,133 @@
                               <Pane prefHeight="200.0" prefWidth="200.0" />
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                                  <children>
-                                    <Button fx:id="boutonPropriete19" mnemonicParsing="false" prefHeight="81.0" prefWidth="128.0" text="Button" />
+                                    <Button fx:id="boutonPropriete19" mnemonicParsing="false" opacity="0.0" prefHeight="81.0" prefWidth="128.0" text="Button" />
                                  </children></Pane>
                               <Pane prefHeight="81.0" prefWidth="129.0" GridPane.rowIndex="2">
                                  <children>
-                                    <Button fx:id="boutonPropriete18" mnemonicParsing="false" prefHeight="81.0" prefWidth="128.0" text="Button" />
+                                    <Button fx:id="boutonPropriete18" mnemonicParsing="false" opacity="0.0" prefHeight="81.0" prefWidth="128.0" text="Button" />
                                  </children></Pane>
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="3" />
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="4">
                                  <children>
-                                    <Button fx:id="boutonPropriete16" mnemonicParsing="false" prefHeight="81.0" prefWidth="128.0" text="Button" />
+                                    <Button fx:id="boutonPropriete16" mnemonicParsing="false" opacity="0.0" prefHeight="81.0" prefWidth="128.0" text="Button" />
                                  </children></Pane>
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="5" />
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="6">
                                  <children>
-                                    <Button fx:id="boutonPropriete14" mnemonicParsing="false" prefHeight="81.0" prefWidth="128.0" text="Button" />
+                                    <Button fx:id="boutonPropriete14" mnemonicParsing="false" opacity="0.0" prefHeight="81.0" prefWidth="128.0" text="Button" />
                                  </children></Pane>
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="7">
                                  <children>
-                                    <Button fx:id="boutonPropriete13" mnemonicParsing="false" prefHeight="81.0" prefWidth="128.0" text="Button" />
+                                    <Button fx:id="boutonPropriete13" mnemonicParsing="false" opacity="0.0" prefHeight="81.0" prefWidth="128.0" text="Button" />
                                  </children></Pane>
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="8">
                                  <children>
-                                    <Button fx:id="boutonSrvc12" mnemonicParsing="false" prefHeight="128.0" prefWidth="85.0" text="Button" />
+                                    <Button fx:id="boutonSrvc12" mnemonicParsing="false" opacity="0.0" prefHeight="81.0" prefWidth="128.0" text="Button" />
                                  </children></Pane>
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="9">
                                  <children>
-                                    <Button fx:id="boutonPropriete11" mnemonicParsing="false" prefHeight="81.0" prefWidth="128.0" text="Button" />
+                                    <Button fx:id="boutonPropriete11" mnemonicParsing="false" opacity="0.0" prefHeight="81.0" prefWidth="128.0" text="Button" />
                                  </children></Pane>
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="10" />
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="10" />
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="10">
                                  <children>
-                                    <Button fx:id="boutonPropriete9" mnemonicParsing="false" prefHeight="128.0" prefWidth="85.0" text="Button" />
+                                    <Button fx:id="boutonPropriete9" mnemonicParsing="false" opacity="0.0" prefHeight="128.0" prefWidth="85.0" text="Button" />
                                  </children></Pane>
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="10">
                                  <children>
-                                    <Button fx:id="boutonPropriete8" mnemonicParsing="false" prefHeight="128.0" prefWidth="85.0" text="Button" />
+                                    <Button fx:id="boutonPropriete8" mnemonicParsing="false" opacity="0.0" prefHeight="128.0" prefWidth="85.0" text="Button" />
                                  </children></Pane>
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="10" />
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="10">
                                  <children>
-                                    <Button fx:id="boutonPropriete6" mnemonicParsing="false" prefHeight="128.0" prefWidth="85.0" text="Button" />
+                                    <Button fx:id="boutonPropriete6" mnemonicParsing="false" opacity="0.0" prefHeight="128.0" prefWidth="85.0" text="Button" />
                                  </children></Pane>
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="10" />
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="7" GridPane.rowIndex="10" />
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="8" GridPane.rowIndex="10">
                                  <children>
-                                    <Button fx:id="boutonPropriete3" mnemonicParsing="false" prefHeight="128.0" prefWidth="85.0" text="Button" />
+                                    <Button fx:id="boutonPropriete3" mnemonicParsing="false" opacity="0.0" prefHeight="128.0" prefWidth="85.0" text="Button" />
                                  </children></Pane>
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="9" GridPane.rowIndex="10" />
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="10" GridPane.rowIndex="10">
                                  <children>
-                                    <Button fx:id="boutonPropriete1" mnemonicParsing="false" prefHeight="128.0" prefWidth="85.0" text="Button" />
+                                    <Button fx:id="boutonPropriete1" mnemonicParsing="false" opacity="0.0" prefHeight="128.0" prefWidth="85.0" text="Button" />
                                  </children></Pane>
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="11" GridPane.rowIndex="9">
                                  <children>
-                                    <Button fx:id="boutonPropriete39" mnemonicParsing="false" prefHeight="81.0" prefWidth="128.0" text="Button" />
+                                    <Button fx:id="boutonPropriete39" mnemonicParsing="false" opacity="0.0" prefHeight="81.0" prefWidth="128.0" text="Button" />
                                  </children></Pane>
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="11" GridPane.rowIndex="8" />
                               <Pane prefHeight="84.0" prefWidth="128.0" GridPane.columnIndex="11" GridPane.rowIndex="7">
                                  <children>
-                                    <Button fx:id="boutonPropriete37" mnemonicParsing="false" prefHeight="81.0" prefWidth="128.0" text="Button" />
+                                    <Button fx:id="boutonPropriete37" mnemonicParsing="false" opacity="0.0" prefHeight="81.0" prefWidth="128.0" text="Button" />
                                  </children></Pane>
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="11" GridPane.rowIndex="6" />
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="11" GridPane.rowIndex="5" />
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="11" GridPane.rowIndex="4">
                                  <children>
-                                    <Button fx:id="boutonPropriete34" mnemonicParsing="false" prefHeight="81.0" prefWidth="128.0" text="Button" />
+                                    <Button fx:id="boutonPropriete34" mnemonicParsing="false" opacity="0.0" prefHeight="81.0" prefWidth="128.0" text="Button" />
                                  </children>
                               </Pane>
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="11" GridPane.rowIndex="3">
                                  <children>
-                                    <Button fx:id="bouton" layoutY="1.0" mnemonicParsing="false" prefHeight="81.0" prefWidth="128.0" text="Button" />
+                                    <Button fx:id="bouton" layoutY="1.0" mnemonicParsing="false" opacity="0.0" prefHeight="81.0" prefWidth="128.0" text="Button" />
                                  </children>
                               </Pane>
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="11" GridPane.rowIndex="2">
                                  <children>
-                                    <Button fx:id="boutonPropriete32" mnemonicParsing="false" prefHeight="81.0" prefWidth="128.0" text="Button" />
+                                    <Button fx:id="boutonPropriete32" mnemonicParsing="false" opacity="0.0" prefHeight="81.0" prefWidth="128.0" text="Button" />
                                  </children></Pane>
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="11" GridPane.rowIndex="1">
                                  <children>
-                                    <Button fx:id="boutonPropriete31" mnemonicParsing="false" prefHeight="81.0" prefWidth="128.0" text="Button" />
+                                    <Button fx:id="boutonPropriete31" mnemonicParsing="false" opacity="0.0" prefHeight="81.0" prefWidth="128.0" text="Button" />
                                  </children></Pane>
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="10">
                                  <children>
-                                    <Button fx:id="boutonPropriete29" mnemonicParsing="false" prefHeight="128.0" prefWidth="85.0" text="Button" />
+                                    <Button fx:id="boutonPropriete29" mnemonicParsing="false" opacity="0.0" prefHeight="128.0" prefWidth="85.0" text="Button" />
                                  </children></Pane>
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="9">
                                  <children>
-                                    <Button fx:id="boutonSrvc28" mnemonicParsing="false" prefHeight="128.0" prefWidth="85.0" text="Button" />
+                                    <Button fx:id="boutonSrvc28" mnemonicParsing="false" opacity="0.0" prefHeight="128.0" prefWidth="85.0" text="Button" />
                                  </children></Pane>
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="8">
                                  <children>
-                                    <Button fx:id="boutonPropriete27" mnemonicParsing="false" prefHeight="128.0" prefWidth="85.0" text="Button" />
+                                    <Button fx:id="boutonPropriete27" mnemonicParsing="false" opacity="0.0" prefHeight="128.0" prefWidth="85.0" text="Button" />
                                  </children></Pane>
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="7">
                                  <children>
-                                    <Button fx:id="boutonPropriete26" mnemonicParsing="false" prefHeight="128.0" prefWidth="85.0" text="Button" />
+                                    <Button fx:id="boutonPropriete26" mnemonicParsing="false" opacity="0.0" prefHeight="128.0" prefWidth="85.0" text="Button" />
                                  </children></Pane>
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="6" />
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5">
                                  <children>
-                                    <Button fx:id="boutonPropriete24" mnemonicParsing="false" prefHeight="128.0" prefWidth="85.0" text="Button" />
+                                    <Button fx:id="boutonPropriete24" mnemonicParsing="false" opacity="0.0" prefHeight="128.0" prefWidth="85.0" text="Button" />
                                  </children></Pane>
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4">
                                  <children>
-                                    <Button fx:id="boutonPropriete23" mnemonicParsing="false" prefHeight="128.0" prefWidth="85.0" text="Button" />
+                                    <Button fx:id="boutonPropriete23" mnemonicParsing="false" opacity="0.0" prefHeight="128.0" prefWidth="85.0" text="Button" />
                                  </children></Pane>
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" />
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">
                                  <children>
-                                    <Button fx:id="boutonPropriete21" mnemonicParsing="false" prefHeight="128.0" prefWidth="85.0" text="Button" />
+                                    <Button fx:id="boutonPropriete21" mnemonicParsing="false" opacity="0.0" prefHeight="128.0" prefWidth="85.0" text="Button" />
                                  </children></Pane>
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" />
-                              <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="11" GridPane.rowIndex="10" />
+                              <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="11" GridPane.rowIndex="10">
+                                 <children>
+                                    <ImageView fx:id="imgJoueur1" fitHeight="50.0" fitWidth="59.0" layoutX="69.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@car.png" />
+                                       </image>
+                                    </ImageView>
+                                    <ImageView fx:id="imgJoueur2" onMouseClicked="#niketamer" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@dog.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children></Pane>
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="11" />
                            </children>
                         </GridPane>

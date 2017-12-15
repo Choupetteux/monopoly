@@ -25,6 +25,7 @@ import org.w3c.dom.Node;
 
 import Jeu.*;
 import Case.*;
+import IHM.XMLParser;
 import Case.CasePropriete;
 import info.util.javafx.FXUtil;
 import javafx.fxml.FXML;
@@ -52,6 +53,10 @@ public class MonopolyController implements Observer {
 	private ImageView de2;
 	@FXML
 	private ImageView couleurCase;
+	@FXML
+	private ImageView imgJoueur1;
+	@FXML
+	private ImageView imgJoueur2;
 
 	@FXML
 	private Button bouton;
@@ -303,8 +308,8 @@ public class MonopolyController implements Observer {
 		this.prixHLabel.setText("");
 		//TODO set multiplicateur
 		this.prixMLabel.setText("");
-		this.changePane("Propriété");
 		this.couleurCase.setImage(services);
+		this.changePane("Propriété");
 		this.currentPane = "Propriété";
 	}
 
@@ -317,7 +322,7 @@ public class MonopolyController implements Observer {
 	public void onClickBackToCurrent() {
 		this.changePane(currentPane);
 	}
-
+	
 	@FXML
 	public void btnLancerDes() {
 		for (int i = 0; i < 2; i++) {
