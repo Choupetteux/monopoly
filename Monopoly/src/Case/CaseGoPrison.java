@@ -1,14 +1,17 @@
 package Case;
 
+import Jeu.*;
+import Joueur.Joueur;
 
 public class CaseGoPrison extends Case{
 
 	public CaseGoPrison() {
-		super(false, "Allez en prison", null);
+		super();
+		this.ID = 30;
 	}
-
-	public void allerPrison(){}
 	
 	@Override
-	public void jouerAction(){}
+	public void jouerAction(Joueur joueur){
+		joueur.emitEvent(EventType.CASE_GO_PRISON);
+	}
 }

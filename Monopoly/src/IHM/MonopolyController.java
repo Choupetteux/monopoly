@@ -16,9 +16,16 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+import java.util.ArrayList;
+import java.util.Observable;
+import java.util.Observer;
 import java.util.ResourceBundle;
 
-import Jeu.Jeu;
+import org.w3c.dom.Node;
+
+import Jeu.*;
+import Case.*;
+import Case.CasePropriete;
 import info.util.javafx.FXUtil;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert.AlertType;
@@ -32,35 +39,104 @@ import javafx.stage.Stage;
  * événements utilisateur. Une instance de cette classe est créée
  * automatiquement chaque fois que le document <b>Monopoly.fxml</b> est chargé.
  */
-public class MonopolyController {
+public class MonopolyController implements Observer {
 	@FXML
 	private Stage stage;
 	private ResourceBundle bundle;
+
 	@FXML
 	private ImageView plateauImg;
 	@FXML
+	private ImageView de1;
+	@FXML
+	private ImageView de2;
+	@FXML
+	private ImageView couleurCase;
+
+	@FXML
 	private Button bouton;
 	@FXML
-	private Label resLancer;
+	private Button boutonPropriete1;
 	@FXML
-	private Button boutonPropriete;
+	private Button boutonPropriete3;
+	@FXML
+	private Button boutonPropriete6;
+	@FXML
+	private Button boutonPropriete8;
+	@FXML
+	private Button boutonPropriete9;
+	@FXML
+	private Button boutonPropriete11;
+	@FXML
+	private Button boutonPropriete13;
+	@FXML
+	private Button boutonPropriete14;
+	@FXML
+	private Button boutonPropriete16;
+	@FXML
+	private Button boutonPropriete18;
+	@FXML
+	private Button boutonPropriete19;
+	@FXML
+	private Button boutonPropriete21;
+	@FXML
+	private Button boutonPropriete23;
+	@FXML
+	private Button boutonPropriete24;
+	@FXML
+	private Button boutonPropriete26;
+	@FXML
+	private Button boutonPropriete27;
+	@FXML
+	private Button boutonPropriete29;
+	@FXML
+	private Button boutonPropriete31;
+	@FXML
+	private Button boutonPropriete32;
+	@FXML
+	private Button boutonPropriete34;
+	@FXML
+	private Button boutonPropriete37;
+	@FXML
+	private Button boutonPropriete39;
+
 	@FXML
 	private Label recapLabel;
+	@FXML
+	private Label prixMLabel;
+	@FXML
+	private Label prixHLabel;
+	@FXML
+	private Label loyerLabel;
+	@FXML
+	private Label hypothequeLabel;
+	@FXML
+	private Label proprieteLabel;
+	@FXML
+	private Label resLancer;
+
 	@FXML
 	private ScrollPane recapPane;
 	@FXML
 	private ScrollPane encherePane;
 	@FXML
 	private ScrollPane proprietePane;
+
 	@FXML
 	private ListView<String> listeJoueur;
 	@FXML
 	private GridPane plateauGrille;
-	@FXML
-	private ImageView de1;
-	@FXML
-	private ImageView de2;
 
+	private Image vert = new Image("/IHM/proprieteVerte2.jpeg");
+	private Image bleu = new Image("/IHM/proprieteBleu.png");
+	private Image marron = new Image("/IHM/proprieteMarron.png");
+	private Image magenta = new Image("/IHM/proprieteMagenta.png");
+	private Image cyan = new Image("/IHM/proprieteCyan.png");
+	private Image rouge = new Image("/IHM/proprieteRouge.png");
+	private Image jaune = new Image("/IHM/proprieteJaune.png");
+	private Image orange = new Image("/IHM/proprieteOrange.png");
+
+	private XMLParser parser = XMLParser.getParserInstance();
 	private Jeu jeu;
 	private String currentPane = "Récapitulatif";
 
@@ -85,6 +161,30 @@ public class MonopolyController {
 		ObservableList<String> joueurList = FXCollections.observableArrayList("Joueur 1", "fag");
 		this.listeJoueur.setItems(joueurList);
 		this.jeu = new Jeu();
+		// Initialisation des méthodes associés aux boutons
+		boutonPropriete1.setOnAction(e -> onClickPropriete(1));
+		boutonPropriete3.setOnAction(e -> onClickPropriete(3));
+		boutonPropriete6.setOnAction(e -> onClickPropriete(6));
+		boutonPropriete8.setOnAction(e -> onClickPropriete(8));
+		boutonPropriete9.setOnAction(e -> onClickPropriete(9));
+		boutonPropriete11.setOnAction(e -> onClickPropriete(11));
+		boutonPropriete13.setOnAction(e -> onClickPropriete(13));
+		boutonPropriete14.setOnAction(e -> onClickPropriete(14));
+		boutonPropriete16.setOnAction(e -> onClickPropriete(16));
+		boutonPropriete18.setOnAction(e -> onClickPropriete(18));
+		boutonPropriete19.setOnAction(e -> onClickPropriete(19));
+		boutonPropriete21.setOnAction(e -> onClickPropriete(21));
+		boutonPropriete23.setOnAction(e -> onClickPropriete(23));
+		boutonPropriete24.setOnAction(e -> onClickPropriete(24));
+		boutonPropriete26.setOnAction(e -> onClickPropriete(26));
+		boutonPropriete27.setOnAction(e -> onClickPropriete(27));
+		boutonPropriete29.setOnAction(e -> onClickPropriete(29));
+		boutonPropriete31.setOnAction(e -> onClickPropriete(31));
+		boutonPropriete32.setOnAction(e -> onClickPropriete(32));
+		boutonPropriete34.setOnAction(e -> onClickPropriete(34));
+		boutonPropriete37.setOnAction(e -> onClickPropriete(37));
+		boutonPropriete39.setOnAction(e -> onClickPropriete(39));
+
 	}
 
 	/**
@@ -114,9 +214,39 @@ public class MonopolyController {
 	}
 
 	@FXML
-	public void onClickPropriete() {
+	public void onClickPropriete(int index) {
+		CasePropriete caseProp = (CasePropriete) this.jeu.getPlateau().getCase(index);
+		this.proprieteLabel.setText(caseProp.getNom());
+		// -------------------------------------------------------------------
+		// Changement couleur case
+		if (caseProp.getGroupeCouleur().equals("bleu")) {
+			this.couleurCase.setImage(bleu);
+		} else if (caseProp.getGroupeCouleur().equals("vert")) {
+			this.couleurCase.setImage(vert);
+		} else if (caseProp.getGroupeCouleur().equals("jaune")) {
+			this.couleurCase.setImage(jaune);
+		} else if (caseProp.getGroupeCouleur().equals("rouge")) {
+			this.couleurCase.setImage(rouge);
+		} else if (caseProp.getGroupeCouleur().equals("orange")) {
+			this.couleurCase.setImage(orange);
+		} else if (caseProp.getGroupeCouleur().equals("violet")) {
+			this.couleurCase.setImage(magenta);
+		} else if (caseProp.getGroupeCouleur().equals("mauve")) {
+			this.couleurCase.setImage(marron);
+		} else if (caseProp.getGroupeCouleur().equals("azur")) {
+			this.couleurCase.setImage(cyan);
+		}
+		// ------------------------------------------------------------------
+		// Changement des différentes informations
+		this.loyerLabel.setText(Integer.toString(caseProp.getLoyer()));
+		this.prixMLabel.setText(Integer.toString(caseProp.getPrixMaison()));
+		this.prixHLabel.setText(caseProp.getPrixMaison() + " + 4 maisons");
+
+		this.hypothequeLabel.setText(Integer.toString(caseProp.getPrixHypotheque()));
+
 		this.changePane("Propriété");
 		this.currentPane = "Propriété";
+
 	}
 
 	@FXML
@@ -136,11 +266,11 @@ public class MonopolyController {
 	}
 
 	@FXML
-	public void btnLancerDes(){
-		for(int i = 0; i < 2; i++){
+	public void btnLancerDes() {
+		for (int i = 0; i < 2; i++) {
 			jeu.getDes(i).relancerDe();
 		}
-		switch(this.jeu.getDes(0).getLancer()){
+		switch (this.jeu.getDes(0).getLancer()) {
 		case 1:
 			this.de1.setImage(new Image("/IHM/Dice1.gif"));
 			break;
@@ -160,7 +290,7 @@ public class MonopolyController {
 			this.de1.setImage(new Image("/IHM/Dice6.gif"));
 			break;
 		}
-		switch(this.jeu.getDes(1).getLancer()){
+		switch (this.jeu.getDes(1).getLancer()) {
 		case 1:
 			this.de2.setImage(new Image("/IHM/Dice1.gif"));
 			break;
@@ -181,7 +311,7 @@ public class MonopolyController {
 			break;
 		}
 		this.resLancer.setText("" + jeu.getValeurLancerDes());
-		}
+	}
 
 	@FXML
 	public void changePane(String type) {
@@ -207,6 +337,58 @@ public class MonopolyController {
 			this.proprietePane.setOpacity(0);
 			this.proprietePane.setDisable(true);
 		}
+	}
+
+	@Override
+	public void update(Observable o, Object arg) {
+		EventMonopoly event = (EventMonopoly) arg;
+		switch (event.type) {
+		case CASE_GO_PRISON:
+			this.jeu.getJoueurs(this.jeu.getCurrentJoueur()).mettreEnPrison();
+		case ACHAT_PROPRIETE_REJECT:
+			// TODO:
+			break;
+		case CASE_CCC:
+			this.jeu.getPlateau().piocherCommunaute();
+			break;
+		case CASE_CHANCE:
+			this.jeu.getPlateau().piocherChance();
+			break;
+		case CASE_DEPART:
+			this.jeu.getJoueurs(this.jeu.getCurrentJoueur())
+					.setArgent(this.jeu.getJoueurs(this.jeu.getCurrentJoueur()).getArgent() + 200);
+			break;
+		case CASE_GARE:
+			// TODO:pay batar mé fo calculer
+			break;
+		case CASE_GARE_ACHETABLE:
+			// TODO:Demande au joueur de buy
+			break;
+		case CASE_INCOME_TAX:
+			this.jeu.getJoueurs(this.jeu.getCurrentJoueur())
+					.setArgent(this.jeu.getJoueurs(this.jeu.getCurrentJoueur()).getArgent() - 200);
+			break;
+		case CASE_LUXURY_TAX:
+			this.jeu.getJoueurs(this.jeu.getCurrentJoueur())
+					.setArgent(this.jeu.getJoueurs(this.jeu.getCurrentJoueur()).getArgent() - 100);
+			break;
+		case CASE_PASSAGE_PRISON:
+			break;
+		case CASE_PROPRIETE_ACHETABLE:
+			// TODO:Demande au joueur de buy
+			break;
+		case CASE_SERVICE:
+			// TODO:Paye batar
+			break;
+		case CASE_SERVICE_ACHETABLE:
+			// TODO:Demande au joueur de buy
+			break;
+		case CASE_PROPRIETE:
+			// TODO:Calculus dé maison + paye
+		default:
+			break;
+		}
+
 	}
 
 }

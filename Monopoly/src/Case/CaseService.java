@@ -1,13 +1,15 @@
 package Case;
 
+import Joueur.Joueur;
+
 public class CaseService extends CaseAchetable{
 	
 	private int prix;
-	private int prixHypotheque;
 	
-	public CaseService(String nom) {
-		super(nom, 0, "BLANC", 150);
-		this.prixHypotheque = 75;
+	public CaseService(int id) {
+		super(id);
+		this.prix = Integer.parseInt(this.parser.getNodeAttr("prix", this.parser.getCompagnie()));
+		this.prixHypotheque = Integer.parseInt(this.parser.getNodeAttr("prix", this.parser.getCompagnie()));
 	}
 
 	public int getPrixHypotheque() {
@@ -15,12 +17,11 @@ public class CaseService extends CaseAchetable{
 	}
 	
 	public int getLoyerDe() {
-		//FX
 		return 0;
 	}
 	
 	@Override
-	public void jouerAction() {
+	public void jouerAction(Joueur joueur) {
 		//FX
 	}
 }

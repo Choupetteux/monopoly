@@ -66,71 +66,71 @@
                               <Pane prefHeight="200.0" prefWidth="200.0" />
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                                  <children>
-                                    <Button fx:id="boutonPropriete11" mnemonicParsing="false" onAction="#onClickPropriete" prefHeight="81.0" prefWidth="128.0" text="Button" />
+                                    <Button fx:id="boutonPropriete19" mnemonicParsing="false" prefHeight="81.0" prefWidth="128.0" text="Button" />
                                  </children></Pane>
                               <Pane prefHeight="81.0" prefWidth="129.0" GridPane.rowIndex="2">
                                  <children>
-                                    <Button fx:id="boutonPropriete12" mnemonicParsing="false" onAction="#onClickPropriete" prefHeight="81.0" prefWidth="128.0" text="Button" />
+                                    <Button fx:id="boutonPropriete18" mnemonicParsing="false" prefHeight="81.0" prefWidth="128.0" text="Button" />
                                  </children></Pane>
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="3" />
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="4">
                                  <children>
-                                    <Button fx:id="boutonPropriete13" mnemonicParsing="false" onAction="#onClickPropriete" prefHeight="81.0" prefWidth="128.0" text="Button" />
+                                    <Button fx:id="boutonPropriete16" mnemonicParsing="false" prefHeight="81.0" prefWidth="128.0" text="Button" />
                                  </children></Pane>
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="5" />
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="6">
                                  <children>
-                                    <Button fx:id="boutonPropriete14" mnemonicParsing="false" onAction="#onClickPropriete" prefHeight="81.0" prefWidth="128.0" text="Button" />
+                                    <Button fx:id="boutonPropriete14" mnemonicParsing="false" prefHeight="81.0" prefWidth="128.0" text="Button" />
                                  </children></Pane>
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="7">
                                  <children>
-                                    <Button fx:id="boutonPropriete15" mnemonicParsing="false" onAction="#onClickPropriete" prefHeight="81.0" prefWidth="128.0" text="Button" />
+                                    <Button fx:id="boutonPropriete13" mnemonicParsing="false" prefHeight="81.0" prefWidth="128.0" text="Button" />
                                  </children></Pane>
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="8" />
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="9">
                                  <children>
-                                    <Button fx:id="boutonPropriete16" mnemonicParsing="false" onAction="#onClickPropriete" prefHeight="81.0" prefWidth="128.0" text="Button" />
+                                    <Button fx:id="boutonPropriete11" mnemonicParsing="false" prefHeight="81.0" prefWidth="128.0" text="Button" />
                                  </children></Pane>
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="10" />
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="10" />
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="10">
                                  <children>
-                                    <Button fx:id="boutonPropriete341" mnemonicParsing="false" onAction="#onClickPropriete" prefHeight="128.0" prefWidth="85.0" text="Button" />
+                                    <Button fx:id="boutonPropriete9" mnemonicParsing="false" prefHeight="128.0" prefWidth="85.0" text="Button" />
                                  </children></Pane>
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="10">
                                  <children>
-                                    <Button fx:id="boutonPropriete342" mnemonicParsing="false" onAction="#onClickPropriete" prefHeight="128.0" prefWidth="85.0" text="Button" />
+                                    <Button fx:id="boutonPropriete8" mnemonicParsing="false" prefHeight="128.0" prefWidth="85.0" text="Button" />
                                  </children></Pane>
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="10" />
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="10">
                                  <children>
-                                    <Button fx:id="boutonPropriete343" mnemonicParsing="false" onAction="#onClickPropriete" prefHeight="128.0" prefWidth="85.0" text="Button" />
+                                    <Button fx:id="boutonPropriete6" mnemonicParsing="false" prefHeight="128.0" prefWidth="85.0" text="Button" />
                                  </children></Pane>
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="10" />
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="7" GridPane.rowIndex="10" />
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="8" GridPane.rowIndex="10">
                                  <children>
-                                    <Button fx:id="boutonPropriete344" mnemonicParsing="false" onAction="#onClickPropriete" prefHeight="128.0" prefWidth="85.0" text="Button" />
+                                    <Button fx:id="boutonPropriete3" mnemonicParsing="false" prefHeight="128.0" prefWidth="85.0" text="Button" />
                                  </children></Pane>
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="9" GridPane.rowIndex="10" />
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="10" GridPane.rowIndex="10">
                                  <children>
-                                    <Button fx:id="boutonPropriete345" mnemonicParsing="false" onAction="#onClickPropriete" prefHeight="128.0" prefWidth="85.0" text="Button" />
+                                    <Button fx:id="boutonPropriete1" mnemonicParsing="false" prefHeight="128.0" prefWidth="85.0" text="Button" />
                                  </children></Pane>
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="11" GridPane.rowIndex="9">
                                  <children>
-                                    <Button fx:id="boutonPropriete5" mnemonicParsing="false" onAction="#onClickPropriete" prefHeight="81.0" prefWidth="128.0" text="Button" />
+                                    <Button fx:id="boutonPropriete39" mnemonicParsing="false" prefHeight="81.0" prefWidth="128.0" text="Button" />
                                  </children></Pane>
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="11" GridPane.rowIndex="8" />
                               <Pane prefHeight="84.0" prefWidth="128.0" GridPane.columnIndex="11" GridPane.rowIndex="7">
                                  <children>
-                                    <Button fx:id="boutonPropriete4" mnemonicParsing="false" onAction="#onClickPropriete" prefHeight="81.0" prefWidth="128.0" text="Button" />
+                                    <Button fx:id="boutonPropriete37" mnemonicParsing="false" prefHeight="81.0" prefWidth="128.0" text="Button" />
                                  </children></Pane>
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="11" GridPane.rowIndex="6" />
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="11" GridPane.rowIndex="5" />
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="11" GridPane.rowIndex="4">
                                  <children>
-                                    <Button fx:id="boutonPropriete" mnemonicParsing="false" onAction="#onClickPropriete" prefHeight="81.0" prefWidth="128.0" text="Button" />
+                                    <Button fx:id="boutonPropriete34" mnemonicParsing="false" prefHeight="81.0" prefWidth="128.0" text="Button" />
                                  </children>
                               </Pane>
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="11" GridPane.rowIndex="3">
@@ -140,38 +140,38 @@
                               </Pane>
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="11" GridPane.rowIndex="2">
                                  <children>
-                                    <Button fx:id="boutonPropriete1" mnemonicParsing="false" onAction="#onClickPropriete" prefHeight="81.0" prefWidth="128.0" text="Button" />
+                                    <Button fx:id="boutonPropriete32" mnemonicParsing="false" prefHeight="81.0" prefWidth="128.0" text="Button" />
                                  </children></Pane>
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="11" GridPane.rowIndex="1">
                                  <children>
-                                    <Button fx:id="boutonPropriete2" mnemonicParsing="false" onAction="#onClickPropriete" prefHeight="81.0" prefWidth="128.0" text="Button" />
+                                    <Button fx:id="boutonPropriete31" mnemonicParsing="false" prefHeight="81.0" prefWidth="128.0" text="Button" />
                                  </children></Pane>
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="10">
                                  <children>
-                                    <Button fx:id="boutonPropriete3" mnemonicParsing="false" onAction="#onClickPropriete" prefHeight="128.0" prefWidth="85.0" text="Button" />
+                                    <Button fx:id="boutonPropriete29" mnemonicParsing="false" prefHeight="128.0" prefWidth="85.0" text="Button" />
                                  </children></Pane>
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="9" />
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="8">
                                  <children>
-                                    <Button fx:id="boutonPropriete31" mnemonicParsing="false" onAction="#onClickPropriete" prefHeight="128.0" prefWidth="85.0" text="Button" />
+                                    <Button fx:id="boutonPropriete27" mnemonicParsing="false" prefHeight="128.0" prefWidth="85.0" text="Button" />
                                  </children></Pane>
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="7">
                                  <children>
-                                    <Button fx:id="boutonPropriete32" mnemonicParsing="false" onAction="#onClickPropriete" prefHeight="128.0" prefWidth="85.0" text="Button" />
+                                    <Button fx:id="boutonPropriete26" mnemonicParsing="false" prefHeight="128.0" prefWidth="85.0" text="Button" />
                                  </children></Pane>
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="6" />
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5">
                                  <children>
-                                    <Button fx:id="boutonPropriete33" mnemonicParsing="false" onAction="#onClickPropriete" prefHeight="128.0" prefWidth="85.0" text="Button" />
+                                    <Button fx:id="boutonPropriete24" mnemonicParsing="false" prefHeight="128.0" prefWidth="85.0" text="Button" />
                                  </children></Pane>
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4">
                                  <children>
-                                    <Button fx:id="boutonPropriete34" mnemonicParsing="false" onAction="#onClickPropriete" prefHeight="128.0" prefWidth="85.0" text="Button" />
+                                    <Button fx:id="boutonPropriete23" mnemonicParsing="false" prefHeight="128.0" prefWidth="85.0" text="Button" />
                                  </children></Pane>
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" />
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">
                                  <children>
-                                    <Button fx:id="boutonPropriete35" mnemonicParsing="false" onAction="#onClickPropriete" prefHeight="128.0" prefWidth="85.0" text="Button" />
+                                    <Button fx:id="boutonPropriete21" mnemonicParsing="false" prefHeight="128.0" prefWidth="85.0" text="Button" />
                                  </children></Pane>
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" />
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="11" GridPane.rowIndex="10" />
@@ -184,86 +184,6 @@
             </AnchorPane>
             <StackPane alignment="CENTER_RIGHT" prefHeight="1000.0" prefWidth="500.0">
                <children>
-                  <ScrollPane fx:id="encherePane" prefHeight="200.0" prefWidth="200.0">
-                    <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1000.0" prefWidth="500.0">
-                           <children>
-                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="5.0" layoutY="4.0" prefHeight="50.0" prefWidth="460.0" text="Enchères" textAlignment="CENTER">
-                                 <font>
-                                    <Font size="40.0" />
-                                 </font>
-                              </Label>
-                              <Button layoutX="13.0" layoutY="6.0" mnemonicParsing="false" onAction="#onClickRecapitulatif" prefHeight="44.0" prefWidth="54.0" text="←" />
-                           </children>
-                        </AnchorPane>
-                    </content>
-                  </ScrollPane>
-                  <ScrollPane fx:id="proprietePane" prefHeight="200.0" prefWidth="200.0">
-                     <content>
-                        <AnchorPane prefHeight="1000.0" prefWidth="500.0">
-                           <children>
-                              <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="460.0" text="Propriété" textAlignment="CENTER">
-                                 <font>
-                                    <Font size="40.0" />
-                                 </font>
-                              </Label>
-                              <ImageView fitHeight="60.0" fitWidth="475.0" layoutX="6.0" layoutY="57.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../bin/IHM/proprieteVerte2.jpeg" />
-                                 </image>
-                              </ImageView>
-                              <Label layoutX="136.0" layoutY="70.0" text="Avenue Foch">
-                                 <font>
-                                    <Font size="29.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="46.0" layoutY="128.0" text="Loyer :  ">
-                                 <font>
-                                    <Font size="29.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="46.0" layoutY="174.0" text="Hypothèque : ">
-                                 <font>
-                                    <Font size="29.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="156.0" layoutY="128.0" text="BD pioche">
-                                 <font>
-                                    <Font size="29.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="250.0" layoutY="174.0" text="Carte piege BD">
-                                 <font>
-                                    <Font size="29.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="46.0" layoutY="217.0" text="Prix maison :">
-                                 <font>
-                                    <Font size="29.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="46.0" layoutY="258.0" text="Prix hotel :">
-                                 <font>
-                                    <Font size="29.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="244.0" layoutY="217.0" text="Carte piege BD">
-                                 <font>
-                                    <Font size="29.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="214.0" layoutY="258.0" text="Carte piege BD">
-                                 <font>
-                                    <Font size="29.0" />
-                                 </font>
-                              </Label>
-                              <Button disable="true" layoutX="72.0" layoutY="318.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="154.0" text="Acheter : prixBD" />
-                              <Button layoutX="13.0" layoutY="6.0" mnemonicParsing="false" onAction="#onClickRecapitulatif" prefHeight="44.0" prefWidth="54.0" text="←" />
-                              <Button layoutX="248.0" layoutY="318.0" mnemonicParsing="false" onAction="#onClickEnchere" prefHeight="65.0" prefWidth="154.0" text="Ne pas acheter" />
-                           </children>
-                        </AnchorPane>
-                     </content>
-                  </ScrollPane>
                   <ScrollPane fx:id="recapPane" prefHeight="1000.0" prefWidth="491.0">
                     <content>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1000.0" prefWidth="500.0">
@@ -299,6 +219,86 @@
                            </children>
                         </AnchorPane>
                     </content>
+                  </ScrollPane>
+                  <ScrollPane fx:id="encherePane" prefHeight="200.0" prefWidth="200.0">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1000.0" prefWidth="500.0">
+                           <children>
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="5.0" layoutY="4.0" prefHeight="50.0" prefWidth="460.0" text="Enchères" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="40.0" />
+                                 </font>
+                              </Label>
+                              <Button layoutX="13.0" layoutY="6.0" mnemonicParsing="false" onAction="#onClickRecapitulatif" prefHeight="44.0" prefWidth="54.0" text="←" />
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </ScrollPane>
+                  <ScrollPane fx:id="proprietePane" prefHeight="200.0" prefWidth="200.0">
+                     <content>
+                        <AnchorPane prefHeight="1000.0" prefWidth="500.0">
+                           <children>
+                              <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="460.0" text="Propriété" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="40.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fx:id="couleurCase" fitHeight="60.0" fitWidth="475.0" layoutX="6.0" layoutY="57.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../bin/IHM/proprieteVerte2.jpeg" />
+                                 </image>
+                              </ImageView>
+                              <Label fx:id="proprieteLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="19.0" layoutY="70.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="452.0">
+                                 <font>
+                                    <Font size="29.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="46.0" layoutY="128.0" text="Loyer :  ">
+                                 <font>
+                                    <Font size="29.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="46.0" layoutY="174.0" text="Hypothèque : ">
+                                 <font>
+                                    <Font size="29.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="loyerLabel" layoutX="156.0" layoutY="128.0">
+                                 <font>
+                                    <Font size="29.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="hypothequeLabel" layoutX="250.0" layoutY="174.0">
+                                 <font>
+                                    <Font size="29.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="46.0" layoutY="217.0" text="Prix maison :">
+                                 <font>
+                                    <Font size="29.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="46.0" layoutY="258.0" text="Prix hotel :">
+                                 <font>
+                                    <Font size="29.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="prixMLabel" layoutX="244.0" layoutY="217.0">
+                                 <font>
+                                    <Font size="29.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="prixHLabel" layoutX="214.0" layoutY="258.0">
+                                 <font>
+                                    <Font size="29.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="btnAcheter" disable="true" layoutX="72.0" layoutY="318.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="154.0" text="Acheter : prixBD" />
+                              <Button layoutX="13.0" layoutY="6.0" mnemonicParsing="false" onAction="#onClickRecapitulatif" prefHeight="44.0" prefWidth="54.0" text="←" />
+                              <Button layoutX="248.0" layoutY="318.0" mnemonicParsing="false" onAction="#onClickEnchere" prefHeight="65.0" prefWidth="154.0" text="Ne pas acheter" />
+                           </children>
+                        </AnchorPane>
+                     </content>
                   </ScrollPane>
                </children>
             </StackPane>
