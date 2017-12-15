@@ -35,8 +35,9 @@ public class MonopolyApplication extends Application {
             Parent root = loader.load();
 
             FXUtil.associate(loader.getController(), primaryStage);
-            primaryStage.setTitle("Chat");
+            primaryStage.setTitle("Monopoly");
             primaryStage.setScene(new Scene(root));
+            primaryStage.setResizable(false);
 
             // décommentez la ligne ci-dessous et remplacez "votre_icone" par
             // le nom d'une image ajoutée aux ressources de votre application

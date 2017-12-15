@@ -86,7 +86,10 @@
                                  <children>
                                     <Button fx:id="boutonPropriete13" mnemonicParsing="false" prefHeight="81.0" prefWidth="128.0" text="Button" />
                                  </children></Pane>
-                              <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="8" />
+                              <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="8">
+                                 <children>
+                                    <Button fx:id="boutonSrvc12" mnemonicParsing="false" prefHeight="128.0" prefWidth="85.0" text="Button" />
+                                 </children></Pane>
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="9">
                                  <children>
                                     <Button fx:id="boutonPropriete11" mnemonicParsing="false" prefHeight="81.0" prefWidth="128.0" text="Button" />
@@ -150,7 +153,10 @@
                                  <children>
                                     <Button fx:id="boutonPropriete29" mnemonicParsing="false" prefHeight="128.0" prefWidth="85.0" text="Button" />
                                  </children></Pane>
-                              <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="9" />
+                              <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="9">
+                                 <children>
+                                    <Button fx:id="boutonSrvc28" mnemonicParsing="false" prefHeight="128.0" prefWidth="85.0" text="Button" />
+                                 </children></Pane>
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="8">
                                  <children>
                                     <Button fx:id="boutonPropriete27" mnemonicParsing="false" prefHeight="128.0" prefWidth="85.0" text="Button" />
@@ -238,7 +244,7 @@
                      <content>
                         <AnchorPane prefHeight="1000.0" prefWidth="500.0">
                            <children>
-                              <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="460.0" text="Propriété" textAlignment="CENTER">
+                              <Label fx:id="labelCasePane" alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="460.0" text="Propriété" textAlignment="CENTER">
                                  <font>
                                     <Font size="40.0" />
                                  </font>
@@ -253,7 +259,7 @@
                                     <Font size="29.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="46.0" layoutY="128.0" text="Loyer :  ">
+                              <Label fx:id="labelPaye" layoutX="46.0" layoutY="128.0" text="Loyer :  ">
                                  <font>
                                     <Font size="29.0" />
                                  </font>
@@ -273,12 +279,12 @@
                                     <Font size="29.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="46.0" layoutY="217.0" text="Prix maison :">
+                              <Label fx:id="labelM" layoutX="46.0" layoutY="217.0" text="Prix maison :">
                                  <font>
                                     <Font size="29.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="46.0" layoutY="258.0" text="Prix hotel :">
+                              <Label fx:id="labelH" layoutX="46.0" layoutY="258.0" text="Prix hotel :">
                                  <font>
                                     <Font size="29.0" />
                                  </font>
@@ -293,9 +299,19 @@
                                     <Font size="29.0" />
                                  </font>
                               </Label>
-                              <Button fx:id="btnAcheter" disable="true" layoutX="72.0" layoutY="318.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="154.0" text="Acheter : prixBD" />
+                              <Button fx:id="btnAcheter" disable="true" layoutX="72.0" layoutY="353.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="154.0" text="Acheter : prixBD" />
                               <Button layoutX="13.0" layoutY="6.0" mnemonicParsing="false" onAction="#onClickRecapitulatif" prefHeight="44.0" prefWidth="54.0" text="←" />
-                              <Button layoutX="248.0" layoutY="318.0" mnemonicParsing="false" onAction="#onClickEnchere" prefHeight="65.0" prefWidth="154.0" text="Ne pas acheter" />
+                              <Button layoutX="245.0" layoutY="353.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="154.0" text="Ne pas acheter" />
+                              <Label fx:id="labelH1" layoutX="45.0" layoutY="297.0" text="Propriétaire :">
+                                 <font>
+                                    <Font size="29.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="labelProprio" layoutX="244.0" layoutY="297.0">
+                                 <font>
+                                    <Font size="29.0" />
+                                 </font>
+                              </Label>
                            </children>
                         </AnchorPane>
                      </content>

@@ -99,6 +99,12 @@ public class MonopolyController implements Observer {
 	private Button boutonPropriete37;
 	@FXML
 	private Button boutonPropriete39;
+	@FXML
+	private Button btnAcheter;
+	@FXML
+	private Button boutonSrvc12;
+	@FXML
+	private Button boutonSrvc28;
 
 	@FXML
 	private Label recapLabel;
@@ -114,6 +120,16 @@ public class MonopolyController implements Observer {
 	private Label proprieteLabel;
 	@FXML
 	private Label resLancer;
+	@FXML
+	private Label labelM;
+	@FXML
+	private Label labelH;
+	@FXML
+	private Label labelPaye;
+	@FXML
+	private Label labelCasePane;
+	@FXML
+	private Label labelProprio;
 
 	@FXML
 	private ScrollPane recapPane;
@@ -127,6 +143,7 @@ public class MonopolyController implements Observer {
 	@FXML
 	private GridPane plateauGrille;
 
+
 	private Image vert = new Image("/IHM/proprieteVerte2.jpeg");
 	private Image bleu = new Image("/IHM/proprieteBleu.png");
 	private Image marron = new Image("/IHM/proprieteMarron.png");
@@ -135,6 +152,7 @@ public class MonopolyController implements Observer {
 	private Image rouge = new Image("/IHM/proprieteRouge.png");
 	private Image jaune = new Image("/IHM/proprieteJaune.png");
 	private Image orange = new Image("/IHM/proprieteOrange.png");
+	private Image services = new Image("/IHM/proprieteServices.png");
 
 	private XMLParser parser = XMLParser.getParserInstance();
 	private Jeu jeu;
@@ -184,6 +202,8 @@ public class MonopolyController implements Observer {
 		boutonPropriete34.setOnAction(e -> onClickPropriete(34));
 		boutonPropriete37.setOnAction(e -> onClickPropriete(37));
 		boutonPropriete39.setOnAction(e -> onClickPropriete(39));
+		boutonSrvc12.setOnAction(e -> onClickService(12));
+		boutonSrvc28.setOnAction(e -> onClickService(28));
 
 	}
 
@@ -216,6 +236,10 @@ public class MonopolyController implements Observer {
 	@FXML
 	public void onClickPropriete(int index) {
 		CasePropriete caseProp = (CasePropriete) this.jeu.getPlateau().getCase(index);
+		this.labelPaye.setText("Loyer :");
+		this.labelH.setText("Prix hôtel :");
+		this.labelM.setText("Prix maison :");
+		this.labelCasePane.setText("Propriété");
 		this.proprieteLabel.setText(caseProp.getNom());
 		// -------------------------------------------------------------------
 		// Changement couleur case
@@ -238,21 +262,50 @@ public class MonopolyController implements Observer {
 		}
 		// ------------------------------------------------------------------
 		// Changement des différentes informations
-		this.loyerLabel.setText(Integer.toString(caseProp.getLoyer()));
-		this.prixMLabel.setText(Integer.toString(caseProp.getPrixMaison()));
-		this.prixHLabel.setText(caseProp.getPrixMaison() + " + 4 maisons");
-
+		this.loyerLabel.setText(Integer.toString(caseProp.getLoyer()) + "€");
+		this.prixMLabel.setText(Integer.toString(caseProp.getPrixMaison()) + "€");
+		this.prixHLabel.setText(caseProp.getPrixMaison() + "€ + 4 maisons");
+		this.btnAcheter.setText("Acheter : " + Integer.toString(caseProp.getPrixAchat()) + "€");
 		this.hypothequeLabel.setText(Integer.toString(caseProp.getPrixHypotheque()));
-
+		if(caseProp.getProprietaire() == null){
+			this.labelProprio.setText("Pas de propriétaire.");
+		}
+		else{
+			this.labelProprio.setText("" + caseProp.getProprietaire());
+		}
 		this.changePane("Propriété");
 		this.currentPane = "Propriété";
 
 	}
-
+	
 	@FXML
-	public void onClickEnchere() {
-		this.changePane("Enchere");
-		this.currentPane = "Enchere";
+	public void onClickService(int index){
+		if(index == 12){
+			this.proprieteLabel.setText("Électricité");
+		}
+		else if(index == 28){
+			this.proprieteLabel.setText("Eau");
+		}
+		CaseService caseService = (CaseService)this.jeu.getPlateau().getCase(index);
+		this.labelCasePane.setText("Service");
+		this.labelH.setText("");
+		this.labelM.setText("Multiplicateur : ");
+		if(caseService.getProprietaire() == null){
+			this.labelProprio.setText("Pas de propriétaire.");
+		}
+		else{
+			this.labelProprio.setText("" + caseService.getProprietaire());
+		}
+		this.labelPaye.setText("Facture : ");
+		//TODO set Facture quand un joueur arrive dessus.
+		this.loyerLabel.setText("");
+		this.hypothequeLabel.setText(caseService.getPrixHypotheque() + "€");
+		this.prixHLabel.setText("");
+		//TODO set multiplicateur
+		this.prixMLabel.setText("");
+		this.changePane("Propriété");
+		this.couleurCase.setImage(services);
+		this.currentPane = "Propriété";
 	}
 
 	@FXML
@@ -346,6 +399,7 @@ public class MonopolyController implements Observer {
 		case CASE_GO_PRISON:
 			this.jeu.getJoueurs(this.jeu.getCurrentJoueur()).mettreEnPrison();
 		case ACHAT_PROPRIETE_REJECT:
+			this.changePane("Enchere");
 			// TODO:
 			break;
 		case CASE_CCC:
@@ -375,7 +429,8 @@ public class MonopolyController implements Observer {
 		case CASE_PASSAGE_PRISON:
 			break;
 		case CASE_PROPRIETE_ACHETABLE:
-			// TODO:Demande au joueur de buy
+			this.btnAcheter.setOpacity(1);
+			this.btnAcheter.setDisable(false);
 			break;
 		case CASE_SERVICE:
 			// TODO:Paye batar
