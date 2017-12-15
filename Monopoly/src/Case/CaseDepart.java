@@ -15,7 +15,6 @@ public class CaseDepart extends Case{
 	
 	@Override
 	public void jouerAction(Joueur joueur) {
-		// TODO Auto-generated method stub
-		
+		joueur.setArgent(joueur.getArgent() + 200);
 	}
 }
