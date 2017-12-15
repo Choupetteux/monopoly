@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?PowerDesigner AppLocale="UTF16" ID="{0BE48F4C-CB92-4E77-A1A3-DB3B54E42150}" Label="" LastModificationDate="1511530360" Name="Diagramme de classes UML_1" Objects="305" Symbols="44" Target="Analyse" TargetLink="Reference" Type="{18112060-1A4B-11D1-83D9-444553540000}" signature="CLD_OBJECT_MODEL" version="15.3.0.3445"?>
+<?PowerDesigner AppLocale="UTF16" ID="{0BE48F4C-CB92-4E77-A1A3-DB3B54E42150}" Label="" LastModificationDate="1511530631" Name="Diagramme de classes UML_1" Objects="296" Symbols="42" Target="Analyse" TargetLink="Reference" Type="{18112060-1A4B-11D1-83D9-444553540000}" signature="CLD_OBJECT_MODEL" version="15.3.0.3445"?>
 <!-- Veuillez ne pas modifier ce fichier -->
 
 <Model xmlns:a="attribute" xmlns:c="collection" xmlns:o="object">
@@ -3023,9 +3023,9 @@ SOURCE 0 Arial,8,N</a:FontList>
 </o:AssociationSymbol>
 <o:AssociationSymbol Id="o64">
 <a:CreationDate>1511530048</a:CreationDate>
-<a:ModificationDate>1511530055</a:ModificationDate>
-<a:Rect>((25876,-724), (34276,1438))</a:Rect>
-<a:ListOfPoints>((25876,158),(34276,533))</a:ListOfPoints>
+<a:ModificationDate>1511530631</a:ModificationDate>
+<a:Rect>((25876,-1627), (33301,1061))</a:Rect>
+<a:ListOfPoints>((25876,158),(33301,-667))</a:ListOfPoints>
 <a:ArrowStyle>3336</a:ArrowStyle>
 <a:LineColor>16744448</a:LineColor>
 <a:ShadowColor>12632256</a:ShadowColor>
@@ -3396,9 +3396,9 @@ LABL 0 Arial,8,N</a:FontList>
 </o:ClassSymbol>
 <o:ClassSymbol Id="o65">
 <a:CreationDate>1511529312</a:CreationDate>
-<a:ModificationDate>1511530055</a:ModificationDate>
+<a:ModificationDate>1511530631</a:ModificationDate>
 <a:IconMode>-1</a:IconMode>
-<a:Rect>((33608,-3849), (44396,7914))</a:Rect>
+<a:Rect>((32633,-5049), (43421,6714))</a:Rect>
 <a:LineColor>16744448</a:LineColor>
 <a:FillColor>16770222</a:FillColor>
 <a:ShadowColor>12632256</a:ShadowColor>

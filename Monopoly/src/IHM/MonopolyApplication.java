@@ -31,11 +31,11 @@ public class MonopolyApplication extends Application {
     public void start(Stage primaryStage) throws Exception {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("Monopoly.fxml"), ResourceBundle.getBundle("IHM.Monopoly"));
-
+            
             Parent root = loader.load();
 
             FXUtil.associate(loader.getController(), primaryStage);
-
+            primaryStage.setTitle("Chat");
             primaryStage.setScene(new Scene(root));
 
             // décommentez la ligne ci-dessous et remplacez "votre_icone" par

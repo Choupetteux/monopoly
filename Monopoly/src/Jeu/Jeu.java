@@ -1,9 +1,12 @@
 package Jeu;
 
+import java.util.Observable;
+import java.util.Observer;
+
 import Joueur.Joueur;
 import Plateau.Plateau;
 
-public class Jeu {
+public class Jeu{
 	
 	private int joueurMax;
 	private De[] des = new De[2];
@@ -12,6 +15,7 @@ public class Jeu {
 	private Joueur[] joueurs = new Joueur[2];
 	private int tour;
 	private int valeurLancerDes;
+	private int currentJoueur;
 	
 	public Jeu(){
 		this.joueurMax = 2;
@@ -22,6 +26,7 @@ public class Jeu {
 		this.joueurs[0] = new Joueur("Michel", this);
 		this.joueurs[1] = new Joueur("Robert", this);
 		this.tour = 0;
+		this.currentJoueur = 0;
 	}
 	
 	public int getJoueurMax() {
@@ -39,15 +44,23 @@ public class Jeu {
 		return argentInitial;
 	}
 	
-	public Joueur[] getJoueurs() {
-		return joueurs;
+	public Joueur getJoueurs(int index) {
+		return this.joueurs[index];
 	}
+	
 	public int getTour() {
 		return tour;
 	}
+	
 	public int getValeurLancerDes() {
 		return getDes(0).getLancer() + getDes(1).getLancer();
 	}
+	
+	public int getCurrentJoueur(){
+		return this.currentJoueur;
+	}
+
+	
 	
 	/**public void deplacerJoueur(){
 		int mabite = this.joueurs[1].getPosition() + De.getLancer()
