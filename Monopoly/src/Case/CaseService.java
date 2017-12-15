@@ -5,11 +5,9 @@ import Joueur.Joueur;
 public class CaseService extends CaseAchetable{
 	
 	private int prix;
-	private int prixHypotheque;
 	
-	public CaseService(String nom) {
-		super(nom, 0, "BLANC", 150);
-		this.prixHypotheque = 75;
+	public CaseService(int id) {
+		super(id);
 	}
 
 	public int getPrixHypotheque() {

@@ -5,24 +5,17 @@ import Joueur.Joueur;
 public class CaseAchetable extends Case{
 
 	protected String groupeCouleur;
-	protected int loyer;
 	protected int prixAchat;
+	protected int prixHypotheque;
 	protected boolean disponible;
-	protected Joueur proprietaire;
+	protected Joueur proprietaire = null;
 	
-	public CaseAchetable(String nom, int loyer, String groupeCouleur, int prixAchat) {
+	public CaseAchetable(int id) {
 		super();
-		this.loyer = loyer;
-		this.groupeCouleur = groupeCouleur;
-		this.prixAchat = prixAchat;
 	}
 
 	public String getGroupeCouleur() {
 		return groupeCouleur;
-	}
-
-	public int getLoyer() {
-		return loyer;
 	}
 
 	public int getPrixAchat() {

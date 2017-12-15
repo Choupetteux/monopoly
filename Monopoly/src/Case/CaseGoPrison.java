@@ -7,6 +7,7 @@ public class CaseGoPrison extends Case{
 
 	public CaseGoPrison() {
 		super();
+		this.ID = 30;
 	}
 	
 	@Override

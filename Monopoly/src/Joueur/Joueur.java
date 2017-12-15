@@ -114,7 +114,10 @@ public class Joueur extends Observable{
 	public void acheterPropriete(int prix){
 	}
 	
-	public void acheterMaison(){}
+	public void acheterMaison(){
+		
+		
+	}
 	
 	public void acheterGare(){}
 	

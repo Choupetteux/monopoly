@@ -11,6 +11,7 @@ public enum EventType {
 	 * d'acheter la case.
 	 */
 	CASE_PROPRIETE_ACHETABLE,
+	CASE_PROPRIETE,
 	/**
 	 * Se déclenche quand un joueur s'arrête sur une case communauté, et lui fait
 	 * piocher une carte communauté.

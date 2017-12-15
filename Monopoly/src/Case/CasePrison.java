@@ -7,6 +7,7 @@ public class CasePrison extends Case{
 
 	public CasePrison() {
 		super();
+		this.ID=20;
 		this.prixSortie = 50;		
 	}
 	

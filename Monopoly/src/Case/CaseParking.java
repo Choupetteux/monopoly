@@ -6,6 +6,7 @@ public class CaseParking extends Case{
 
 	public CaseParking() {
 		super();
+		this.ID=20;
 	}
 	
 	public void caseParking(){

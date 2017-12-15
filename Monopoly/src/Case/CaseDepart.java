@@ -6,6 +6,7 @@ public class CaseDepart extends Case{
 
 	public CaseDepart() {
 		super();
+		this.ID=0;
 	}
 	
 	public void caseDepart(){

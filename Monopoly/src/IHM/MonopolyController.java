@@ -135,7 +135,7 @@ public class MonopolyController implements Observer{
 	private Image jaune = new Image("/IHM/proprieteJaune.png");
 	private Image orange = new Image("/IHM/proprieteOrange.png");	
 
-	private XMLParser parser = new XMLParser();
+	private XMLParser parser = XMLParser.getParserInstance();
 	private Jeu jeu;
 	private String currentPane = "Récapitulatif";
 
@@ -215,12 +215,7 @@ public class MonopolyController implements Observer{
 
 	@FXML
 	public void onClickPropriete(int index) {
-		ArrayList<ArrayList<Node>> terrains = new ArrayList<ArrayList<Node>>();
-		ArrayList<Node> groups = this.parser.getNodeArray("groupe", this.parser.getGroupes());
-		for(Node group : groups){
-			terrains.add(this.parser.getNodeArray("terrain", group.getChildNodes()));
-		}
-		for(ArrayList<Node> terrain : terrains){
+		for(ArrayList<Node> terrain : parser.getArrayTerrains()){
 			for(Node attribut : terrain){
 				if(Integer.parseInt(this.parser.getNodeAttr("id", attribut)) == index){
 					//Changement nom case
@@ -252,6 +247,10 @@ public class MonopolyController implements Observer{
 						this.couleurCase.setImage(cyan);
 					}
 					//------------------------------------------------------------------
+					//Changement des différentes informations
+					this.hypothequeLabel.setText(this.parser.getNodeAttr("hyp", attribut));
+					this.prixMLabel.setText(this.parser.getNodeAttr("maison", attribut.getParentNode()));
+					this.prixHLabel.setText(this.parser.getNodeAttr("maison", attribut.getParentNode()) + " + 4 maisons"); 
 				}
 			}
 		}
