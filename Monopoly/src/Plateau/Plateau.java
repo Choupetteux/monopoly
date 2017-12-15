@@ -8,9 +8,13 @@ import java.util.Queue;
 import Case.Case;
 import Case.CaseCarte;
 import Case.CaseDepart;
+import Case.CaseGare;
 import Case.CaseGoPrison;
 import Case.CaseParking;
+import Case.CasePrison;
 import Case.CasePropriete;
+import Case.CaseService;
+import Case.CaseTaxe;
 import Jeu.Jeu;
 
 public class Plateau {
@@ -24,6 +28,7 @@ public class Plateau {
 	public Plateau(Jeu gM) {
 		super();
 		this.cases = new Case[40];
+		//--------------------------------------------------------------
 		//Initialisation de chaque case avec son type précis
 		//A changer avec quelque chose de plus propre si on a le temps
 		cases[0] = new CaseDepart();
@@ -36,7 +41,7 @@ public class Plateau {
 		cases[7] = new CaseCarte(7);
 		cases[8] = new CasePropriete(8);
 		cases[9] = new CasePropriete(9);
-		cases[10] = new CasePrison(10);
+		cases[10] = new CasePrison();
 		cases[11] = new CasePropriete(11);
 		cases[12] = new CaseService(12);
 		cases[13] = new CasePropriete(13);
