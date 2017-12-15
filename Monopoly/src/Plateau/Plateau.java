@@ -87,7 +87,7 @@ public class Plateau {
 	}
 	
 	public Carte piocherCommunaute(){
-		Carte cartePioche = this.carteCommunaute.remove();
+		Carte cartePioche  = this.carteCommunaute.remove();
 		this.carteCommunaute.add(cartePioche);
 		return cartePioche;
 	}
