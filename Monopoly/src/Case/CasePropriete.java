@@ -51,7 +51,15 @@ public class CasePropriete extends CaseAchetable{
 		return this.nbMaison;
 	}
 	
+	public void addMaison(){
+		this.nbMaison = nbMaison +1;
+	}
+	
 	public int getPrixHypotheque(){
 		return this.prixHypotheque;
+	}
+	
+	public int getPrixMaison(){
+		return this.prixMaison;
 	}
 }
