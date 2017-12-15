@@ -8,6 +8,8 @@ public class CaseService extends CaseAchetable{
 	
 	public CaseService(int id) {
 		super(id);
+		this.prix = Integer.parseInt(this.parser.getNodeAttr("prix", this.parser.getCompagnie()));
+		this.prixHypotheque = Integer.parseInt(this.parser.getNodeAttr("prix", this.parser.getCompagnie()));
 	}
 
 	public int getPrixHypotheque() {
@@ -15,7 +17,6 @@ public class CaseService extends CaseAchetable{
 	}
 	
 	public int getLoyerDe() {
-		//FX
 		return 0;
 	}
 	
