@@ -3,6 +3,9 @@ Voir les connexions Java et BD
 
 Corriger les éléments d'analyse et les mettre dans le diapo
 
+ 
 https://openclassrooms.com/courses/apprenez-a-programmer-en-java/jdbc-la-porte-d-acces-aux-bases-de-donnees 
 https://www.jmdoudoux.fr/java/dej/chap-jdbc.htm
 
+
+modification cahier des charges Dc , mcd mld mpd
