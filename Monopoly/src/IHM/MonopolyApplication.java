@@ -61,6 +61,7 @@ public class MonopolyApplication extends Application {
 
 				@Override
 				public void handle(WindowEvent event) {
+	                Platform.setImplicitExit(true);
 	                primaryStage.show();
 					
 				}
