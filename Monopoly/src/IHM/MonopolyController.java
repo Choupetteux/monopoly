@@ -396,6 +396,7 @@ public class MonopolyController implements Observer {
 		this.recapPane.setDisable(false);
 		ObservableList<String> joueurList = FXCollections.observableArrayList();
 		for(int i = 0; i < this.jeu.getJoueurMax(); i++){
+			//TODO Maybe add "(1)" quand deux joueurs ont le même nom
 			joueurList.add(this.jeu.getJoueurs(i).getNom());
 		}
 		this.listeJoueur.setItems(joueurList);
