@@ -224,6 +224,8 @@ public class MonopolyController implements Observer {
 	private ScrollPane encherePane;
 	@FXML
 	private ScrollPane proprietePane;
+	@FXML
+	private ScrollPane startPane;
 
 	@FXML
 	private ListView<String> listeJoueur;
@@ -268,15 +270,15 @@ public class MonopolyController implements Observer {
 	 */
 	@FXML
 	protected void initialize() {
+		this.startPane.setOpacity(1);
+		this.startPane.setDisable(false);
 		this.recapPane.setOpacity(0);
 		this.recapPane.setDisable(true);
 		this.encherePane.setOpacity(0);
 		this.encherePane.setDisable(true);
 		this.proprietePane.setOpacity(0);
 		this.proprietePane.setDisable(true);
-		ObservableList<String> joueurList = FXCollections.observableArrayList("Joueur 1", "fag");
-		this.listeJoueur.setItems(joueurList);
-		this.jeu = new Jeu();
+		
 		// Initialisation des méthodes associés aux boutons
 		boutonPropriete1.setOnAction(e -> onClickPropriete(1));
 		boutonPropriete3.setOnAction(e -> onClickPropriete(3));
@@ -387,7 +389,16 @@ public class MonopolyController implements Observer {
 	
 	@FXML
 	public void startGame(){
-		System.out.println("working");
+		this.jeu = new Jeu(this.fieldJ1.getText(), this.fieldJ2.getText());
+		this.startPane.setOpacity(0);
+		this.startPane.setDisable(true);
+		this.recapPane.setOpacity(1);
+		this.recapPane.setDisable(false);
+		ObservableList<String> joueurList = FXCollections.observableArrayList();
+		for(int i = 0; i < this.jeu.getJoueurMax(); i++){
+			joueurList.add(this.jeu.getJoueurs(i).getNom());
+		}
+		this.listeJoueur.setItems(joueurList);
 	}
 
 	@FXML

@@ -17,14 +17,14 @@ public class Jeu{
 	private int valeurLancerDes;
 	private int currentJoueur;
 	
-	public Jeu(){
+	public Jeu(String joueur1, String joueur2){
 		this.joueurMax = 2;
 		this.des[0] = new De();
 		this.des[1] = new De();
 		this.plateau = new Plateau(this);
 		this.argentInitial = 1500;
-		this.joueurs[0] = new Joueur("Michel", this);
-		this.joueurs[1] = new Joueur("Robert", this);
+		this.joueurs[0] = new Joueur(joueur1, this);
+		this.joueurs[1] = new Joueur(joueur2, this);
 		this.tour = 0;
 		this.currentJoueur = 0;
 	}
