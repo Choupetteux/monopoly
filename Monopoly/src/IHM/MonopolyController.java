@@ -2,6 +2,7 @@ package IHM;
 
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.collections.FXCollections;
@@ -17,6 +18,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Observable;
 import java.util.Observer;
 import java.util.ResourceBundle;
@@ -53,10 +56,6 @@ public class MonopolyController implements Observer {
 	private ImageView de2;
 	@FXML
 	private ImageView couleurCase;
-	@FXML
-	private ImageView imgJoueur1;
-	@FXML
-	private ImageView imgJoueur2;
 
 	@FXML
 	private Button bouton;
@@ -137,6 +136,88 @@ public class MonopolyController implements Observer {
 	private Label labelProprio;
 
 	@FXML
+	private Pane grid1;
+	@FXML
+	private Pane grid2;
+	@FXML
+	private Pane grid3;
+	@FXML
+	private Pane grid4;
+	@FXML
+	private Pane grid5;
+	@FXML
+	private Pane grid6;
+	@FXML
+	private Pane grid7;
+	@FXML
+	private Pane grid8;
+	@FXML
+	private Pane grid9;
+	@FXML
+	private Pane grid10;
+	@FXML
+	private Pane grid11;
+	@FXML
+	private Pane grid12;
+	@FXML
+	private Pane grid13;
+	@FXML
+	private Pane grid14;
+	@FXML
+	private Pane grid15;
+	@FXML
+	private Pane grid16;
+	@FXML
+	private Pane grid17;
+	@FXML
+	private Pane grid18;
+	@FXML
+	private Pane grid19;
+	@FXML
+	private Pane grid20;
+	@FXML
+	private Pane grid21;
+	@FXML
+	private Pane grid22;
+	@FXML
+	private Pane grid23;
+	@FXML
+	private Pane grid24;
+	@FXML
+	private Pane grid25;
+	@FXML
+	private Pane grid26;
+	@FXML
+	private Pane grid27;
+	@FXML
+	private Pane grid28;
+	@FXML
+	private Pane grid29;
+	@FXML
+	private Pane grid30;
+	@FXML
+	private Pane grid31;
+	@FXML
+	private Pane grid32;
+	@FXML
+	private Pane grid33;
+	@FXML
+	private Pane grid34;
+	@FXML
+	private Pane grid35;
+	@FXML
+	private Pane grid36;
+	@FXML
+	private Pane grid37;
+	@FXML
+	private Pane grid38;
+	@FXML
+	private Pane grid39;
+	@FXML
+	private Pane grid40;
+	
+	
+	@FXML
 	private ScrollPane recapPane;
 	@FXML
 	private ScrollPane encherePane;
@@ -147,6 +228,8 @@ public class MonopolyController implements Observer {
 	private ListView<String> listeJoueur;
 	@FXML
 	private GridPane plateauGrille;
+	
+	private Map<String, Pane> listPane = new HashMap<String, Pane>();
 
 
 	private Image vert = new Image("/IHM/proprieteVerte2.jpeg");
@@ -158,6 +241,8 @@ public class MonopolyController implements Observer {
 	private Image jaune = new Image("/IHM/proprieteJaune.png");
 	private Image orange = new Image("/IHM/proprieteOrange.png");
 	private Image services = new Image("/IHM/proprieteServices.png");
+	private ImageView dog = new ImageView(new Image("/IHM/dog.png"));
+	private ImageView car = new ImageView(new Image("/IHM/car.png"));
 
 	private XMLParser parser = XMLParser.getParserInstance();
 	private Jeu jeu;
@@ -209,7 +294,61 @@ public class MonopolyController implements Observer {
 		boutonPropriete39.setOnAction(e -> onClickPropriete(39));
 		boutonSrvc12.setOnAction(e -> onClickService(12));
 		boutonSrvc28.setOnAction(e -> onClickService(28));
-
+		//Initialisation de la map et des grid
+		this.listPane.put("grid1", grid1);
+		this.listPane.put("grid2", grid2);
+		this.listPane.put("grid3", grid3);
+		this.listPane.put("grid4", grid4);
+		this.listPane.put("grid5", grid5);
+		this.listPane.put("grid6", grid6);
+		this.listPane.put("grid7", grid7);
+		this.listPane.put("grid8", grid8);
+		this.listPane.put("grid9", grid9);
+		this.listPane.put("grid10", grid10);
+		this.listPane.put("grid11", grid11);
+		this.listPane.put("grid12", grid12);
+		this.listPane.put("grid13", grid13);
+		this.listPane.put("grid14", grid14);
+		this.listPane.put("grid15", grid15);
+		this.listPane.put("grid15", grid15);
+		this.listPane.put("grid16", grid16);
+		this.listPane.put("grid17", grid17);
+		this.listPane.put("grid18", grid18);
+		this.listPane.put("grid19", grid19);
+		this.listPane.put("grid20", grid20);
+		this.listPane.put("grid21", grid21);
+		this.listPane.put("grid22", grid22);
+		this.listPane.put("grid23", grid23);
+		this.listPane.put("grid24", grid24);
+		this.listPane.put("grid25", grid25);
+		this.listPane.put("grid26", grid26);
+		this.listPane.put("grid27", grid27);
+		this.listPane.put("grid28", grid28);
+		this.listPane.put("grid29", grid29);
+		this.listPane.put("grid30", grid30);
+		this.listPane.put("grid31", grid31);
+		this.listPane.put("grid32", grid32);
+		this.listPane.put("grid33", grid33);
+		this.listPane.put("grid34", grid34);
+		this.listPane.put("grid35", grid35);
+		this.listPane.put("grid36", grid36);
+		this.listPane.put("grid37", grid37);
+		this.listPane.put("grid38", grid38);
+		this.listPane.put("grid39", grid39);
+		this.listPane.put("grid40", grid40);
+		
+		this.listPane.get("grid1").getChildren().add(dog);
+		this.listPane.get("grid1").getChildren().add(car);
+		
+	}
+	
+	private void deletePion(){
+		this.listPane.get("grid" + (jeu.getJoueurs(jeu.getCurrentJoueur()).getPosition() + 1) ).getChildren().remove(dog);
+		
+	}
+	
+	private void addPion(){
+		this.listPane.get("grid" + (jeu.getJoueurs(jeu.getCurrentJoueur()).getPosition() + 1)).getChildren().add(dog);
 	}
 
 	/**
@@ -369,6 +508,9 @@ public class MonopolyController implements Observer {
 			break;
 		}
 		this.resLancer.setText("" + jeu.getValeurLancerDes());
+		this.deletePion();
+		this.jeu.updateCurrentPos();
+		this.addPion();
 	}
 
 	@FXML

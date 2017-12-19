@@ -20,7 +20,7 @@ public class Joueur extends Observable{
 	private boolean enPrison;
 	private int money;
 	private String nom;
-	private Case position;
+	private int position;
 	private ArrayList<CasePropriete> proprietes;
 	private ArrayList<CaseGare> gares;
 	private ArrayList<CaseService> services;
@@ -29,7 +29,7 @@ public class Joueur extends Observable{
 		this.nom = nom;
 		this.jeu = jeu;
 		this.money = this.jeu.getArgentInitial();
-		//this.position = CaseDepart;
+		this.position = 0;
 	}
 	
 	public void acheterPropriete(CasePropriete propriete){
@@ -74,7 +74,7 @@ public class Joueur extends Observable{
 		return false; 
 	}
 	
-	public Case getPosition(){
+	public int getPosition(){
 		return this.position;
 	}
 	
@@ -126,7 +126,7 @@ public class Joueur extends Observable{
 	public void vendre(CaseAchetable propriete){}
 	
 	public void mettreEnPrison(){
-		this.position = this.jeu.getPlateau().getCase(10);
+		this.position = 10;
 		this.enPrison = true;
 	}
 	
@@ -134,7 +134,7 @@ public class Joueur extends Observable{
 		this.money += money;
 	}
 	
-	public void setPosition(Case cas){
+	public void setPosition(int cas){
 		this.position = cas;
 	}
 	

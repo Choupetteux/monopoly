@@ -59,12 +59,28 @@ public class Jeu{
 	public int getCurrentJoueur(){
 		return this.currentJoueur;
 	}
-
+	
+	public void updateCurrentPos(){
+		Joueur current = this.joueurs[this.currentJoueur];
+		if( (current.getPosition() + this.getValeurLancerDes()) > 39){
+			int firstPos = current.getPosition();
+			for(int i = 0; i < this.getValeurLancerDes(); i++){
+				if(firstPos + i == 39){
+					current.setPosition(0);
+					i++;
+					current.setPosition(0 + this.getValeurLancerDes() - i);
+				}
+			}
+		}
+		else{
+			current.setPosition(current.getPosition() + this.getValeurLancerDes());
+		}
+	}
 	
 	
 	/**public void deplacerJoueur(){
-		int mabite = this.joueurs[1].getPosition() + De.getLancer()
-		this.joueurs[1].setPosition(Case[mabite]);
+		int lol = this.joueurs[1].getPosition() + De.getLancer()
+		this.joueurs[1].setPosition(Case[lol]);
 	}**/
 	
 }
