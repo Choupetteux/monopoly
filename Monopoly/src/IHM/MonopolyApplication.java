@@ -9,6 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 import javafx.stage.WindowEvent;
@@ -49,9 +50,13 @@ public class MonopolyApplication extends Application {
             // décommentez la ligne ci-dessous et remplacez "votre_icone" par
             // le nom d'une image ajoutée aux ressources de votre application
             // primaryStage.getIcons().add(new Image("votre_icone"));
-
+            
+            //Création d'une boite de dialogue et association du FXML associé.
+            Scene scene = new Scene(FXMLLoader.load(getClass().getResource("dialogue.fxml")));
             Stage popup = new Stage();
+            popup.setScene(scene);
             popup.show();
+            //Quand le dialogue est caché, appelle l'affichage de la fenêtre principale.
             popup.setOnHidden(new EventHandler<WindowEvent>() {
 
 				@Override
