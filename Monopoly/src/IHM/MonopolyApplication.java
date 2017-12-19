@@ -44,8 +44,10 @@ public class MonopolyApplication extends Application {
             primaryStage.setTitle("Monopoly");
             primaryStage.setScene(new Scene(root));
             primaryStage.setResizable(false);
-            Platform.setImplicitExit(false);
 
+            primaryStage.show();
+            /** Doesn't work
+            primaryStage.setOpacity(0);
 
             // décommentez la ligne ci-dessous et remplacez "votre_icone" par
             // le nom d'une image ajoutée aux ressources de votre application
@@ -62,10 +64,11 @@ public class MonopolyApplication extends Application {
 				@Override
 				public void handle(WindowEvent event) {
 	                Platform.setImplicitExit(true);
-	                primaryStage.show();
+	                primaryStage.setOpacity(1);
 					
 				}
             });
+            **/
 
         }
         catch (Exception e) {

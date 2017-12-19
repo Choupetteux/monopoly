@@ -268,6 +268,8 @@ public class MonopolyController implements Observer {
 	 */
 	@FXML
 	protected void initialize() {
+		this.recapPane.setOpacity(0);
+		this.recapPane.setDisable(true);
 		this.encherePane.setOpacity(0);
 		this.encherePane.setDisable(true);
 		this.proprietePane.setOpacity(0);
