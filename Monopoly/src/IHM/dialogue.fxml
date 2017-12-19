@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox fillWidth="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/8.0.91" xmlns:fx="http://javafx.com/fxml/1" fx:controller="IHM.MonopolyController">
+    
+    <stylesheets>
+        <URL value="@../../bin/IHM/Monopoly.css" />
+    </stylesheets>
+   <children>
+      <Pane prefHeight="360.0" prefWidth="563.0">
+         <children>
+            <Label layoutX="190.0" layoutY="14.0" text="Monopoly" textAlignment="CENTER">
+               <font>
+                  <Font size="35.0" />
+               </font>
+            </Label>
+            <Button layoutX="197.0" layoutY="207.0" mnemonicParsing="false" text="Commencer la partie" />
+            <TextField fx:id="fieldJ1" layoutX="189.0" layoutY="97.0" />
+            <TextField fx:id="fieldJ2" layoutX="189.0" layoutY="149.0" />
+            <Label layoutX="81.0" layoutY="102.0" text="Nom joueur 1 :" underline="true" />
+            <Label layoutX="81.0" layoutY="154.0" text="Nom joueur 2 :" underline="true" />
+         </children>
+      </Pane>
+   </children>
+    
+</VBox>

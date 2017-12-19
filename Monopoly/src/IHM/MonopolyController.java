@@ -11,6 +11,7 @@ import javafx.scene.control.ListView;
 import java.lang.Class;
 import java.lang.reflect.Field;
 import javafx.scene.control.SplitPane;
+import javafx.scene.control.TextField;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Label;
 import javafx.scene.control.Button;
@@ -229,6 +230,11 @@ public class MonopolyController implements Observer {
 	@FXML
 	private GridPane plateauGrille;
 	
+	@FXML
+	private TextField fieldJ1;
+	@FXML
+	private TextField fieldJ2;
+	
 	private Map<String, Pane> listPane = new HashMap<String, Pane>();
 
 
@@ -375,6 +381,11 @@ public class MonopolyController implements Observer {
 	@FXML
 	public boolean onWindowCloseRequest() {
 		return true;
+	}
+	
+	@FXML
+	public void startGame(){
+		System.out.println("working");
 	}
 
 	@FXML
