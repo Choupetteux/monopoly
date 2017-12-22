@@ -113,6 +113,10 @@ public class MonopolyController implements Observer {
 	private Button boutonSrvc28;
 	@FXML
 	private Button btnLancer;
+	@FXML
+	private Button btnPasAcheter;
+	@FXML
+	private Button btnPasserTour;
 
 	@FXML
 	private Label recapLabel;
@@ -264,6 +268,7 @@ public class MonopolyController implements Observer {
 	private XMLParser parser = XMLParser.getParserInstance();
 	private Jeu jeu;
 	private String currentPane = "Récapitulatif";
+	private boolean canBuy = false;
 
 	/**
 	 * Constructeur.
@@ -287,6 +292,9 @@ public class MonopolyController implements Observer {
 		this.encherePane.setDisable(true);
 		this.proprietePane.setOpacity(0);
 		this.proprietePane.setDisable(true);
+		this.btnAcheter.setOpacity(0);
+		this.btnPasAcheter.setOpacity(0);
+		this.btnPasAcheter.setDisable(true);
 		
 		// Initialisation des méthodes associés aux boutons
 		boutonPropriete1.setOnAction(e -> onClickPropriete(1));
@@ -414,16 +422,16 @@ public class MonopolyController implements Observer {
 	public void startGame(){
 		//Vérification du formulaire des noms de joueurs
 		if( fieldJ1.getText().isEmpty() && fieldJ2.getText().isEmpty()){
-			this.jeu = new Jeu("Joueur 1", "Joueur 2", this);
+			this.jeu = new Jeu("Joueur 1", "Joueur 2", this, this);
 		}
 		else if( fieldJ2.getText().isEmpty() ){
-			this.jeu = new Jeu(this.fieldJ1.getText(), "Joueur 2", this);
+			this.jeu = new Jeu(this.fieldJ1.getText(), "Joueur 2", this, this);
 		}
 		else if( fieldJ1.getText().isEmpty() ){
-			this.jeu = new Jeu("Joueur 1", this.fieldJ2.getText(), this);
+			this.jeu = new Jeu("Joueur 1", this.fieldJ2.getText(), this, this);
 		}
 		else{
-			this.jeu = new Jeu(this.fieldJ1.getText(), this.fieldJ2.getText(), this);
+			this.jeu = new Jeu(this.fieldJ1.getText(), this.fieldJ2.getText(), this, this);
 		}
 		//On retire le startPane pour mettre le pane de récapitulatif.
 		this.startPane.setOpacity(0);
@@ -493,9 +501,25 @@ public class MonopolyController implements Observer {
 		else{
 			this.labelProprio.setText("" + caseProp.getProprietaire());
 		}
+		this.displayBtnIfPlayerCanBuy(index);
 		this.changePane("Propriété");
 		this.currentPane = "Propriété";
-
+		
+	}
+	
+	public void displayBtnIfPlayerCanBuy(int index){
+		if (this.canBuy && this.jeu.getJoueurs(this.jeu.getCurrentJoueur()).getPosition() == index){
+			this.btnAcheter.setOpacity(1);
+			this.btnAcheter.setDisable(false);
+			this.btnPasAcheter.setOpacity(1);
+			this.btnPasAcheter.setDisable(false);
+		}
+		else{
+			this.btnAcheter.setOpacity(0);
+			this.btnAcheter.setDisable(true);
+			this.btnPasAcheter.setOpacity(0);
+			this.btnPasAcheter.setDisable(true);
+		}
 	}
 	
 	@FXML
@@ -535,7 +559,11 @@ public class MonopolyController implements Observer {
 
 	@FXML
 	public void onClickBackToCurrent() {
-		this.changePane(currentPane);
+		this.onClickPropriete(this.jeu.getJoueurs(this.jeu.getCurrentJoueur()).getPosition());
+	}
+	
+	public boolean getCanBuy(){
+		return this.canBuy;
 	}
 	
 	@FXML
@@ -592,6 +620,11 @@ public class MonopolyController implements Observer {
 			this.listPane.get("grid1").getChildren().get(this.listPane.get("grid1").getChildren().indexOf(car)).setTranslateX(5);
 		}
 		this.jeu.jouerTour();
+	}
+	
+	@FXML
+	public void onClickPasserTour(){
+		this.jeu.passerTour();
 	}
 
 	@FXML
@@ -657,8 +690,12 @@ public class MonopolyController implements Observer {
 		case CASE_PASSAGE_PRISON:
 			break;
 		case CASE_PROPRIETE_ACHETABLE:
+			this.changePane("Propriete");
 			this.btnAcheter.setOpacity(1);
 			this.btnAcheter.setDisable(false);
+			this.btnPasAcheter.setOpacity(1);
+			this.btnPasAcheter.setDisable(false);
+			this.canBuy = true;
 			break;
 		case CASE_SERVICE:
 			// TODO:Paye batar

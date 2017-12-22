@@ -1,14 +1,17 @@
 package Case;
 
+import java.util.Observer;
+
 import Joueur.Joueur;
 
 public class CasePrison extends Case{
 	private int prixSortie;
 
-	public CasePrison() {
+	public CasePrison(Observer o) {
 		super();
 		this.ID=20;
 		this.prixSortie = 50;		
+		addObserver(o);
 	}
 	
 	public void casePrison(){

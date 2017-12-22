@@ -1,5 +1,7 @@
 package Case;
 
+import java.util.Observer;
+
 import Joueur.Joueur;
 
 public class CaseAchetable extends Case{
@@ -10,9 +12,10 @@ public class CaseAchetable extends Case{
 	protected boolean disponible;
 	protected Joueur proprietaire = null;
 	
-	public CaseAchetable(int id) {
+	public CaseAchetable(int id, Observer o) {
 		super();
 		this.ID = id;
+		addObserver(o);
 	}
 
 	public String getGroupeCouleur() {

@@ -272,7 +272,7 @@
                               </Label>
                               <Button fx:id="btnAcheter" disable="true" layoutX="72.0" layoutY="353.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="154.0" text="Acheter : prixBD" />
                               <Button layoutX="13.0" layoutY="6.0" mnemonicParsing="false" onAction="#onClickRecapitulatif" prefHeight="44.0" prefWidth="54.0" text="←" />
-                              <Button layoutX="245.0" layoutY="353.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="154.0" text="Ne pas acheter" />
+                              <Button fx:id="btnPasAcheter" layoutX="245.0" layoutY="353.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="154.0" text="Ne pas acheter" />
                               <Label fx:id="labelH1" layoutX="45.0" layoutY="297.0" text="Propriétaire :">
                                  <font>
                                     <Font size="29.0" />
@@ -353,6 +353,7 @@
                                   <TableColumn minWidth="6.0" prefWidth="77.0" text="Loyer" />
                                 </columns>
                               </TableView>
+                              <Button fx:id="btnPasserTour" layoutX="364.0" layoutY="923.0" mnemonicParsing="false" onAction="#onClickPasserTour" prefHeight="26.0" prefWidth="97.0" text="Passer tour" />
                            </children>
                         </AnchorPane>
                     </content>

@@ -1,6 +1,7 @@
 package Case;
 
 import java.util.ArrayList;
+import java.util.Observer;
 
 import org.w3c.dom.Node;
 
@@ -15,8 +16,8 @@ public class CasePropriete extends CaseAchetable{
 	private Node nodeLink;
 	private ArrayList<ArrayList<Node>> listeTerrain = this.parser.getArrayTerrains();
 	
-	public CasePropriete(int id) {
-		super(id);
+	public CasePropriete(int id, Observer o) {
+		super(id, o);
 		this.nbMaison = 0;
 		for(ArrayList<Node> terrain : listeTerrain){
 			for(Node attribut : terrain){

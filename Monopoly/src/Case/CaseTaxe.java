@@ -1,13 +1,16 @@
 package Case;
 
 import Joueur.Joueur;
+
+import java.util.Observer;
+
 import org.w3c.dom.Node;
 
 public class CaseTaxe extends Case{
 
 	private int taxe;
 	
-	public CaseTaxe(int id){
+	public CaseTaxe(int id, Observer o){
 		this.ID = id;
 		for(Node taxe : this.parser.getNodeArray("taxe", this.parser.getGroupes())){
 			if(this.ID == Integer.parseInt(this.parser.getNodeAttr("id", taxe))){
@@ -15,6 +18,7 @@ public class CaseTaxe extends Case{
 				this.nom = this.parser.getNodeAttr("nom", taxe);
 			}
 		}
+		addObserver(o);
 	}
 
 	@Override

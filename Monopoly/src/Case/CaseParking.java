@@ -1,12 +1,15 @@
 package Case;
 
+import java.util.Observer;
+
 import Joueur.Joueur;
 
 public class CaseParking extends Case{
 
-	public CaseParking() {
+	public CaseParking(Observer o) {
 		super();
 		this.ID=20;
+		addObserver(o);
 	}
 	
 	public void caseParking(){
