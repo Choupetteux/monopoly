@@ -11,6 +11,7 @@ import javafx.scene.control.ListView;
 import java.lang.Class;
 import java.lang.reflect.Field;
 import javafx.scene.control.SplitPane;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ScrollPane;
@@ -35,6 +36,7 @@ import Case.CasePropriete;
 import info.util.javafx.FXUtil;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 /**
@@ -243,7 +245,7 @@ public class MonopolyController implements Observer {
 	@FXML
 	private GridPane plateauGrille;
 	@FXML
-	private TableView<CaseAchetable> listPropriete;
+	private TableView<CasePropriete> listPropriete;
 	
 	@FXML
 	private TextField fieldJ1;
@@ -451,8 +453,7 @@ public class MonopolyController implements Observer {
 	        public void handle(MouseEvent event) {
 	        	joueurNom.setText(listeJoueur.getSelectionModel().getSelectedItem());
 	        	argentJoueur.setText(jeu.getJoueurFromNom(listeJoueur.getSelectionModel().getSelectedItem()).getArgent() + " €");
-	        	ObservableList<CaseAchetable> lol = FXCollections.observableArrayList(jeu.getJoueurFromNom(listeJoueur.getSelectionModel().getSelectedItem()).getProprietes());
-	        	listPropriete.setItems(lol);
+	        	//TODO Populate TableView
 	        }
 	    });
 	}
