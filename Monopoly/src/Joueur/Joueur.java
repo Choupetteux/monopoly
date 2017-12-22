@@ -2,6 +2,7 @@ package Joueur;
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.Observable;
+import java.util.Observer;
 
 import Case.Case;
 import Case.CaseAchetable;
@@ -25,15 +26,19 @@ public class Joueur extends Observable{
 	private ArrayList<CaseGare> gares = new ArrayList<CaseGare>();
 	private ArrayList<CaseService> services = new ArrayList<CaseService>();
 	
-	public Joueur(String nom, Jeu jeu){
+	public Joueur(String nom, Jeu jeu, Observer o){
 		this.nom = nom;
 		this.jeu = jeu;
 		this.money = this.jeu.getArgentInitial();
 		this.position = 0;
+		addObserver(o);
 	}
 	
 	public void acheterPropriete(CasePropriete propriete){
 		this.proprietes.add(propriete);
+		propriete.setProprietaire(this);
+		propriete.setDisponible(false);
+		this.money = this.money - propriete.getPrixAchat();
 	}
 	
 	public boolean peutAcheterMaison(){
@@ -111,12 +116,7 @@ public class Joueur extends Observable{
 		proprietaire.money += loyer;
 	}
 	
-	public void acheterPropriete(int prix){
-		
-	}
-	
 	public void acheterMaison(){
-		
 	}
 	
 	public void acheterGare(){}

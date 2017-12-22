@@ -1,14 +1,17 @@
 package Case;
 
+import java.util.Observer;
+
 import Joueur.Joueur;
 
 public class CaseCarte extends Case{
 
 	private int typeCarte;
 	
-	public CaseCarte(int id){
+	public CaseCarte(int id, Observer o){
 		super();
 		this.ID = id;
+		addObserver(o);
 	}
 
 	@Override

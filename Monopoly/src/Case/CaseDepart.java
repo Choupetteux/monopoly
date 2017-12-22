@@ -1,12 +1,15 @@
 package Case;
 
+import java.util.Observer;
+
 import Joueur.Joueur;
 
 public class CaseDepart extends Case{
 
-	public CaseDepart() {
+	public CaseDepart(Observer o) {
 		super();
 		this.ID=0;
+		addObserver(o);
 	}
 	
 	public void caseDepart(){

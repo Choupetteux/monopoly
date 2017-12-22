@@ -1,12 +1,14 @@
 package Jeu;
 
+import java.util.Observable;
+
 import Jeu.EventType;
 
 /**
  * Classe utilisée pour communiquer avec les observateurs d'une connexion
  *
  */
-public class EventMonopoly {
+public class EventMonopoly{
     /**
      * Type de l'événement
      */

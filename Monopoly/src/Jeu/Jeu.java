@@ -19,14 +19,14 @@ public class Jeu{
 	private int valeurLancerDes;
 	private int currentJoueur;
 	
-	public Jeu(String joueur1, String joueur2, MonopolyController controller){
+	public Jeu(String joueur1, String joueur2, MonopolyController controller, Observer o){
 		this.nombreJoueur = 2;
 		this.des[0] = new De();
 		this.des[1] = new De();
-		this.plateau = new Plateau(this);
+		this.plateau = new Plateau(this, o);
 		this.argentInitial = 1500;
-		this.joueurs[0] = new Joueur(joueur1, this);
-		this.joueurs[1] = new Joueur(joueur2, this);
+		this.joueurs[0] = new Joueur(joueur1, this, o);
+		this.joueurs[1] = new Joueur(joueur2, this, o);
 		this.tour = 0;
 		this.controller = controller;
 		this.currentJoueur = 0;
@@ -53,6 +53,10 @@ public class Jeu{
 	
 	public void jouerTour(){
 		this.plateau.getCase(this.joueurs[currentJoueur].getPosition()).jouerAction(this.joueurs[currentJoueur]);
+		
+	}
+	
+	public void passerTour(){
 		this.tour = tour + 1;
 		this.currentJoueur = tour % this.nombreJoueur;
 		this.controller.getBtnLancer().setDisable(false);
@@ -83,6 +87,7 @@ public class Jeu{
 		Joueur current = this.joueurs[this.currentJoueur];
 		if( (current.getPosition() + this.getValeurLancerDes()) > 39){
 			int firstPos = current.getPosition();
+			this.joueurs[this.currentJoueur].setArgent(this.joueurs[this.currentJoueur].getArgent() + 200);
 			for(int i = 0; i < this.getValeurLancerDes(); i++){
 				if(firstPos + i == 39){
 					current.setPosition(0);
