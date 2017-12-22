@@ -12,6 +12,6 @@ public class CaseGoPrison extends Case{
 	
 	@Override
 	public void jouerAction(Joueur joueur){
-		joueur.emitEvent(EventType.CASE_GO_PRISON);
+		this.emitEvent(EventType.CASE_GO_PRISON);
 	}
 }

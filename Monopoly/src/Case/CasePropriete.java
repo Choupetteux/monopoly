@@ -4,6 +4,9 @@ import java.util.ArrayList;
 
 import org.w3c.dom.Node;
 
+import Jeu.EventType;
+import Joueur.Joueur;
+
 public class CasePropriete extends CaseAchetable{
 	
 	private int nbMaison;
@@ -61,5 +64,19 @@ public class CasePropriete extends CaseAchetable{
 	
 	public int getPrixMaison(){
 		return this.prixMaison;
+	}
+	
+	@Override
+	public void jouerAction(Joueur joueur){
+		if(this.getProprietaire() == null){
+			if(joueur.getArgent() >= this.prixAchat){
+				this.emitEvent(EventType.CASE_PROPRIETE_ACHETABLE);
+			}
+		}
+		else{
+			this.emitEvent(EventType.CASE_PROPRIETE);
+			joueur.setArgent(joueur.getArgent() - this.getLoyer());
+			this.proprietaire.setArgent(this.proprietaire.getArgent() + this.getLoyer());
+		}
 	}
 }

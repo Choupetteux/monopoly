@@ -11,7 +11,7 @@ import Jeu.EventType;
 import Jeu.Jeu;
 import Jeu.EventMonopoly;
 
-public abstract class Case{
+public abstract class Case extends Observable{
 	
 	protected String nom;
 	protected int ID;
@@ -30,6 +30,11 @@ public abstract class Case{
 	}
 	
 	public abstract void jouerAction(Joueur joueur);
+	
+	public void emitEvent(EventType type) {
+        setChanged();
+        notifyObservers(new EventMonopoly(type));
+    }
 
 	
 }
