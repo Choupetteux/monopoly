@@ -72,6 +72,9 @@ public class CasePropriete extends CaseAchetable{
 			if(joueur.getArgent() >= this.prixAchat){
 				this.emitEvent(EventType.CASE_PROPRIETE_ACHETABLE);
 			}
+			else{
+				this.emitEvent(EventType.ACHAT_PROPRIETE_REJECT);
+			}
 		}
 		else{
 			this.emitEvent(EventType.CASE_PROPRIETE);
