@@ -443,6 +443,8 @@ public class MonopolyController implements Observer {
 	        public void handle(MouseEvent event) {
 	        	joueurNom.setText(listeJoueur.getSelectionModel().getSelectedItem());
 	        	argentJoueur.setText(jeu.getJoueurFromNom(listeJoueur.getSelectionModel().getSelectedItem()).getArgent() + " €");
+	        	ObservableList<CaseAchetable> lol = FXCollections.observableArrayList(jeu.getJoueurFromNom(listeJoueur.getSelectionModel().getSelectedItem()).getProprietes());
+	        	listPropriete.setItems(lol);
 	        }
 	    });
 	}

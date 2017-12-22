@@ -21,9 +21,9 @@ public class Joueur extends Observable{
 	private int money;
 	private String nom;
 	private int position;
-	private ArrayList<CasePropriete> proprietes;
-	private ArrayList<CaseGare> gares;
-	private ArrayList<CaseService> services;
+	private ArrayList<CasePropriete> proprietes = new ArrayList<CasePropriete>();
+	private ArrayList<CaseGare> gares = new ArrayList<CaseGare>();
+	private ArrayList<CaseService> services = new ArrayList<CaseService>();
 	
 	public Joueur(String nom, Jeu jeu){
 		this.nom = nom;
@@ -112,10 +112,10 @@ public class Joueur extends Observable{
 	}
 	
 	public void acheterPropriete(int prix){
+		
 	}
 	
 	public void acheterMaison(){
-		
 		
 	}
 	
