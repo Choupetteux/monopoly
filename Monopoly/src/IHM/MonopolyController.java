@@ -441,7 +441,8 @@ public class MonopolyController implements Observer {
 
 	        @Override
 	        public void handle(MouseEvent event) {
-	            System.out.println("clicked on " + listeJoueur.getSelectionModel().getSelectedItem());
+	        	joueurNom.setText(listeJoueur.getSelectionModel().getSelectedItem());
+	        	argentJoueur.setText(jeu.getJoueurFromNom(listeJoueur.getSelectionModel().getSelectedItem()).getArgent() + " €");
 	        }
 	    });
 	}

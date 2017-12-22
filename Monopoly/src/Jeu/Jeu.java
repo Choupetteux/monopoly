@@ -52,7 +52,6 @@ public class Jeu{
 	}
 	
 	public void jouerTour(){
-
 		this.plateau.getCase(this.joueurs[currentJoueur].getPosition()).jouerAction(this.joueurs[currentJoueur]);
 		this.tour = tour + 1;
 		this.currentJoueur = tour % this.nombreJoueur;

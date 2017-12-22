@@ -131,7 +131,7 @@ public class Joueur extends Observable{
 	}
 	
 	public void setArgent(int money){
-		this.money += money;
+		this.money = money;
 	}
 	
 	public void setPosition(int cas){

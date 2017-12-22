@@ -19,6 +19,6 @@ public class CaseTaxe extends Case{
 
 	@Override
 	public void jouerAction(Joueur joueur) {
-		joueur.setArgent(joueur.getArgent() - this.taxe);
+		joueur.setArgent((joueur.getArgent() - this.taxe));
 	}
 }

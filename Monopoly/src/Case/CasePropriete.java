@@ -76,6 +76,9 @@ public class CasePropriete extends CaseAchetable{
 				this.emitEvent(EventType.ACHAT_PROPRIETE_REJECT);
 			}
 		}
+		else if(this.proprietaire.equals(joueur)){
+				
+		}
 		else{
 			this.emitEvent(EventType.CASE_PROPRIETE);
 			joueur.setArgent(joueur.getArgent() - this.getLoyer());
