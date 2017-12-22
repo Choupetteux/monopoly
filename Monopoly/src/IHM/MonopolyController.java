@@ -11,6 +11,7 @@ import javafx.scene.control.ListView;
 import java.lang.Class;
 import java.lang.reflect.Field;
 import javafx.scene.control.SplitPane;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Label;
@@ -137,6 +138,10 @@ public class MonopolyController implements Observer {
 	private Label labelCasePane;
 	@FXML
 	private Label labelProprio;
+	@FXML
+	private Label argentJoueur;
+	@FXML
+	private Label joueurNom;
 
 	@FXML
 	private Pane grid1;
@@ -233,6 +238,8 @@ public class MonopolyController implements Observer {
 	private ListView<String> listeJoueur;
 	@FXML
 	private GridPane plateauGrille;
+	@FXML
+	private TableView<CaseAchetable> listPropriete;
 	
 	@FXML
 	private TextField fieldJ1;
