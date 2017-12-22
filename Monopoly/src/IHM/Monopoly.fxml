@@ -195,42 +195,6 @@
             </AnchorPane>
             <StackPane alignment="CENTER_RIGHT" prefHeight="1000.0" prefWidth="500.0">
                <children>
-                  <ScrollPane fx:id="recapPane" prefHeight="1000.0" prefWidth="491.0">
-                    <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1000.0" prefWidth="500.0">
-                           <children>
-                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="7.0" layoutY="6.0" prefHeight="50.0" prefWidth="460.0" text="Récapitulatif" textAlignment="CENTER">
-                                 <font>
-                                    <Font size="40.0" />
-                                 </font>
-                              </Label>
-                              <ListView fx:id="listeJoueur" layoutX="14.0" layoutY="76.0" prefHeight="145.0" prefWidth="462.0" />
-                              <ImageView fx:id="de1" fitHeight="70.0" fitWidth="120.0" layoutX="21.0" layoutY="901.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../bin/IHM/Dice1.gif" />
-                                 </image>
-                              </ImageView>
-                              <ImageView fx:id="de2" fitHeight="70.0" fitWidth="120.0" layoutX="101.0" layoutY="901.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../bin/IHM/Dice1.gif" />
-                                 </image>
-                              </ImageView>
-                              <Label layoutX="21.0" layoutY="865.0" text="Lancer de dés:" underline="true">
-                                 <font>
-                                    <Font size="16.0" />
-                                 </font>
-                              </Label>
-                              <Label fx:id="resLancer" layoutX="179.0" layoutY="923.0">
-                                 <font>
-                                    <Font size="22.0" />
-                                 </font>
-                              </Label>
-                              <Button fx:id="btnLancer" layoutX="225.0" layoutY="923.0" mnemonicParsing="false" onAction="#btnLancerDes" text="Lancer les dés" />
-                              <Button layoutX="422.0" layoutY="9.0" mnemonicParsing="false" onAction="#onClickBackToCurrent" prefHeight="44.0" prefWidth="54.0" text="→" />
-                           </children>
-                        </AnchorPane>
-                    </content>
-                  </ScrollPane>
                   <ScrollPane fx:id="encherePane" prefHeight="200.0" prefWidth="200.0">
                     <content>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1000.0" prefWidth="500.0">
@@ -325,7 +289,7 @@
                     <content>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="938.0" prefWidth="501.0">
                            <children>
-                              <Label layoutX="49.0" layoutY="14.0" text="Commener une partie" textAlignment="CENTER">
+                              <Label layoutX="39.0" layoutY="14.0" text="Commencer une partie" textAlignment="CENTER">
                                  <font>
                                     <Font size="35.0" />
                                  </font>
@@ -335,6 +299,42 @@
                               <TextField fx:id="fieldJ1" layoutX="156.0" layoutY="98.0" />
                               <Label layoutX="51.0" layoutY="103.0" text="Nom joueur 1 :" underline="true" />
                               <Label layoutX="51.0" layoutY="163.0" text="Nom joueur 2 :" underline="true" />
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </ScrollPane>
+                  <ScrollPane fx:id="recapPane" prefHeight="1000.0" prefWidth="491.0">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1000.0" prefWidth="500.0">
+                           <children>
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="7.0" layoutY="6.0" prefHeight="50.0" prefWidth="460.0" text="Récapitulatif" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="40.0" />
+                                 </font>
+                              </Label>
+                              <ListView fx:id="listeJoueur" layoutX="14.0" layoutY="76.0" prefHeight="145.0" prefWidth="462.0" />
+                              <ImageView fx:id="de1" fitHeight="70.0" fitWidth="120.0" layoutX="21.0" layoutY="901.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../bin/IHM/Dice1.gif" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="de2" fitHeight="70.0" fitWidth="120.0" layoutX="101.0" layoutY="901.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../bin/IHM/Dice1.gif" />
+                                 </image>
+                              </ImageView>
+                              <Label layoutX="21.0" layoutY="865.0" text="Lancer de dés:" underline="true">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="resLancer" layoutX="179.0" layoutY="923.0">
+                                 <font>
+                                    <Font size="22.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="btnLancer" layoutX="225.0" layoutY="923.0" mnemonicParsing="false" onAction="#btnLancerDes" text="Lancer les dés" />
+                              <Button layoutX="422.0" layoutY="9.0" mnemonicParsing="false" onAction="#onClickBackToCurrent" prefHeight="44.0" prefWidth="54.0" text="→" />
                            </children>
                         </AnchorPane>
                     </content>

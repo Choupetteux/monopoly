@@ -110,6 +110,8 @@ public class MonopolyController implements Observer {
 	private Button boutonSrvc12;
 	@FXML
 	private Button boutonSrvc28;
+	@FXML
+	private Button btnLancer;
 
 	@FXML
 	private Label recapLabel;
@@ -346,19 +348,33 @@ public class MonopolyController implements Observer {
 		this.listPane.put("grid38", grid38);
 		this.listPane.put("grid39", grid39);
 		this.listPane.put("grid40", grid40);
-		
+		//Ajout des pions sur la case départ.
 		this.listPane.get("grid1").getChildren().add(dog);
 		this.listPane.get("grid1").getChildren().add(car);
-		
+		//On bouge le pion pour ne pas les stacker
+		this.listPane.get("grid1").getChildren().get(this.listPane.get("grid1").getChildren().indexOf(car)).setTranslateX(50);
 	}
 	
 	private void deletePion(){
-		this.listPane.get("grid" + (jeu.getJoueurs(jeu.getCurrentJoueur()).getPosition() + 1) ).getChildren().remove(dog);
-		
+		switch(this.jeu.getCurrentJoueur()){
+		case 0:
+			this.listPane.get("grid" + (jeu.getJoueurs(jeu.getCurrentJoueur()).getPosition() + 1)).getChildren().remove(dog);
+			break;
+		case 1:
+			this.listPane.get("grid" + (jeu.getJoueurs(jeu.getCurrentJoueur()).getPosition() + 1)).getChildren().remove(car);
+			break;
+		}
 	}
 	
 	private void addPion(){
-		this.listPane.get("grid" + (jeu.getJoueurs(jeu.getCurrentJoueur()).getPosition() + 1)).getChildren().add(dog);
+		switch(this.jeu.getCurrentJoueur()){
+		case 0:
+			this.listPane.get("grid" + (jeu.getJoueurs(jeu.getCurrentJoueur()).getPosition() + 1)).getChildren().add(dog);
+			break;
+		case 1:
+			this.listPane.get("grid" + (jeu.getJoueurs(jeu.getCurrentJoueur()).getPosition() + 1)).getChildren().add(car);
+			break;
+		}
 	}
 
 	/**
@@ -389,17 +405,35 @@ public class MonopolyController implements Observer {
 	
 	@FXML
 	public void startGame(){
-		this.jeu = new Jeu(this.fieldJ1.getText(), this.fieldJ2.getText());
+		//Vérification du formulaire des noms de joueurs
+		if( fieldJ1.getText().isEmpty() && fieldJ2.getText().isEmpty()){
+			this.jeu = new Jeu("Joueur 1", "Joueur 2", this);
+		}
+		else if( fieldJ2.getText().isEmpty() ){
+			this.jeu = new Jeu(this.fieldJ1.getText(), "Joueur 2", this);
+		}
+		else if( fieldJ1.getText().isEmpty() ){
+			this.jeu = new Jeu("Joueur 1", this.fieldJ2.getText(), this);
+		}
+		else{
+			this.jeu = new Jeu(this.fieldJ1.getText(), this.fieldJ2.getText(), this);
+		}
+		//On retire le startPane pour mettre le pane de récapitulatif.
 		this.startPane.setOpacity(0);
 		this.startPane.setDisable(true);
 		this.recapPane.setOpacity(1);
 		this.recapPane.setDisable(false);
+		//On remplit la ListView avec les joueurs.
 		ObservableList<String> joueurList = FXCollections.observableArrayList();
-		for(int i = 0; i < this.jeu.getJoueurMax(); i++){
+		for(int i = 0; i < this.jeu.getNbrJoueur(); i++){
 			//TODO Maybe add "(1)" quand deux joueurs ont le même nom
 			joueurList.add(this.jeu.getJoueurs(i).getNom());
 		}
 		this.listeJoueur.setItems(joueurList);
+	}
+	
+	public Button getBtnLancer(){
+		return this.btnLancer;
 	}
 
 	@FXML
@@ -533,9 +567,14 @@ public class MonopolyController implements Observer {
 			break;
 		}
 		this.resLancer.setText("" + jeu.getValeurLancerDes());
+		this.btnLancer.setDisable(true);
 		this.deletePion();
 		this.jeu.updateCurrentPos();
 		this.addPion();
+		if(this.jeu.getTour() == 0){
+			this.listPane.get("grid1").getChildren().get(this.listPane.get("grid1").getChildren().indexOf(car)).setTranslateX(5);
+		}
+		this.jeu.jouerTour();
 	}
 
 	@FXML
