@@ -499,7 +499,7 @@ public class MonopolyController implements Observer {
 			this.labelProprio.setText("Pas de propriétaire.");
 		}
 		else{
-			this.labelProprio.setText("" + caseProp.getProprietaire());
+			this.labelProprio.setText("" + caseProp.getProprietaire().getNom());
 		}
 		this.displayBtnIfPlayerCanBuy(index);
 		this.changePane("Propriété");
@@ -555,6 +555,13 @@ public class MonopolyController implements Observer {
 	@FXML
 	public void onClickRecapitulatif() {
 		this.changePane("Recapitulatif");
+	}
+	
+	@FXML
+	public void onClickAcheter(){
+		this.jeu.getJoueurs(this.jeu.getCurrentJoueur()).acheterPropriete((CasePropriete) this.jeu.getPlateau().getCase(this.jeu.getJoueurs(this.jeu.getCurrentJoueur()).getPosition()));
+		this.canBuy = false;
+		this.onClickPropriete(this.jeu.getJoueurs(this.jeu.getCurrentJoueur()).getPosition());
 	}
 
 	@FXML

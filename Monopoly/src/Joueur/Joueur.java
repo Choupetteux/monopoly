@@ -36,6 +36,9 @@ public class Joueur extends Observable{
 	
 	public void acheterPropriete(CasePropriete propriete){
 		this.proprietes.add(propriete);
+		propriete.setProprietaire(this);
+		propriete.setDisponible(false);
+		this.money = this.money - propriete.getPrixAchat();
 	}
 	
 	public boolean peutAcheterMaison(){
@@ -113,12 +116,7 @@ public class Joueur extends Observable{
 		proprietaire.money += loyer;
 	}
 	
-	public void acheterPropriete(int prix){
-		
-	}
-	
 	public void acheterMaison(){
-		
 	}
 	
 	public void acheterGare(){}
