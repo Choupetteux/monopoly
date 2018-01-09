@@ -706,7 +706,9 @@ public class MonopolyController implements Observer {
 		EventMonopoly event = (EventMonopoly) arg;
 		switch (event.type) {
 		case CASE_GO_PRISON:
+			this.deletePion();
 			this.jeu.getJoueurs(this.jeu.getCurrentJoueur()).mettreEnPrison();
+			this.addPion();
 		case ACHAT_PROPRIETE_REJECT:
 			this.changePane("Enchere");
 			// TODO:
@@ -738,7 +740,7 @@ public class MonopolyController implements Observer {
 		case CASE_PASSAGE_PRISON:
 			break;
 		case CASE_PROPRIETE_ACHETABLE:
-			this.changePane("Propriete");
+			this.onClickPropriete(this.jeu.getJoueurs(this.jeu.getCurrentJoueur()).getPosition());
 			this.btnAcheter.setOpacity(1);
 			this.btnAcheter.setDisable(false);
 			this.btnPasAcheter.setOpacity(1);

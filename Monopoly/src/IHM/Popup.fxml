@@ -11,7 +11,7 @@
    <children>
       <Pane prefHeight="306.0" prefWidth="497.0">
          <children>
-            <Button fx:id="btnOk" layoutX="207.0" layoutY="241.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="83.0" text="OK" />
+            <Button fx:id="btnOk" layoutX="207.0" layoutY="241.0" mnemonicParsing="false" onAction="#onClickBtnOk" prefHeight="26.0" prefWidth="83.0" text="OK" />
             <ImageView fx:id="imgDesc" fitHeight="150.0" fitWidth="400.0" layoutX="49.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
             <Label fx:id="labelHappen" alignment="CENTER" contentDisplay="CENTER" layoutX="-1.0" layoutY="172.0" prefHeight="20.0" prefWidth="497.0" text="dxdsqdsqdsqdsqdsqdsqdsqdsqdsqdsq">
                <font>
