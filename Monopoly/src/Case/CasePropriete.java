@@ -7,6 +7,8 @@ import org.w3c.dom.Node;
 
 import Jeu.EventType;
 import Joueur.Joueur;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 
 public class CasePropriete extends CaseAchetable{
 	
@@ -15,6 +17,7 @@ public class CasePropriete extends CaseAchetable{
 	private int prixHypotheque;
 	private Node nodeLink;
 	private ArrayList<ArrayList<Node>> listeTerrain = this.parser.getArrayTerrains();
+	private Rectangle squareColor;
 	
 	public CasePropriete(int id, Observer o) {
 		super(id, o);
@@ -29,7 +32,32 @@ public class CasePropriete extends CaseAchetable{
 					this.prixHypotheque = Integer.parseInt(this.parser.getNodeAttr("hyp", attribut));
 					this.nom = this.parser.getNodeAttr("nom", attribut);
 					this.nodeLink = attribut;
-				}
+					this.squareColor = new Rectangle(20, 20);
+					if(this.groupeCouleur.equals("bleu")){
+						this.squareColor.setFill(Color.BLUE);
+					}
+					else if(this.groupeCouleur.equals("vert")){
+						this.squareColor.setFill(Color.GREEN);
+					}
+					else if(this.groupeCouleur.equals("jaune")){
+						this.squareColor.setFill(Color.YELLOW);
+					}
+					else if(this.groupeCouleur.equals("rouge")){
+						this.squareColor.setFill(Color.RED);
+					}
+					else if(this.groupeCouleur.equals("orange")){
+						this.squareColor.setFill(Color.ORANGE);
+					}
+					else if(this.groupeCouleur.equals("violet")){
+						this.squareColor.setFill(Color.PURPLE);
+					}
+					else if(this.groupeCouleur.equals("azur")){
+						this.squareColor.setFill(Color.CYAN);
+					}
+					else if(this.groupeCouleur.equals("mauve")){
+						this.squareColor.setFill(Color.BROWN);
+					}
+					}
 			}
 		}
 	}
@@ -65,6 +93,10 @@ public class CasePropriete extends CaseAchetable{
 	
 	public int getPrixMaison(){
 		return this.prixMaison;
+	}
+	
+	public Rectangle getSquareColor(){
+		return this.squareColor;
 	}
 	
 	@Override

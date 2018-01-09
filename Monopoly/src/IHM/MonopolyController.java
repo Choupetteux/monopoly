@@ -33,6 +33,7 @@ import Jeu.*;
 import Case.*;
 import IHM.XMLParser;
 import Case.CasePropriete;
+import info.graphics.Rectangle;
 import info.util.javafx.FXUtil;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert.AlertType;
@@ -440,12 +441,32 @@ public class MonopolyController implements Observer {
 		this.startPane.setDisable(true);
 		this.recapPane.setOpacity(1);
 		this.recapPane.setDisable(false);
+		this.btnPasserTour.setDisable(true);
 		//On remplit la ListView avec les joueurs.
 		ObservableList<String> joueurList = FXCollections.observableArrayList();
 		for(int i = 0; i < this.jeu.getNbrJoueur(); i++){
 			//TODO Maybe add "(1)" quand deux joueurs ont le même nom
 			joueurList.add(this.jeu.getJoueurs(i).getNom());
 		}
+		TableColumn<CasePropriete, Rectangle> color = new TableColumn<CasePropriete, Rectangle>("");
+		color.setMinWidth(27);
+		color.setMaxWidth(22);
+		color.setCellValueFactory(new PropertyValueFactory<>("squareColor"));
+		
+		
+		TableColumn<CasePropriete, String> nom = new TableColumn<CasePropriete, String>("Propriété");
+		nom.setMinWidth(200);
+		nom.setCellValueFactory(
+                new PropertyValueFactory<>("nom"));
+
+        TableColumn<CasePropriete, Integer> loyer = new TableColumn<CasePropriete, Integer>("Loyer");
+        loyer.setCellValueFactory(
+                new PropertyValueFactory<>("loyer"));
+
+    	listPropriete.getColumns().addAll(color, nom, loyer);
+
+        
+
 		this.listeJoueur.setItems(joueurList);
 		this.listeJoueur.setOnMouseClicked(new EventHandler<MouseEvent>() {
 
@@ -453,7 +474,12 @@ public class MonopolyController implements Observer {
 	        public void handle(MouseEvent event) {
 	        	joueurNom.setText(listeJoueur.getSelectionModel().getSelectedItem());
 	        	argentJoueur.setText(jeu.getJoueurFromNom(listeJoueur.getSelectionModel().getSelectedItem()).getArgent() + " €");
+	        	ObservableList<CasePropriete> lol = FXCollections.observableArrayList();
+	        	for(CasePropriete prop : jeu.getJoueurFromNom(listeJoueur.getSelectionModel().getSelectedItem()).getProprietes()){
+	        		lol.add(prop);
+	        	}
 	        	//TODO Populate TableView
+	        	listPropriete.setItems(lol);
 	        }
 	    });
 	}
@@ -628,11 +654,13 @@ public class MonopolyController implements Observer {
 			this.listPane.get("grid1").getChildren().get(this.listPane.get("grid1").getChildren().indexOf(car)).setTranslateX(5);
 		}
 		this.jeu.jouerTour();
+		this.btnPasserTour.setDisable(false);
 	}
 	
 	@FXML
 	public void onClickPasserTour(){
 		this.jeu.passerTour();
+		this.btnPasserTour.setDisable(true);
 	}
 
 	@FXML

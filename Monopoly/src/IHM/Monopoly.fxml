@@ -5,7 +5,6 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -347,12 +346,7 @@
                                     <Font size="20.0" />
                                  </font>
                               </Label>
-                              <TableView fx:id="listPropriete" layoutX="28.0" layoutY="300.0" prefHeight="405.0" prefWidth="440.0">
-                                <columns>
-                                  <TableColumn prefWidth="170.0" text="Propriété" />
-                                  <TableColumn minWidth="6.0" prefWidth="77.0" text="Loyer" />
-                                </columns>
-                              </TableView>
+                              <TableView fx:id="listPropriete" layoutX="28.0" layoutY="300.0" prefHeight="405.0" prefWidth="440.0" />
                               <Button fx:id="btnPasserTour" layoutX="364.0" layoutY="923.0" mnemonicParsing="false" onAction="#onClickPasserTour" prefHeight="26.0" prefWidth="97.0" text="Passer tour" />
                            </children>
                         </AnchorPane>
