@@ -1,13 +1,20 @@
 package IHM;
 
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.ListView;
+
+import java.io.File;
 import java.lang.Class;
 import java.lang.reflect.Field;
 import javafx.scene.control.SplitPane;
@@ -16,6 +23,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Label;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -36,9 +44,11 @@ import Case.CasePropriete;
 import info.graphics.Rectangle;
 import info.util.javafx.FXUtil;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 /**
  * Classe contrôleur pour l'interface décrite dans le document
@@ -371,6 +381,7 @@ public class MonopolyController implements Observer {
 		this.listPane.get("grid1").getChildren().add(car);
 		//On bouge le pion pour ne pas les stacker
 		this.listPane.get("grid1").getChildren().get(this.listPane.get("grid1").getChildren().indexOf(car)).setTranslateX(50);
+		
 	}
 	
 	private void deletePion(){
@@ -482,6 +493,7 @@ public class MonopolyController implements Observer {
 	        	listPropriete.setItems(lol);
 	        }
 	    });
+		
 	}
 	
 	public Button getBtnLancer(){
@@ -740,7 +752,22 @@ public class MonopolyController implements Observer {
 			// TODO:Demande au joueur de buy
 			break;
 		case CASE_PROPRIETE:
-			// TODO:Calculus dé maison + paye
+			try {
+				FXMLLoader loader = new FXMLLoader(getClass().getResource("Popup.fxml"));
+				VBox root = (VBox) loader.load();
+				PopupController controller = (PopupController) loader.getController();
+				CasePropriete caseActuelle = (CasePropriete) this.jeu.getPlateau().getCase(this.jeu.getJoueurs(jeu.getCurrentJoueur()).getPosition());
+				controller.setLabel("Vous avez payé " + caseActuelle.getLoyer() + "€ de loyer à " + caseActuelle.getProprietaire().getNom() + ".");
+				Scene scene = new Scene(root);
+				Stage stage = new Stage();
+				stage.setScene(scene);
+				stage.setTitle("");
+				stage.show();
+				stage.sizeToScene();
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+		break;
 		default:
 			break;
 		}
