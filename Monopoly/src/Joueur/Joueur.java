@@ -87,6 +87,10 @@ public class Joueur extends Observable{
 		return this.proprietes;
 	}
 	
+	public ArrayList<CaseGare> getGares(){
+		return this.gares;
+	}
+	
 	public int getNbrPropriete(){
 		return this.proprietes.size();
 	}
@@ -117,9 +121,15 @@ public class Joueur extends Observable{
 	}
 	
 	public void acheterMaison(){
+		
 	}
 	
-	public void acheterGare(){}
+	public void acheterGare(CaseGare gare){
+		this.gares.add(gare);
+		gare.setProprietaire(this);
+		gare.setDisponible(false);
+		this.money = this.money - gare.getPrixAchat();
+	}
 	
 	public void acheterService(){}
 	

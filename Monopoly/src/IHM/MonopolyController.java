@@ -125,6 +125,14 @@ public class MonopolyController implements Observer {
 	@FXML
 	private Button boutonSrvc28;
 	@FXML
+	private Button boutonGare5;
+	@FXML
+	private Button boutonGare15;
+	@FXML
+	private Button boutonGare25;
+	@FXML
+	private Button boutonGare35;
+	@FXML
 	private Button btnLancer;
 	@FXML
 	private Button btnPasAcheter;
@@ -282,6 +290,7 @@ public class MonopolyController implements Observer {
 	private Jeu jeu;
 	private String currentPane = "Récapitulatif";
 	private boolean canBuy = false;
+	private String typeBuy = "";
 
 	/**
 	 * Constructeur.
@@ -334,6 +343,10 @@ public class MonopolyController implements Observer {
 		boutonPropriete39.setOnAction(e -> onClickPropriete(39));
 		boutonSrvc12.setOnAction(e -> onClickService(12));
 		boutonSrvc28.setOnAction(e -> onClickService(28));
+		boutonGare5.setOnAction(e -> onClickGare(5));
+		boutonGare15.setOnAction(e -> onClickGare(15));
+		boutonGare25.setOnAction(e -> onClickGare(25));
+		boutonGare35.setOnAction(e -> onClickGare(35));
 		//Initialisation de la map et des grid
 		this.listPane.put("grid1", grid1);
 		this.listPane.put("grid2", grid2);
@@ -590,6 +603,31 @@ public class MonopolyController implements Observer {
 		this.changePane("Propriété");
 		this.currentPane = "Propriété";
 	}
+	
+	@FXML
+	public void onClickGare(int index){
+		CaseGare caseGare = (CaseGare) this.jeu.getPlateau().getCase(index);
+		this.proprieteLabel.setText(caseGare.getNom());
+		this.labelH.setText("");
+		if(caseGare.getProprietaire() == null){
+			this.labelProprio.setText("Pas de propriétaire.");
+		}
+		else{
+			this.labelProprio.setText("" + caseGare.getProprietaire().getNom());
+		}
+		this.labelPaye.setText("Prix : " + caseGare.getPrixAchat() + "€");
+		//TODO set Facture quand un joueur arrive dessus.
+		this.loyerLabel.setText("");
+		this.hypothequeLabel.setText(caseGare.getPrixHypotheque() + "€");
+		this.prixHLabel.setText("");
+		//TODO set multiplicateur
+		this.labelM.setText("Prix du billet : ");
+		this.prixMLabel.setText(" " + caseGare.getLoyer() + "€");
+		this.couleurCase.setImage(services);
+		this.displayBtnIfPlayerCanBuy(index);
+		this.changePane("Propriété");
+		this.currentPane = "Propriété";
+	}
 
 	@FXML
 	public void onClickRecapitulatif() {
@@ -598,9 +636,16 @@ public class MonopolyController implements Observer {
 	
 	@FXML
 	public void onClickAcheter(){
-		this.jeu.getJoueurs(this.jeu.getCurrentJoueur()).acheterPropriete((CasePropriete) this.jeu.getPlateau().getCase(this.jeu.getJoueurs(this.jeu.getCurrentJoueur()).getPosition()));
-		this.canBuy = false;
-		this.onClickPropriete(this.jeu.getJoueurs(this.jeu.getCurrentJoueur()).getPosition());
+		if(this.typeBuy.equals("Propriete")){
+			this.jeu.getJoueurs(this.jeu.getCurrentJoueur()).acheterPropriete((CasePropriete) this.jeu.getPlateau().getCase(this.jeu.getJoueurs(this.jeu.getCurrentJoueur()).getPosition()));
+			this.canBuy = false;
+			this.onClickPropriete(this.jeu.getJoueurs(this.jeu.getCurrentJoueur()).getPosition());
+		}
+		else if (this.typeBuy.equals("Gare")){
+			this.jeu.getJoueurs(this.jeu.getCurrentJoueur()).acheterGare((CaseGare) this.jeu.getPlateau().getCase(this.jeu.getJoueurs(this.jeu.getCurrentJoueur()).getPosition()));
+			this.canBuy = false;
+			this.onClickGare(this.jeu.getJoueurs(this.jeu.getCurrentJoueur()).getPosition());
+		}
 	}
 
 	@FXML
@@ -724,10 +769,15 @@ public class MonopolyController implements Observer {
 					.setArgent(this.jeu.getJoueurs(this.jeu.getCurrentJoueur()).getArgent() + 200);
 			break;
 		case CASE_GARE:
-			// TODO:pay batar mé fo calculer
 			break;
 		case CASE_GARE_ACHETABLE:
-			// TODO:Demande au joueur de buy
+			this.onClickGare(this.jeu.getJoueurs(this.jeu.getCurrentJoueur()).getPosition());
+			this.btnAcheter.setOpacity(1);
+			this.btnAcheter.setDisable(false);
+			this.btnPasAcheter.setOpacity(1);
+			this.btnPasAcheter.setDisable(false);
+			this.canBuy = true;
+			this.typeBuy = "Gare";
 			break;
 		case CASE_INCOME_TAX:
 			this.jeu.getJoueurs(this.jeu.getCurrentJoueur())
@@ -746,6 +796,7 @@ public class MonopolyController implements Observer {
 			this.btnPasAcheter.setOpacity(1);
 			this.btnPasAcheter.setDisable(false);
 			this.canBuy = true;
+			this.typeBuy = "Propriete";
 			break;
 		case CASE_SERVICE:
 			// TODO:Paye batar

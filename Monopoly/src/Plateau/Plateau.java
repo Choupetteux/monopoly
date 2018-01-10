@@ -37,7 +37,7 @@ public class Plateau {
 		cases[2] = new CaseCarte(2, o);
 		cases[3] = new CasePropriete(3, o);
 		cases[4] = new CaseTaxe(4, o);
-		cases[5] = new CaseGare(5, o);
+		cases[5] = new CaseGare(5, o, this.GM);
 		cases[6] = new CasePropriete(6, o);
 		cases[7] = new CaseCarte(7, o);
 		cases[8] = new CasePropriete(8, o);
@@ -47,7 +47,7 @@ public class Plateau {
 		cases[12] = new CaseService(12, o);
 		cases[13] = new CasePropriete(13, o);
 		cases[14] = new CasePropriete(14, o);
-		cases[15] = new CaseGare(15, o);
+		cases[15] = new CaseGare(15, o, this.GM);
 		cases[16] = new CasePropriete(16, o);
 		cases[17] = new CaseCarte(17, o);
 		cases[18] = new CasePropriete(18, o);
@@ -57,7 +57,7 @@ public class Plateau {
 		cases[22] = new CaseCarte(22, o);
 		cases[23] = new CasePropriete(23, o);
 		cases[24] = new CasePropriete(24, o);
-		cases[25] = new CaseGare(25, o);
+		cases[25] = new CaseGare(25, o, this.GM);
 		cases[26] = new CasePropriete(26, o);
 		cases[27] = new CasePropriete(27, o);
 		cases[28] = new CaseService(28, o);
@@ -67,7 +67,7 @@ public class Plateau {
 		cases[32] = new CasePropriete(32, o);
 		cases[33] = new CaseCarte(33, o);
 		cases[34] = new CasePropriete(34, o);
-		cases[35] = new CaseGare(35, o);
+		cases[35] = new CaseGare(35, o, this.GM);
 		cases[36] = new CaseCarte(36, o);
 		cases[37] = new CasePropriete(37, o);
 		cases[38] = new CaseTaxe(38, o);
