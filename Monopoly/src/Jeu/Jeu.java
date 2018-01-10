@@ -57,9 +57,14 @@ public class Jeu{
 	}
 	
 	public void passerTour(){
-		this.tour = tour + 1;
-		this.currentJoueur = tour % this.nombreJoueur;
-		this.controller.getBtnLancer().setDisable(false);
+		if(this.joueurs[currentJoueur].getArgent() < 0){
+			System.out.println(this.joueurs[currentJoueur] +  " à fait banqueroute !");
+		}
+		else{
+			this.tour = tour + 1;
+			this.currentJoueur = tour % this.nombreJoueur;
+			this.controller.getBtnLancer().setDisable(false);
+		}
 	}
 	
 	public Joueur getJoueurFromNom(String nom){
