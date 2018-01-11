@@ -62,6 +62,17 @@ public class CasePropriete extends CaseAchetable{
 		}
 	}
 	
+
+	public ArrayList<CasePropriete> getGroupePropriete(String couleur){
+		ArrayList<CasePropriete> res = new ArrayList<CasePropriete>();
+		for(CasePropriete caseProp : this.plateau.getPropriete()) {
+			if(caseProp.getGroupeCouleur().equals(couleur)) {
+				res.add(caseProp);
+			}
+		}
+		return res;
+	}
+	
 	public int getLoyer() {
 		int res = Integer.parseInt(this.parser.getNodeAttr("t0", nodeLink));
 		switch(nbMaison){

@@ -1,5 +1,6 @@
 package Case;
 
+import java.util.ArrayList;
 import java.util.Observer;
 
 import Joueur.Joueur;
@@ -43,7 +44,6 @@ public class CaseAchetable extends Case{
 		this.disponible = disponible;
 	}
 	
-	public ArrayList<CasePropriete> getGroupePropriete(String couleur)
 
 	public String toString(){
 		
