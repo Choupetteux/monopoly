@@ -654,6 +654,7 @@ public class MonopolyController implements Observer {
 			this.jeu.getJoueurs(this.jeu.getCurrentJoueur()).acheterPropriete((CasePropriete) this.jeu.getPlateau().getCase(this.jeu.getJoueurs(this.jeu.getCurrentJoueur()).getPosition()));
 			this.canBuy = false;
 			this.onClickPropriete(this.jeu.getJoueurs(this.jeu.getCurrentJoueur()).getPosition());
+			if()
 		}
 		else if (this.typeBuy.equals("Gare")){
 			this.jeu.getJoueurs(this.jeu.getCurrentJoueur()).acheterGare((CaseGare) this.jeu.getPlateau().getCase(this.jeu.getJoueurs(this.jeu.getCurrentJoueur()).getPosition()));

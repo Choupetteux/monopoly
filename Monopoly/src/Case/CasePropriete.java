@@ -110,12 +110,13 @@ public class CasePropriete extends CaseAchetable{
 			}
 		}
 		else if(this.proprietaire.equals(joueur)){
-				
+				this.nbMaison++;
 		}
 		else{
 			this.emitEvent(EventType.CASE_PROPRIETE);
 			joueur.setArgent(joueur.getArgent() - this.getLoyer());
 			this.proprietaire.setArgent(this.proprietaire.getArgent() + this.getLoyer());
+			this.nbMaison++;
 		}
 	}
 }

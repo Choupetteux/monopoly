@@ -42,6 +42,8 @@ public class CaseAchetable extends Case{
 	public void setDisponible(boolean disponible) {
 		this.disponible = disponible;
 	}
+	
+	public ArrayList<CasePropriete> getGroupePropriete(String couleur)
 
 	public String toString(){
 		
