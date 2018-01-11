@@ -8,6 +8,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.scene.shape.Rectangle;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.collections.FXCollections;
@@ -41,8 +42,6 @@ import Jeu.*;
 import Case.*;
 import IHM.XMLParser;
 import Case.CasePropriete;
-import info.graphics.Rectangle;
-import info.util.javafx.FXUtil;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert.AlertType;
@@ -291,7 +290,11 @@ public class MonopolyController implements Observer {
 	private String currentPane = "Récapitulatif";
 	private boolean canBuy = false;
 	private String typeBuy = "";
-
+	//--Relatif aux popup below
+	private FXMLLoader loaderPopup = new FXMLLoader(getClass().getResource("Popup.fxml"));
+	private PopupController controllerPopup;
+	private Stage stagePopup;
+	
 	/**
 	 * Constructeur.
 	 */
@@ -317,6 +320,17 @@ public class MonopolyController implements Observer {
 		this.btnAcheter.setOpacity(0);
 		this.btnPasAcheter.setOpacity(0);
 		this.btnPasAcheter.setDisable(true);
+
+		try {
+		VBox root = (VBox) loaderPopup.load();
+		this.controllerPopup = (PopupController) loaderPopup.getController();
+		Scene scene = new Scene(root);
+		this.stagePopup = new Stage();
+		this.stagePopup.setScene(scene);
+		} 
+		catch(Exception e) {
+			e.printStackTrace();
+		}
 		
 		// Initialisation des méthodes associés aux boutons
 		boutonPropriete1.setOnAction(e -> onClickPropriete(1));
@@ -647,6 +661,12 @@ public class MonopolyController implements Observer {
 			this.onClickGare(this.jeu.getJoueurs(this.jeu.getCurrentJoueur()).getPosition());
 		}
 	}
+	
+	@FXML
+	public void onClickPasAcheter() {
+		this.changePane("Enchere");
+		this.currentPane = "Enchere";
+	}
 
 	@FXML
 	public void onClickBackToCurrent() {
@@ -769,6 +789,16 @@ public class MonopolyController implements Observer {
 					.setArgent(this.jeu.getJoueurs(this.jeu.getCurrentJoueur()).getArgent() + 200);
 			break;
 		case CASE_GARE:
+			try {
+				CaseGare caseActuelle = (CaseGare) this.jeu.getPlateau().getCase(this.jeu.getJoueurs(jeu.getCurrentJoueur()).getPosition());
+				this.controllerPopup.setLabel("Vous avez payé " + caseActuelle.getLoyer() + "€ de train à " + caseActuelle.getProprietaire().getNom() + ".");
+				this.stagePopup.setTitle("Payement de train");
+				this.stagePopup.show();
+				this.stagePopup.sizeToScene();
+				stagePopup.setAlwaysOnTop(true);
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
 			break;
 		case CASE_GARE_ACHETABLE:
 			this.onClickGare(this.jeu.getJoueurs(this.jeu.getCurrentJoueur()).getPosition());
@@ -805,21 +835,12 @@ public class MonopolyController implements Observer {
 			// TODO:Demande au joueur de buy
 			break;
 		case CASE_PROPRIETE:
-			try {
-				FXMLLoader loader = new FXMLLoader(getClass().getResource("Popup.fxml"));
-				VBox root = (VBox) loader.load();
-				PopupController controller = (PopupController) loader.getController();
 				CasePropriete caseActuelle = (CasePropriete) this.jeu.getPlateau().getCase(this.jeu.getJoueurs(jeu.getCurrentJoueur()).getPosition());
-				controller.setLabel("Vous avez payé " + caseActuelle.getLoyer() + "€ de loyer à " + caseActuelle.getProprietaire().getNom() + ".");
-				Scene scene = new Scene(root);
-				Stage stage = new Stage();
-				stage.setScene(scene);
-				stage.setTitle("");
-				stage.show();
-				stage.sizeToScene();
-			} catch(Exception e) {
-				e.printStackTrace();
-			}
+				this.controllerPopup.setLabel("Vous avez payé " + caseActuelle.getLoyer() + "€ de loyer à " + caseActuelle.getProprietaire().getNom() + ".");
+				this.stagePopup.setTitle("Payement de loyer");
+				this.stagePopup.show();
+				this.stagePopup.sizeToScene();
+				stagePopup.setAlwaysOnTop(true);
 		break;
 		default:
 			break;

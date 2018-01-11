@@ -41,8 +41,6 @@ import Jeu.*;
 import Case.*;
 import IHM.XMLParser;
 import Case.CasePropriete;
-import info.graphics.Rectangle;
-import info.util.javafx.FXUtil;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert.AlertType;
