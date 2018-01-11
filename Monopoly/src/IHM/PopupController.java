@@ -58,10 +58,17 @@ public class PopupController {
 	
 	@FXML
 	private ImageView imgDesc;
+	private Image payement = new Image("IHM/payement.png");
 	
 	@FXML
 	public void setLabel(String text){
 		this.labelHappen.setText(text);
+	}
+	
+	@FXML
+	public void setImgDescPayement() {
+		this.imgDesc.setImage(payement);
+		this.imgDesc.setTranslateX(100);
 	}
 	
 	@FXML

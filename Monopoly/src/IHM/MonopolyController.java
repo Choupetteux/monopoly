@@ -270,7 +270,7 @@ public class MonopolyController implements Observer {
 	
 	private Map<String, Pane> listPane = new HashMap<String, Pane>();
 
-
+	private Image maison = new Image("/IHM/house.png");
 	private Image vert = new Image("/IHM/proprieteVerte2.jpeg");
 	private Image bleu = new Image("/IHM/proprieteBleu.png");
 	private Image marron = new Image("/IHM/proprieteMarron.png");
@@ -429,6 +429,14 @@ public class MonopolyController implements Observer {
 			break;
 		}
 	}
+	
+	private void addMaison(Pane cible) {
+		//Test methode, à implémenter pour placer les maisons aux bons endroits si time.
+		ImageView house = new ImageView(this.maison);
+		house.setFitWidth(30);
+		house.setFitHeight(25);
+		cible.getChildren().add(house);
+	}
 
 	/**
 	 * Méthode invoquée lorsque la fenêtre dont la scène est associée à ce
@@ -497,8 +505,12 @@ public class MonopolyController implements Observer {
         TableColumn<CasePropriete, Integer> loyer = new TableColumn<CasePropriete, Integer>("Loyer");
         loyer.setCellValueFactory(
                 new PropertyValueFactory<>("loyer"));
+        
+        TableColumn<CasePropriete, Integer> nbMaison = new TableColumn<CasePropriete, Integer>("Nombre maison");
+        nbMaison.setMinWidth(125);
+        nbMaison.setCellValueFactory(new PropertyValueFactory<>("nbMaison"));
 
-    	listPropriete.getColumns().addAll(color, nom, loyer);
+    	listPropriete.getColumns().addAll(color, nom, loyer, nbMaison);
 
         
 
@@ -519,6 +531,9 @@ public class MonopolyController implements Observer {
 	    });
 
 		this.labelWhose.setText("Tour de " + this.jeu.getJoueurs(this.jeu.getCurrentJoueur()).getNom());
+		
+		
+		//test
 	}
 	
 	public Button getBtnLancer(){
@@ -556,7 +571,7 @@ public class MonopolyController implements Observer {
 		this.loyerLabel.setText(Integer.toString(caseProp.getLoyer()) + "€");
 		this.prixMLabel.setText("" + caseProp.getNbMaison());
 		this.btnAcheter.setText("Acheter : " + Integer.toString(caseProp.getPrixAchat()) + "€");
-		this.hypothequeLabel.setText(Integer.toString(caseProp.getPrixHypotheque()));
+		this.hypothequeLabel.setText(Integer.toString(caseProp.getPrixHypotheque()) + "€");
 		if(caseProp.getProprietaire() == null){
 			this.labelProprio.setText("Pas de propriétaire.");
 		}
@@ -644,6 +659,7 @@ public class MonopolyController implements Observer {
 	public void onClickAcheter(){
 		if(this.typeBuy.equals("Propriete")){
 			int compteur = 0;
+			int compteurSameProprietaire = 0;
 			CasePropriete caseProp = (CasePropriete) this.jeu.getPlateau().getCase(this.jeu.getJoueurs(this.jeu.getCurrentJoueur()).getPosition());
 			this.jeu.getJoueurs(this.jeu.getCurrentJoueur()).acheterPropriete(caseProp);
 			this.canBuy = false;
@@ -652,8 +668,16 @@ public class MonopolyController implements Observer {
 				if(caseP.getProprietaire() != null) {
 					compteur++;
 				}
+				if(caseP.getProprietaire() == this.jeu.getJoueurs(this.jeu.getCurrentJoueur())) {
+					compteurSameProprietaire++;
+				}
 			}
 			if(compteur == caseProp.getGroupePropriete(caseProp.getGroupeCouleur()).size()) {
+				for(CasePropriete caseP : caseProp.getGroupePropriete(caseProp.getGroupeCouleur())) {
+					caseP.incrementNbMaison();
+				}
+			}
+			if(compteurSameProprietaire == caseProp.getGroupePropriete(caseProp.getGroupeCouleur()).size()) {
 				for(CasePropriete caseP : caseProp.getGroupePropriete(caseProp.getGroupeCouleur())) {
 					caseP.incrementNbMaison();
 				}
@@ -798,6 +822,7 @@ public class MonopolyController implements Observer {
 				CaseGare caseActuelle = (CaseGare) this.jeu.getPlateau().getCase(this.jeu.getJoueurs(jeu.getCurrentJoueur()).getPosition());
 				this.controllerPopup.setLabel("Vous avez payé " + caseActuelle.getLoyer() + "€ de train à " + caseActuelle.getProprietaire().getNom() + ".");
 				this.stagePopup.setTitle("Payement de train");
+				this.controllerPopup.setImgDescPayement();
 				this.stagePopup.show();
 				this.stagePopup.sizeToScene();
 				stagePopup.setAlwaysOnTop(true);
@@ -843,6 +868,8 @@ public class MonopolyController implements Observer {
 				CasePropriete caseActuelle = (CasePropriete) this.jeu.getPlateau().getCase(this.jeu.getJoueurs(jeu.getCurrentJoueur()).getPosition());
 				this.controllerPopup.setLabel("Vous avez payé " + caseActuelle.getLoyer() + "€ de loyer à " + caseActuelle.getProprietaire().getNom() + ".");
 				this.stagePopup.setTitle("Payement de loyer");
+				this.controllerPopup.setImgDescPayement();
+				//this.addMaison(this.listPane.get("grid" + (this.jeu.getJoueurs(jeu.getCurrentJoueur()).getPosition() + 1)));
 				this.stagePopup.show();
 				this.stagePopup.sizeToScene();
 				stagePopup.setAlwaysOnTop(true);
