@@ -143,8 +143,6 @@ public class MonopolyController implements Observer {
 	@FXML
 	private Label prixMLabel;
 	@FXML
-	private Label prixHLabel;
-	@FXML
 	private Label loyerLabel;
 	@FXML
 	private Label hypothequeLabel;
@@ -155,8 +153,6 @@ public class MonopolyController implements Observer {
 	@FXML
 	private Label labelM;
 	@FXML
-	private Label labelH;
-	@FXML
 	private Label labelPaye;
 	@FXML
 	private Label labelCasePane;
@@ -166,6 +162,8 @@ public class MonopolyController implements Observer {
 	private Label argentJoueur;
 	@FXML
 	private Label joueurNom;
+	@FXML
+	private Label labelWhose;
 
 	@FXML
 	private Pane grid1;
@@ -408,7 +406,6 @@ public class MonopolyController implements Observer {
 		this.listPane.get("grid1").getChildren().add(car);
 		//On bouge le pion pour ne pas les stacker
 		this.listPane.get("grid1").getChildren().get(this.listPane.get("grid1").getChildren().indexOf(car)).setTranslateX(50);
-		
 	}
 	
 	private void deletePion(){
@@ -520,7 +517,8 @@ public class MonopolyController implements Observer {
 	        	listPropriete.setItems(lol);
 	        }
 	    });
-		
+
+		this.labelWhose.setText("Tour de " + this.jeu.getJoueurs(this.jeu.getCurrentJoueur()).getNom());
 	}
 	
 	public Button getBtnLancer(){
@@ -531,8 +529,7 @@ public class MonopolyController implements Observer {
 	public void onClickPropriete(int index) {
 		CasePropriete caseProp = (CasePropriete) this.jeu.getPlateau().getCase(index);
 		this.labelPaye.setText("Loyer :");
-		this.labelH.setText("Prix hôtel :");
-		this.labelM.setText("Prix maison :");
+		this.labelM.setText("Nombre maison : ");
 		this.labelCasePane.setText("Propriété");
 		this.proprieteLabel.setText(caseProp.getNom());
 		// -------------------------------------------------------------------
@@ -557,8 +554,7 @@ public class MonopolyController implements Observer {
 		// ------------------------------------------------------------------
 		// Changement des différentes informations
 		this.loyerLabel.setText(Integer.toString(caseProp.getLoyer()) + "€");
-		this.prixMLabel.setText(Integer.toString(caseProp.getPrixMaison()) + "€");
-		this.prixHLabel.setText(caseProp.getPrixMaison() + "€ + 4 maisons");
+		this.prixMLabel.setText("" + caseProp.getNbMaison());
 		this.btnAcheter.setText("Acheter : " + Integer.toString(caseProp.getPrixAchat()) + "€");
 		this.hypothequeLabel.setText(Integer.toString(caseProp.getPrixHypotheque()));
 		if(caseProp.getProprietaire() == null){
@@ -598,7 +594,6 @@ public class MonopolyController implements Observer {
 		}
 		CaseService caseService = (CaseService)this.jeu.getPlateau().getCase(index);
 		this.labelCasePane.setText("Service");
-		this.labelH.setText("");
 		this.labelM.setText("Multiplicateur : ");
 		if(caseService.getProprietaire() == null){
 			this.labelProprio.setText("Pas de propriétaire.");
@@ -610,7 +605,6 @@ public class MonopolyController implements Observer {
 		//TODO set Facture quand un joueur arrive dessus.
 		this.loyerLabel.setText("");
 		this.hypothequeLabel.setText(caseService.getPrixHypotheque() + "€");
-		this.prixHLabel.setText("");
 		//TODO set multiplicateur
 		this.prixMLabel.setText("");
 		this.couleurCase.setImage(services);
@@ -622,7 +616,6 @@ public class MonopolyController implements Observer {
 	public void onClickGare(int index){
 		CaseGare caseGare = (CaseGare) this.jeu.getPlateau().getCase(index);
 		this.proprieteLabel.setText(caseGare.getNom());
-		this.labelH.setText("");
 		if(caseGare.getProprietaire() == null){
 			this.labelProprio.setText("Pas de propriétaire.");
 		}
@@ -633,7 +626,6 @@ public class MonopolyController implements Observer {
 		//TODO set Facture quand un joueur arrive dessus.
 		this.loyerLabel.setText("");
 		this.hypothequeLabel.setText(caseGare.getPrixHypotheque() + "€");
-		this.prixHLabel.setText("");
 		//TODO set multiplicateur
 		this.labelM.setText("Prix du billet : ");
 		this.prixMLabel.setText(" " + caseGare.getLoyer() + "€");
@@ -651,10 +643,21 @@ public class MonopolyController implements Observer {
 	@FXML
 	public void onClickAcheter(){
 		if(this.typeBuy.equals("Propriete")){
-			this.jeu.getJoueurs(this.jeu.getCurrentJoueur()).acheterPropriete((CasePropriete) this.jeu.getPlateau().getCase(this.jeu.getJoueurs(this.jeu.getCurrentJoueur()).getPosition()));
+			int compteur = 0;
+			CasePropriete caseProp = (CasePropriete) this.jeu.getPlateau().getCase(this.jeu.getJoueurs(this.jeu.getCurrentJoueur()).getPosition());
+			this.jeu.getJoueurs(this.jeu.getCurrentJoueur()).acheterPropriete(caseProp);
 			this.canBuy = false;
 			this.onClickPropriete(this.jeu.getJoueurs(this.jeu.getCurrentJoueur()).getPosition());
-			if()
+			for(CasePropriete caseP : caseProp.getGroupePropriete(caseProp.getGroupeCouleur())) {
+				if(caseP.getProprietaire() != null) {
+					compteur++;
+				}
+			}
+			if(compteur == caseProp.getGroupePropriete(caseProp.getGroupeCouleur()).size()) {
+				for(CasePropriete caseP : caseProp.getGroupePropriete(caseProp.getGroupeCouleur())) {
+					caseP.incrementNbMaison();
+				}
+			}
 		}
 		else if (this.typeBuy.equals("Gare")){
 			this.jeu.getJoueurs(this.jeu.getCurrentJoueur()).acheterGare((CaseGare) this.jeu.getPlateau().getCase(this.jeu.getJoueurs(this.jeu.getCurrentJoueur()).getPosition()));
@@ -738,6 +741,7 @@ public class MonopolyController implements Observer {
 	@FXML
 	public void onClickPasserTour(){
 		this.jeu.passerTour();
+		this.labelWhose.setText("Tour de " + this.jeu.getJoueurs(this.jeu.getCurrentJoueur()).getNom());
 		this.btnPasserTour.setDisable(true);
 	}
 

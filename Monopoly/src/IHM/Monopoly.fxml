@@ -222,6 +222,24 @@
                         </AnchorPane>
                     </content>
                   </ScrollPane>
+                  <ScrollPane fx:id="startPane" prefHeight="200.0" prefWidth="200.0">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="938.0" prefWidth="501.0">
+                           <children>
+                              <Label layoutX="39.0" layoutY="14.0" text="Commencer une partie" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="35.0" />
+                                 </font>
+                              </Label>
+                              <Button layoutX="163.0" layoutY="219.0" mnemonicParsing="false" onAction="#startGame" text="Commencer la partie" />
+                              <TextField fx:id="fieldJ2" layoutX="156.0" layoutY="158.0" />
+                              <TextField fx:id="fieldJ1" layoutX="156.0" layoutY="98.0" />
+                              <Label layoutX="51.0" layoutY="103.0" text="Nom joueur 1 :" underline="true" />
+                              <Label layoutX="51.0" layoutY="163.0" text="Nom joueur 2 :" underline="true" />
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </ScrollPane>
                   <ScrollPane fx:id="proprietePane" prefHeight="200.0" prefWidth="200.0">
                      <content>
                         <AnchorPane prefHeight="1000.0" prefWidth="500.0">
@@ -266,17 +284,7 @@
                                     <Font size="29.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="labelH" layoutX="46.0" layoutY="258.0" text="Prix hotel :">
-                                 <font>
-                                    <Font size="29.0" />
-                                 </font>
-                              </Label>
-                              <Label fx:id="prixMLabel" layoutX="244.0" layoutY="217.0">
-                                 <font>
-                                    <Font size="29.0" />
-                                 </font>
-                              </Label>
-                              <Label fx:id="prixHLabel" layoutX="214.0" layoutY="258.0">
+                              <Label fx:id="prixMLabel" layoutX="277.0" layoutY="217.0">
                                  <font>
                                     <Font size="29.0" />
                                  </font>
@@ -297,24 +305,6 @@
                            </children>
                         </AnchorPane>
                      </content>
-                  </ScrollPane>
-                  <ScrollPane fx:id="startPane" prefHeight="200.0" prefWidth="200.0">
-                    <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="938.0" prefWidth="501.0">
-                           <children>
-                              <Label layoutX="39.0" layoutY="14.0" text="Commencer une partie" textAlignment="CENTER">
-                                 <font>
-                                    <Font size="35.0" />
-                                 </font>
-                              </Label>
-                              <Button layoutX="163.0" layoutY="219.0" mnemonicParsing="false" onAction="#startGame" text="Commencer la partie" />
-                              <TextField fx:id="fieldJ2" layoutX="156.0" layoutY="158.0" />
-                              <TextField fx:id="fieldJ1" layoutX="156.0" layoutY="98.0" />
-                              <Label layoutX="51.0" layoutY="103.0" text="Nom joueur 1 :" underline="true" />
-                              <Label layoutX="51.0" layoutY="163.0" text="Nom joueur 2 :" underline="true" />
-                           </children>
-                        </AnchorPane>
-                    </content>
                   </ScrollPane>
                   <ScrollPane fx:id="recapPane" prefHeight="1000.0" prefWidth="491.0">
                     <content>
@@ -360,6 +350,11 @@
                               </Label>
                               <TableView fx:id="listPropriete" layoutX="28.0" layoutY="300.0" prefHeight="405.0" prefWidth="440.0" />
                               <Button fx:id="btnPasserTour" layoutX="364.0" layoutY="923.0" mnemonicParsing="false" onAction="#onClickPasserTour" prefHeight="26.0" prefWidth="97.0" text="Passer tour" />
+                              <Label fx:id="labelWhose" layoutX="225.0" layoutY="865.0" text="Tour de " underline="true">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </Label>
                            </children>
                         </AnchorPane>
                     </content>

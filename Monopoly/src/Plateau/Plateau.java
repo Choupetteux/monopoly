@@ -113,8 +113,13 @@ public class Plateau {
 	}
 	
 	public ArrayList<CasePropriete> getPropriete(){
-		//TODO: Retourner une arraylist de toute les carte propriete
-		return null;
+		ArrayList<CasePropriete> res = new ArrayList<CasePropriete>();
+		for(Case casee : this.cases) {
+			if(casee instanceof CasePropriete) {
+				res.add((CasePropriete) casee);
+			}
+		}
+		return res;
 	}
 	
 	public int getProprieteNombreCouleur(){

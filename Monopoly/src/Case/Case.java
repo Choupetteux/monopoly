@@ -16,7 +16,6 @@ public abstract class Case extends Observable{
 	
 	protected String nom;
 	protected int ID;
-	protected Plateau plateau;
 	protected XMLParser parser = XMLParser.getParserInstance();
 
 	public String getNom() {
@@ -29,10 +28,6 @@ public abstract class Case extends Observable{
 
 	public void setNom(String nom) {
 		this.nom = nom;
-	}
-	
-	public Plateau getPlateau() {
-		return this.plateau;
 	}
 	
 	public abstract void jouerAction(Joueur joueur);
