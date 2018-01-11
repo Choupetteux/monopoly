@@ -58,7 +58,10 @@ public class PopupController {
 	
 	@FXML
 	private ImageView imgDesc;
-	private Image payement = new Image("IHM/payement.png");
+	private Image payement = new Image(MonopolyController.class.getResourceAsStream(("payement.png")));
+
+	private MediaPlayer musicPlayer;
+	Media pay = new Media(MonopolyController.class.getResource("pay.wav").toExternalForm());
 	
 	@FXML
 	public void setLabel(String text){
@@ -69,6 +72,8 @@ public class PopupController {
 	public void setImgDescPayement() {
 		this.imgDesc.setImage(payement);
 		this.imgDesc.setTranslateX(100);
+		this.musicPlayer = new MediaPlayer(pay);
+		this.musicPlayer.play();
 	}
 	
 	@FXML

@@ -270,18 +270,18 @@ public class MonopolyController implements Observer {
 	
 	private Map<String, Pane> listPane = new HashMap<String, Pane>();
 
-	private Image maison = new Image("/IHM/house.png");
-	private Image vert = new Image("/IHM/proprieteVerte2.jpeg");
-	private Image bleu = new Image("/IHM/proprieteBleu.png");
-	private Image marron = new Image("/IHM/proprieteMarron.png");
-	private Image magenta = new Image("/IHM/proprieteMagenta.png");
-	private Image cyan = new Image("/IHM/proprieteCyan.png");
-	private Image rouge = new Image("/IHM/proprieteRouge.png");
-	private Image jaune = new Image("/IHM/proprieteJaune.png");
-	private Image orange = new Image("/IHM/proprieteOrange.png");
-	private Image services = new Image("/IHM/proprieteServices.png");
-	private ImageView dog = new ImageView(new Image("/IHM/dog.png"));
-	private ImageView car = new ImageView(new Image("/IHM/car.png"));
+	private Image maison = new Image(MonopolyController.class.getResourceAsStream("house.png"));
+	private Image vert = new Image(MonopolyController.class.getResourceAsStream("proprieteVerte2.jpeg"));
+	private Image bleu = new Image(MonopolyController.class.getResourceAsStream("proprieteBleu.png"));
+	private Image marron = new Image(MonopolyController.class.getResourceAsStream("proprieteMarron.png"));
+	private Image magenta = new Image(MonopolyController.class.getResourceAsStream("proprieteMagenta.png"));
+	private Image cyan = new Image(MonopolyController.class.getResourceAsStream("proprieteCyan.png"));
+	private Image rouge = new Image(MonopolyController.class.getResourceAsStream("proprieteRouge.png"));
+	private Image jaune = new Image(MonopolyController.class.getResourceAsStream("proprieteJaune.png"));
+	private Image orange = new Image(MonopolyController.class.getResourceAsStream("proprieteOrange.png"));
+	private Image services = new Image(MonopolyController.class.getResourceAsStream("proprieteServices.png"));
+	private ImageView dog = new ImageView(new Image(MonopolyController.class.getResourceAsStream("dog.png")));
+	private ImageView car = new ImageView(new Image(MonopolyController.class.getResourceAsStream("car.png")));
 
 	private XMLParser parser = XMLParser.getParserInstance();
 	private Jeu jeu;
@@ -292,6 +292,8 @@ public class MonopolyController implements Observer {
 	private FXMLLoader loaderPopup = new FXMLLoader(getClass().getResource("Popup.fxml"));
 	private PopupController controllerPopup;
 	private Stage stagePopup;
+	private MediaPlayer musicPlayer;
+	Media de = new Media(MonopolyController.class.getResource("lol.wav").toExternalForm());
 	
 	/**
 	 * Constructeur.
@@ -707,47 +709,49 @@ public class MonopolyController implements Observer {
 	
 	@FXML
 	public void btnLancerDes() {
+		this.musicPlayer = new MediaPlayer(de);
+		this.musicPlayer.play();
 		for (int i = 0; i < 2; i++) {
 			jeu.getDes(i).relancerDe();
 		}
 		switch (this.jeu.getDes(0).getLancer()) {
 		case 1:
-			this.de1.setImage(new Image("/IHM/Dice1.gif"));
+			this.de1.setImage(new Image(MonopolyController.class.getResourceAsStream("Dice1.gif")));
 			break;
 		case 2:
-			this.de1.setImage(new Image("/IHM/Dice2.gif"));
+			this.de1.setImage(new Image(MonopolyController.class.getResourceAsStream("Dice2.gif")));
 			break;
 		case 3:
-			this.de1.setImage(new Image("/IHM/Dice3.gif"));
+			this.de1.setImage(new Image(MonopolyController.class.getResourceAsStream("Dice3.gif")));
 			break;
 		case 4:
-			this.de1.setImage(new Image("/IHM/Dice4.gif"));
+			this.de1.setImage(new Image(MonopolyController.class.getResourceAsStream("Dice4.gif")));
 			break;
 		case 5:
-			this.de1.setImage(new Image("/IHM/Dice5.gif"));
+			this.de1.setImage(new Image(MonopolyController.class.getResourceAsStream("Dice5.gif")));
 			break;
 		case 6:
-			this.de1.setImage(new Image("/IHM/Dice6.gif"));
+			this.de1.setImage(new Image(MonopolyController.class.getResourceAsStream("Dice6.gif")));
 			break;
 		}
 		switch (this.jeu.getDes(1).getLancer()) {
 		case 1:
-			this.de2.setImage(new Image("/IHM/Dice1.gif"));
+			this.de2.setImage(new Image(MonopolyController.class.getResourceAsStream("Dice1.gif")));
 			break;
 		case 2:
-			this.de2.setImage(new Image("/IHM/Dice2.gif"));
+			this.de2.setImage(new Image(MonopolyController.class.getResourceAsStream("Dice2.gif")));
 			break;
 		case 3:
-			this.de2.setImage(new Image("/IHM/Dice3.gif"));
+			this.de2.setImage(new Image(MonopolyController.class.getResourceAsStream("Dice3.gif")));
 			break;
 		case 4:
-			this.de2.setImage(new Image("/IHM/Dice4.gif"));
+			this.de2.setImage(new Image(MonopolyController.class.getResourceAsStream("Dice4.gif")));
 			break;
 		case 5:
-			this.de2.setImage(new Image("/IHM/Dice5.gif"));
+			this.de2.setImage(new Image(MonopolyController.class.getResourceAsStream("Dice5.gif")));
 			break;
 		case 6:
-			this.de2.setImage(new Image("/IHM/Dice6.gif"));
+			this.de2.setImage(new Image(MonopolyController.class.getResourceAsStream("Dice6.gif")));
 			break;
 		}
 		this.resLancer.setText("" + jeu.getValeurLancerDes());
