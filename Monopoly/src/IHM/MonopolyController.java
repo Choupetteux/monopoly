@@ -295,6 +295,9 @@ public class MonopolyController implements Observer {
 	private MediaPlayer musicPlayer;
 	Media de = new Media(MonopolyController.class.getResource("lol.wav").toExternalForm());
 	
+	//Compteur demo
+	public int demoCount;
+	
 	/**
 	 * Constructeur.
 	 */
@@ -711,10 +714,16 @@ public class MonopolyController implements Observer {
 	public void btnLancerDes() {
 		this.musicPlayer = new MediaPlayer(de);
 		this.musicPlayer.play();
+		int[] arrayDe1 = {1,4,6,1,1,5,1,1,2,6,2,2,6,3};
+		int[] arrayDe2 = {3,5,4,2,3,6,1,1,1,4,2,4,2,1};
+		int valeurDe1 = arrayDe1[this.demoCount];
+		int valeurDe2 = arrayDe2[this.demoCount];
+		/**
 		for (int i = 0; i < 2; i++) {
 			jeu.getDes(i).relancerDe();
 		}
-		switch (this.jeu.getDes(0).getLancer()) {
+		**/
+		switch (valeurDe1/**this.jeu.getDes(0).getLancer()**/) {
 		case 1:
 			this.de1.setImage(new Image(MonopolyController.class.getResourceAsStream("Dice1.gif")));
 			break;
@@ -734,7 +743,7 @@ public class MonopolyController implements Observer {
 			this.de1.setImage(new Image(MonopolyController.class.getResourceAsStream("Dice6.gif")));
 			break;
 		}
-		switch (this.jeu.getDes(1).getLancer()) {
+		switch (valeurDe2/**this.jeu.getDes(1).getLancer()**/) {
 		case 1:
 			this.de2.setImage(new Image(MonopolyController.class.getResourceAsStream("Dice1.gif")));
 			break;
@@ -754,7 +763,7 @@ public class MonopolyController implements Observer {
 			this.de2.setImage(new Image(MonopolyController.class.getResourceAsStream("Dice6.gif")));
 			break;
 		}
-		this.resLancer.setText("" + jeu.getValeurLancerDes());
+		this.resLancer.setText((valeurDe1 + valeurDe2) + "");
 		this.btnLancer.setDisable(true);
 		this.deletePion();
 		this.jeu.updateCurrentPos();
@@ -764,6 +773,7 @@ public class MonopolyController implements Observer {
 		}
 		this.jeu.jouerTour();
 		this.btnPasserTour.setDisable(false);
+		this.demoCount++;
 	}
 	
 	@FXML

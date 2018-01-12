@@ -89,20 +89,25 @@ public class Jeu{
 	}
 	
 	public void updateCurrentPos(){
+		//Demo
+		int[] arrayDe1 = {1,4,6,1,1,5,1,1,2,6,2,2,6,3};
+		int[] arrayDe2 = {3,5,4,2,3,6,1,1,1,4,2,4,2,1};
+		int valeurDe1 = arrayDe1[this.controller.demoCount];
+		int valeurDe2 = arrayDe2[this.controller.demoCount];
 		Joueur current = this.joueurs[this.currentJoueur];
-		if( (current.getPosition() + this.getValeurLancerDes()) > 39){
+		if( (current.getPosition() + valeurDe1 + valeurDe2/**this.getValeurLancerDes()**/) > 39){
 			int firstPos = current.getPosition();
 			this.joueurs[this.currentJoueur].setArgent(this.joueurs[this.currentJoueur].getArgent() + 200);
-			for(int i = 0; i < this.getValeurLancerDes(); i++){
+			for(int i = 0; i < valeurDe1 + valeurDe2/**this.getValeurLancerDes()**/; i++){
 				if(firstPos + i == 39){
 					current.setPosition(0);
 					i++;
-					current.setPosition(0 + this.getValeurLancerDes() - i);
+					current.setPosition(0 + valeurDe1 + valeurDe2/**this.getValeurLancerDes()**/ - i);
 				}
 			}
 		}
 		else{
-			current.setPosition(current.getPosition() + this.getValeurLancerDes());
+			current.setPosition(current.getPosition() + valeurDe1 + valeurDe2/**this.getValeurLancerDes()**/);
 		}
 	}
 	

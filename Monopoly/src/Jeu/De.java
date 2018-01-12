@@ -2,7 +2,7 @@ package Jeu;
 
 public class De {
 	
-	int valeurDe;
+	private int valeurDe;
 	
 	public De(){
 		this.valeurDe = 1;
