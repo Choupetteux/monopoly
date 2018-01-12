@@ -29,7 +29,7 @@ public class Joueur extends Observable{
 	public Joueur(String nom, Jeu jeu, Observer o){
 		this.nom = nom;
 		this.jeu = jeu;
-		this.money = this.jeu.getArgentInitial();
+		this.money = 1500;
 		this.position = 0;
 		addObserver(o);
 	}

@@ -647,7 +647,6 @@ public class MonopolyController implements Observer {
 		this.labelM.setText("Prix du billet : ");
 		this.prixMLabel.setText(" " + caseGare.getLoyer() + "€");
 		this.couleurCase.setImage(services);
-		this.btnAcheter.setText("Acheter 200€");
 		this.displayBtnIfPlayerCanBuy(index);
 		this.changePane("Propriété");
 		this.currentPane = "Propriété";
@@ -871,18 +870,6 @@ public class MonopolyController implements Observer {
 			break;
 		case CASE_PROPRIETE:
 				CasePropriete caseActuelle = (CasePropriete) this.jeu.getPlateau().getCase(this.jeu.getJoueurs(jeu.getCurrentJoueur()).getPosition());
-<<<<<<< HEAD
-				controller.setLabel("Vous avez payé " + caseActuelle.getLoyer() + "€ de loyer à " + caseActuelle.getProprietaire().getNom() + ".");
-				Scene scene = new Scene(root);
-				Stage stage = new Stage();
-				stage.setScene(scene);
-				stage.setTitle("Payement de loyer");
-				stage.show();
-				stage.sizeToScene();
-			} catch(Exception e) {
-				e.printStackTrace();
-			}
-=======
 				this.controllerPopup.setLabel("Vous avez payé " + caseActuelle.getLoyer() + "€ de loyer à " + caseActuelle.getProprietaire().getNom() + ".");
 				this.stagePopup.setTitle("Payement de loyer");
 				this.controllerPopup.setImgDescPayement();
@@ -890,7 +877,6 @@ public class MonopolyController implements Observer {
 				this.stagePopup.show();
 				this.stagePopup.sizeToScene();
 				stagePopup.setAlwaysOnTop(true);
->>>>>>> 8b087ccb8a2ed60c56cd42de9c807082a9a69e7f
 		break;
 		default:
 			break;
