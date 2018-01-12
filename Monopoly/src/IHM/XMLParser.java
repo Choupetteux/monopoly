@@ -1,6 +1,7 @@
 package IHM;
 
 import java.io.File;
+import java.io.InputStream;
 import java.util.ArrayList;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -22,10 +23,10 @@ public class XMLParser {
 
 	private XMLParser() {
 			try {
-				File xmlFile = new File("./src/IHM/config.xml");
+				InputStream inputStream = XMLParser.class.getResourceAsStream("config.xml");
 				DocumentBuilderFactory docbuildFactory = DocumentBuilderFactory.newInstance();
 				DocumentBuilder docBuilder = docbuildFactory.newDocumentBuilder();
-				Document document = docBuilder.parse(xmlFile);
+				Document document = docBuilder.parse(inputStream);
 
 				document.getDocumentElement().normalize();
 				NodeList root = document.getChildNodes();
@@ -37,7 +38,7 @@ public class XMLParser {
 				this.cartes = getNode("cartes", jeu.getChildNodes());
 				this.compagnie = getNode("compagnie", jeu.getChildNodes());
 				this.groupes = this.plateau.getChildNodes();
-				this.instance = this;
+				XMLParser.instance = this;
 			} catch (Exception e) {
 				System.out.println("Erreur : " + e);
 			}

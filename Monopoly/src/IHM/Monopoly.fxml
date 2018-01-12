@@ -19,7 +19,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fillWidth="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/8.0.91" xmlns:fx="http://javafx.com/fxml/1" fx:controller="IHM.MonopolyController">
+<VBox fillWidth="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/8.0.152" xmlns:fx="http://javafx.com/fxml/1" fx:controller="IHM.MonopolyController">
     
     <stylesheets>
         <URL value="@../../bin/IHM/Monopoly.css" />
@@ -35,7 +35,7 @@
                            <children>
                               <ImageView fx:id="plateauImg" fitHeight="1000.0" fitWidth="1000.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../../bin/IHM/plateau.jpg" />
+                                    <Image url="@/IHM/plateau.jpg" />
                                  </image>
                               </ImageView>
                            </children>
@@ -222,82 +222,6 @@
                         </AnchorPane>
                     </content>
                   </ScrollPane>
-                  <ScrollPane fx:id="proprietePane" prefHeight="200.0" prefWidth="200.0">
-                     <content>
-                        <AnchorPane prefHeight="1000.0" prefWidth="500.0">
-                           <children>
-                              <Label fx:id="labelCasePane" alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="460.0" text="Propriété" textAlignment="CENTER">
-                                 <font>
-                                    <Font size="40.0" />
-                                 </font>
-                              </Label>
-                              <ImageView fx:id="couleurCase" fitHeight="60.0" fitWidth="475.0" layoutX="6.0" layoutY="57.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../bin/IHM/proprieteVerte2.jpeg" />
-                                 </image>
-                              </ImageView>
-                              <Label fx:id="proprieteLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="19.0" layoutY="70.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="452.0">
-                                 <font>
-                                    <Font size="29.0" />
-                                 </font>
-                              </Label>
-                              <Label fx:id="labelPaye" layoutX="46.0" layoutY="128.0" text="Loyer :  ">
-                                 <font>
-                                    <Font size="29.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="46.0" layoutY="174.0" text="Hypothèque : ">
-                                 <font>
-                                    <Font size="29.0" />
-                                 </font>
-                              </Label>
-                              <Label fx:id="loyerLabel" layoutX="156.0" layoutY="128.0">
-                                 <font>
-                                    <Font size="29.0" />
-                                 </font>
-                              </Label>
-                              <Label fx:id="hypothequeLabel" layoutX="250.0" layoutY="174.0">
-                                 <font>
-                                    <Font size="29.0" />
-                                 </font>
-                              </Label>
-                              <Label fx:id="labelM" layoutX="46.0" layoutY="217.0" text="Prix maison :">
-                                 <font>
-                                    <Font size="29.0" />
-                                 </font>
-                              </Label>
-                              <Label fx:id="labelH" layoutX="46.0" layoutY="258.0" text="Prix hotel :">
-                                 <font>
-                                    <Font size="29.0" />
-                                 </font>
-                              </Label>
-                              <Label fx:id="prixMLabel" layoutX="244.0" layoutY="217.0">
-                                 <font>
-                                    <Font size="29.0" />
-                                 </font>
-                              </Label>
-                              <Label fx:id="prixHLabel" layoutX="214.0" layoutY="258.0">
-                                 <font>
-                                    <Font size="29.0" />
-                                 </font>
-                              </Label>
-                              <Button fx:id="btnAcheter" disable="true" layoutX="72.0" layoutY="353.0" mnemonicParsing="false" onAction="#onClickAcheter" prefHeight="65.0" prefWidth="154.0" text="Acheter : prixBD" />
-                              <Button layoutX="13.0" layoutY="6.0" mnemonicParsing="false" onAction="#onClickRecapitulatif" prefHeight="44.0" prefWidth="54.0" text="←" />
-                              <Button fx:id="btnPasAcheter" layoutX="245.0" layoutY="353.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="154.0" text="Ne pas acheter" />
-                              <Label fx:id="labelH1" layoutX="45.0" layoutY="297.0" text="Propriétaire :">
-                                 <font>
-                                    <Font size="29.0" />
-                                 </font>
-                              </Label>
-                              <Label fx:id="labelProprio" layoutX="244.0" layoutY="297.0">
-                                 <font>
-                                    <Font size="29.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </AnchorPane>
-                     </content>
-                  </ScrollPane>
                   <ScrollPane fx:id="startPane" prefHeight="200.0" prefWidth="200.0">
                     <content>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="938.0" prefWidth="501.0">
@@ -328,12 +252,12 @@
                               <ListView fx:id="listeJoueur" layoutX="14.0" layoutY="76.0" prefHeight="145.0" prefWidth="462.0" />
                               <ImageView fx:id="de1" fitHeight="70.0" fitWidth="120.0" layoutX="21.0" layoutY="901.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../../bin/IHM/Dice1.gif" />
+                                    <Image url="@Dice1.gif" />
                                  </image>
                               </ImageView>
                               <ImageView fx:id="de2" fitHeight="70.0" fitWidth="120.0" layoutX="101.0" layoutY="901.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../../bin/IHM/Dice1.gif" />
+                                    <Image url="@Dice1.gif" />
                                  </image>
                               </ImageView>
                               <Label layoutX="21.0" layoutY="865.0" text="Lancer de dés:" underline="true">
@@ -360,9 +284,80 @@
                               </Label>
                               <TableView fx:id="listPropriete" layoutX="28.0" layoutY="300.0" prefHeight="405.0" prefWidth="440.0" />
                               <Button fx:id="btnPasserTour" layoutX="364.0" layoutY="923.0" mnemonicParsing="false" onAction="#onClickPasserTour" prefHeight="26.0" prefWidth="97.0" text="Passer tour" />
+                              <Label fx:id="labelWhose" layoutX="225.0" layoutY="865.0" text="Tour de " underline="true">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </Label>
                            </children>
                         </AnchorPane>
                     </content>
+                  </ScrollPane>
+                  <ScrollPane fx:id="proprietePane" prefHeight="200.0" prefWidth="200.0">
+                     <content>
+                        <AnchorPane prefHeight="1000.0" prefWidth="500.0">
+                           <children>
+                              <Label fx:id="labelCasePane" alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="460.0" text="Propriété" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="40.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fx:id="couleurCase" fitHeight="60.0" fitWidth="475.0" layoutX="6.0" layoutY="57.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../bin/IHM/proprieteVerte2.jpeg" />
+                                 </image>
+                              </ImageView>
+                              <Label fx:id="proprieteLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="19.0" layoutY="70.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="452.0">
+                                 <font>
+                                    <Font size="29.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="labelPaye" layoutX="46.0" layoutY="128.0" text="Loyer :  ">
+                                 <font>
+                                    <Font size="29.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="46.0" layoutY="174.0" text="Hypothèque : ">
+                                 <font>
+                                    <Font size="29.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="loyerLabel" layoutX="145.0" layoutY="128.0" prefHeight="43.0" prefWidth="129.0">
+                                 <font>
+                                    <Font size="29.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="hypothequeLabel" layoutX="229.0" layoutY="174.0">
+                                 <font>
+                                    <Font size="29.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="labelM" layoutX="46.0" layoutY="217.0" text="Prix maison :">
+                                 <font>
+                                    <Font size="29.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="prixMLabel" layoutX="277.0" layoutY="217.0">
+                                 <font>
+                                    <Font size="29.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="btnAcheter" disable="true" layoutX="72.0" layoutY="353.0" mnemonicParsing="false" onAction="#onClickAcheter" prefHeight="65.0" prefWidth="154.0" text="Acheter : prixBD" />
+                              <Button layoutX="13.0" layoutY="6.0" mnemonicParsing="false" onAction="#onClickRecapitulatif" prefHeight="44.0" prefWidth="54.0" text="←" />
+                              <Button fx:id="btnPasAcheter" layoutX="245.0" layoutY="353.0" mnemonicParsing="false" onAction="#onClickPasAcheter" prefHeight="65.0" prefWidth="154.0" text="Ne pas acheter" />
+                              <Label fx:id="labelH1" layoutX="45.0" layoutY="297.0" text="Propriétaire :">
+                                 <font>
+                                    <Font size="29.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="labelProprio" layoutX="244.0" layoutY="297.0">
+                                 <font>
+                                    <Font size="29.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                     </content>
                   </ScrollPane>
                </children>
             </StackPane>

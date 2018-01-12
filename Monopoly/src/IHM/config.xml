@@ -8,17 +8,17 @@
 			<terrain id="37" nom="Avenue des Champs-Elysées" t0="35" t1="175" t2="500" t3="1100" t4="1300" t5="1500" hyp="175" prix="350"/>
 			<terrain id="39" nom="Rue de la Paix" t0="50" t1="200" t2="600" t3="1400" t4="1700" t5="2000" hyp="200" prix="400"/> 
 		</groupe>
-		<groupe couleur="vert" r="" g="" b="" maison="200">
-			<terrain id="31" nom="Avenue de Breteuil" t0="26" t1="130" t2="390" t3="900" t4="1100" t5="1275" hyp="150" prix="300"/> 
-			<terrain id="32" nom="Avenue Foch" t0="26" t1="130" t2="390" t3="900" t4="1100" t5="1275" hyp="150" prix="300"/> 
-			<terrain id="34" nom="Boulevard des Capucines" t0="28" t1="150" t2="450" t3="1000" t4="1200" t5="1400" hyp="160" prix="320"/> 
-		</groupe>
+		
 		<groupe couleur="jaune" r="" g="" b="" maison="150">
 			<terrain id="26" nom="Faubourg Saint-Honoré" t0="22" t1="110" t2="330" t3="800" t4="975" t5="1150" hyp="130" prix="260"/> 
 			<terrain id="27" nom="Place de la Bourse" t0="22" t1="110" t2="330" t3="800" t4="975" t5="1150" hyp="130" prix="260"/> 
 			<terrain id="29" nom="Rue la Fayette" t0="24" t1="120" t2="360" t3="850" t4="1025" t5="1200" hyp="140" prix="280"/> 
 		</groupe>
-		<groupe couleur="rouge" r="" g="" b="" maison="150">
+		<groupe couleur="vert" r="" g="" b="" maison="200">
+			<terrain id="31" nom="Avenue de Breteuil" t0="26" t1="130" t2="390" t3="900" t4="1100" t5="1275" hyp="150" prix="300" /> 
+			<terrain id="32" nom="Avenue Foch" t0="26" t1="130" t2="390" t3="900" t4="1100" t5="1275" hyp="150" prix="300" /> 
+			<terrain id="34" nom="Boulevard des Capucines" t0="28" t1="150" t2="450" t3="1000" t4="1200" t5="1400" hyp="160" prix="320" /> 
+		</groupe><groupe couleur="rouge" r="" g="" b="" maison="150">
 			<terrain id="21" nom="Avenue Matignon" t0="18" t1="90" t2="250" t3="700" t4="875" t5="1050" hyp="110" prix="220"/> 
 			<terrain id="23" nom="Boulevard Malesherbes" t0="18" t1="90" t2="250" t3="700" t4="875" t5="1050" hyp="110" prix="220"/> 
 			<terrain id="24" nom="Avenue Henri-Martin" t0="20" t1="100" t2="300" t3="750" t4="925" t5="1100" hyp="120" prix="240"/> 
@@ -97,16 +97,16 @@ Si vous passer par la case Départ recevez 200€" type="aller_a" id="24" />
 			<carte lib="Faites des réparations dans toutes vos maisons.
 Versez pour chaque maison 25€.
 Versez pour chaque hotel 100€." type="reparation" maison="-25" hotel="-100" />
-			<carte lib="Vous êtes imposé pour les réparations
-de voirie à raison de:
-40€ par maison et
-115€ par hotel." type="reparation" maison="-40" hotel="-115" />
+			
 			<carte lib="Allez à la gare de Lyon" type="aller_a" id="15" />
 			<carte lib="Amende pour excès de vitesse: 15€." type="argent" valeur="-15" />
 			<carte lib="Vous avez gagné le prix de mots croisés.
 recevez 100€." type="argent" valeur="100" />
 			<carte lib="Amende pour ivresse: 20€" type="argent" valeur="-20" />
-			<carte lib="Avancez jusqu'à la case départ" type="allez_a" id="0" />
+			<carte lib="Avancez jusqu'à la case départ" type="allez_a" id="0" ><carte lib="Vous êtes imposé pour les réparations
+de voirie à raison de:
+40€ par maison et
+115€ par hotel." type="reparation" maison="-40" hotel="-115" /></carte>
 			<carte lib="Vous êtes libéré de prison." type="libere" />
 			<carte lib="Rendez-vous à la Rue de la Paix" type="retourner" id="39" />
 			<carte lib="Votre immeuble et votre prêt rapportent 150€" type="argent" valeur="150" />

@@ -73,6 +73,10 @@ public class Joueur extends Observable{
 		return this.nom;
 	}
 	
+	public Jeu getJeu() {
+		return this.jeu;
+	}
+	
 	
 	//voir plus tard
 	public boolean carteSortiePrison(){

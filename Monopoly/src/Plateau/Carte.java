@@ -6,7 +6,16 @@ public class Carte {
 
 	private int typeChance;
 	private int typeCC;
-
+	private String carte;
+	private String type;
+	private String lib;
+	private int valeur;
+	
+	public Carte(String lib, String type){
+		this.lib = lib;
+		this.type = type;
+	}
+	
 	private static void affiche(String message) {
 		System.out.println(message);
 	}
@@ -41,7 +50,7 @@ public class Carte {
 		}
 
 		affiche("creation et execution de la requete");
-		requete = "SELECT * FROM CARTECHANCE ";
+		requete = "SELECT * FROM CARTECHANCE ORDER BY dbms_random.value";
 		try {
 			Statement stmt = connection.createStatement();
 			resultats = stmt.executeQuery(requete);
@@ -70,7 +79,7 @@ public class Carte {
 		}
 
 		affiche2("creation et execution de la requete");
-		requete2 = "SELECT * FROM CARTECOMMUNAUTE";
+		requete2 = "SELECT * FROM CARTECOMMUNAUTE ORDER BY dbms_random.value";
 		try {
 			Statement stmt = connection.createStatement();
 			resultats = stmt.executeQuery(requete2);

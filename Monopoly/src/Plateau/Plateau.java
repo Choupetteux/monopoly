@@ -6,6 +6,8 @@ import java.util.LinkedList;
 import java.util.Observer;
 import java.util.Queue;
 
+import org.w3c.dom.Node;
+
 import Case.Case;
 import Case.CaseCarte;
 import Case.CaseDepart;
@@ -16,6 +18,7 @@ import Case.CasePrison;
 import Case.CasePropriete;
 import Case.CaseService;
 import Case.CaseTaxe;
+import IHM.XMLParser;
 import Jeu.Jeu;
 
 public class Plateau {
@@ -25,6 +28,7 @@ public class Plateau {
 	private Hashtable<String, Case[]> groupeCouleur;
 	private Queue<Carte> carteCommunaute;
 	private Jeu GM;
+	private XMLParser parser = XMLParser.getParserInstance();
 	
 	public Plateau(Jeu gM, Observer o) {
 		super();
@@ -74,8 +78,24 @@ public class Plateau {
 		cases[39] = new CasePropriete(39, o);
 		//---------------------------------------------
 		this.carteChance = new LinkedList<Carte>();
+		//Initialisation liste carte chance
+		for(Node paquet : this.parser.getNodeArray("paquet",this.parser.getCartes().getChildNodes())){
+			if(this.parser.getNodeAttr("type", paquet).equals("0")){
+				for(Node attribut : this.parser.getNodeArray("carte", paquet.getChildNodes())){
+					this.carteChance.add(new Carte(this.parser.getNodeAttr("lib", attribut), this.parser.getNodeAttr("type", attribut)));
+				}
+			}
+		}
 		this.groupeCouleur = new Hashtable<String, Case[]>();
 		this.carteCommunaute = new LinkedList<Carte>();
+		for(Node paquet : this.parser.getNodeArray("paquet",this.parser.getCartes().getChildNodes())){
+			if(this.parser.getNodeAttr("type", paquet).equals(
+					"1")){
+				for(Node attribut : this.parser.getNodeArray("carte", paquet.getChildNodes())){
+					this.carteCommunaute.add(new Carte(this.parser.getNodeAttr("lib", attribut), this.parser.getNodeAttr("type", attribut)));
+				}
+			}
+		}
 		GM = gM;
 	}
 	
@@ -94,14 +114,16 @@ public class Plateau {
 	}
 	
 	public Carte piocherChance() {
-		Carte cartePioche = this.carteChance.remove();
-		//if(cartePioche == "Libéré prison"){
+		/*Carte cartePioche = this.carteChance.remove();
+		if(cartePioche == "Libéré prison"){
 			//Donner la carte au joueur qui pioche
-		//}
-		//else{
+		}
+		else{
 			this.carteChance.add(cartePioche);
-		//}
-		return cartePioche;
+		}
+		return cartePioche;*/
+		return null;
+		
 	}
 	
 	public Case getCase(int pos){
@@ -113,8 +135,13 @@ public class Plateau {
 	}
 	
 	public ArrayList<CasePropriete> getPropriete(){
-		//TODO: Retourner une arraylist de toute les carte propriete
-		return null;
+		ArrayList<CasePropriete> res = new ArrayList<CasePropriete>();
+		for(Case casee : this.cases) {
+			if(casee instanceof CasePropriete) {
+				res.add((CasePropriete) casee);
+			}
+		}
+		return res;
 	}
 	
 	public int getProprieteNombreCouleur(){

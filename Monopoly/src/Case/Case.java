@@ -7,6 +7,7 @@ import org.w3c.dom.Node;
 
 import IHM.XMLParser;
 import Joueur.Joueur;
+import Plateau.Plateau;
 import Jeu.EventType;
 import Jeu.Jeu;
 import Jeu.EventMonopoly;

@@ -6,6 +6,7 @@ import java.util.Observer;
 import org.w3c.dom.Node;
 
 import Jeu.EventType;
+import Jeu.Jeu;
 import Joueur.Joueur;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -62,25 +63,45 @@ public class CasePropriete extends CaseAchetable{
 		}
 	}
 	
+
+	public ArrayList<CasePropriete> getGroupePropriete(String couleur){
+		ArrayList<CasePropriete> res = new ArrayList<CasePropriete>();
+		for(CasePropriete caseProp : this.proprietaire.getJeu().getPlateau().getPropriete()) {
+			if(caseProp.getGroupeCouleur().equals(couleur)) {
+				res.add(caseProp);
+			}
+		}
+		return res;
+	}
+	
 	public int getLoyer() {
 		int res = Integer.parseInt(this.parser.getNodeAttr("t0", nodeLink));
 		switch(nbMaison){
 			case 1:
 				res = Integer.parseInt(this.parser.getNodeAttr("t1", nodeLink));
+				break;
 			case 2:
 				res = Integer.parseInt(this.parser.getNodeAttr("t2", nodeLink));
+				break;
 			case 3:
 				res = Integer.parseInt(this.parser.getNodeAttr("t3", nodeLink));
+				break;
 			case 4:
 				res = Integer.parseInt(this.parser.getNodeAttr("t4", nodeLink));
+				break;
 			case 5:
 				res = Integer.parseInt(this.parser.getNodeAttr("t5", nodeLink));
+				break;
 		}
 		return res;
 	}
 	
 	public int getNbMaison(){
 		return this.nbMaison;
+	}
+	
+	public void incrementNbMaison() {
+		this.nbMaison++;
 	}
 	
 	public void addMaison(){
@@ -110,12 +131,13 @@ public class CasePropriete extends CaseAchetable{
 			}
 		}
 		else if(this.proprietaire.equals(joueur)){
-				
+				this.nbMaison++;
 		}
 		else{
 			this.emitEvent(EventType.CASE_PROPRIETE);
 			joueur.setArgent(joueur.getArgent() - this.getLoyer());
 			this.proprietaire.setArgent(this.proprietaire.getArgent() + this.getLoyer());
+			this.nbMaison++;
 		}
 	}
 }

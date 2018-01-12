@@ -41,8 +41,6 @@ import Jeu.*;
 import Case.*;
 import IHM.XMLParser;
 import Case.CasePropriete;
-import info.graphics.Rectangle;
-import info.util.javafx.FXUtil;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert.AlertType;
@@ -60,10 +58,22 @@ public class PopupController {
 	
 	@FXML
 	private ImageView imgDesc;
+	private Image payement = new Image(MonopolyController.class.getResourceAsStream(("payement.png")));
+
+	private MediaPlayer musicPlayer;
+	Media pay = new Media(MonopolyController.class.getResource("pay.wav").toExternalForm());
 	
 	@FXML
 	public void setLabel(String text){
 		this.labelHappen.setText(text);
+	}
+	
+	@FXML
+	public void setImgDescPayement() {
+		this.imgDesc.setImage(payement);
+		this.imgDesc.setTranslateX(100);
+		this.musicPlayer = new MediaPlayer(pay);
+		this.musicPlayer.play();
 	}
 	
 	@FXML

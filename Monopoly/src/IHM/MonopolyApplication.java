@@ -1,6 +1,5 @@
 package IHM;
 import java.util.ResourceBundle;
-import info.util.javafx.FXUtil;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.event.Event;
@@ -40,7 +39,7 @@ public class MonopolyApplication extends Application {
             
             Parent root = loader.load();
 
-            FXUtil.associate(loader.getController(), primaryStage);
+            //FXUtil.associate(loader.getController(), primaryStage);
             primaryStage.setTitle("Monopoly");
             primaryStage.setScene(new Scene(root));
             primaryStage.setResizable(false);

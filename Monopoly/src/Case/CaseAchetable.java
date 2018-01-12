@@ -1,5 +1,6 @@
 package Case;
 
+import java.util.ArrayList;
 import java.util.Observer;
 
 import Joueur.Joueur;
@@ -42,6 +43,7 @@ public class CaseAchetable extends Case{
 	public void setDisponible(boolean disponible) {
 		this.disponible = disponible;
 	}
+	
 
 	public String toString(){
 		

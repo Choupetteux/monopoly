@@ -8,6 +8,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.scene.shape.Rectangle;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.collections.FXCollections;
@@ -41,8 +42,6 @@ import Jeu.*;
 import Case.*;
 import IHM.XMLParser;
 import Case.CasePropriete;
-import info.graphics.Rectangle;
-import info.util.javafx.FXUtil;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert.AlertType;
@@ -144,8 +143,6 @@ public class MonopolyController implements Observer {
 	@FXML
 	private Label prixMLabel;
 	@FXML
-	private Label prixHLabel;
-	@FXML
 	private Label loyerLabel;
 	@FXML
 	private Label hypothequeLabel;
@@ -156,8 +153,6 @@ public class MonopolyController implements Observer {
 	@FXML
 	private Label labelM;
 	@FXML
-	private Label labelH;
-	@FXML
 	private Label labelPaye;
 	@FXML
 	private Label labelCasePane;
@@ -167,6 +162,8 @@ public class MonopolyController implements Observer {
 	private Label argentJoueur;
 	@FXML
 	private Label joueurNom;
+	@FXML
+	private Label labelWhose;
 
 	@FXML
 	private Pane grid1;
@@ -273,25 +270,31 @@ public class MonopolyController implements Observer {
 	
 	private Map<String, Pane> listPane = new HashMap<String, Pane>();
 
-
-	private Image vert = new Image("/IHM/proprieteVerte2.jpeg");
-	private Image bleu = new Image("/IHM/proprieteBleu.png");
-	private Image marron = new Image("/IHM/proprieteMarron.png");
-	private Image magenta = new Image("/IHM/proprieteMagenta.png");
-	private Image cyan = new Image("/IHM/proprieteCyan.png");
-	private Image rouge = new Image("/IHM/proprieteRouge.png");
-	private Image jaune = new Image("/IHM/proprieteJaune.png");
-	private Image orange = new Image("/IHM/proprieteOrange.png");
-	private Image services = new Image("/IHM/proprieteServices.png");
-	private ImageView dog = new ImageView(new Image("/IHM/dog.png"));
-	private ImageView car = new ImageView(new Image("/IHM/car.png"));
+	private Image maison = new Image(MonopolyController.class.getResourceAsStream("house.png"));
+	private Image vert = new Image(MonopolyController.class.getResourceAsStream("proprieteVerte2.jpeg"));
+	private Image bleu = new Image(MonopolyController.class.getResourceAsStream("proprieteBleu.png"));
+	private Image marron = new Image(MonopolyController.class.getResourceAsStream("proprieteMarron.png"));
+	private Image magenta = new Image(MonopolyController.class.getResourceAsStream("proprieteMagenta.png"));
+	private Image cyan = new Image(MonopolyController.class.getResourceAsStream("proprieteCyan.png"));
+	private Image rouge = new Image(MonopolyController.class.getResourceAsStream("proprieteRouge.png"));
+	private Image jaune = new Image(MonopolyController.class.getResourceAsStream("proprieteJaune.png"));
+	private Image orange = new Image(MonopolyController.class.getResourceAsStream("proprieteOrange.png"));
+	private Image services = new Image(MonopolyController.class.getResourceAsStream("proprieteServices.png"));
+	private ImageView dog = new ImageView(new Image(MonopolyController.class.getResourceAsStream("dog.png")));
+	private ImageView car = new ImageView(new Image(MonopolyController.class.getResourceAsStream("car.png")));
 
 	private XMLParser parser = XMLParser.getParserInstance();
 	private Jeu jeu;
 	private String currentPane = "Récapitulatif";
 	private boolean canBuy = false;
 	private String typeBuy = "";
-
+	//--Relatif aux popup below
+	private FXMLLoader loaderPopup = new FXMLLoader(getClass().getResource("Popup.fxml"));
+	private PopupController controllerPopup;
+	private Stage stagePopup;
+	private MediaPlayer musicPlayer;
+	Media de = new Media(MonopolyController.class.getResource("lol.wav").toExternalForm());
+	
 	/**
 	 * Constructeur.
 	 */
@@ -317,6 +320,17 @@ public class MonopolyController implements Observer {
 		this.btnAcheter.setOpacity(0);
 		this.btnPasAcheter.setOpacity(0);
 		this.btnPasAcheter.setDisable(true);
+
+		try {
+		VBox root = (VBox) loaderPopup.load();
+		this.controllerPopup = (PopupController) loaderPopup.getController();
+		Scene scene = new Scene(root);
+		this.stagePopup = new Stage();
+		this.stagePopup.setScene(scene);
+		} 
+		catch(Exception e) {
+			e.printStackTrace();
+		}
 		
 		// Initialisation des méthodes associés aux boutons
 		boutonPropriete1.setOnAction(e -> onClickPropriete(1));
@@ -394,7 +408,6 @@ public class MonopolyController implements Observer {
 		this.listPane.get("grid1").getChildren().add(car);
 		//On bouge le pion pour ne pas les stacker
 		this.listPane.get("grid1").getChildren().get(this.listPane.get("grid1").getChildren().indexOf(car)).setTranslateX(50);
-		
 	}
 	
 	private void deletePion(){
@@ -417,6 +430,14 @@ public class MonopolyController implements Observer {
 			this.listPane.get("grid" + (jeu.getJoueurs(jeu.getCurrentJoueur()).getPosition() + 1)).getChildren().add(car);
 			break;
 		}
+	}
+	
+	private void addMaison(Pane cible) {
+		//Test methode, à implémenter pour placer les maisons aux bons endroits si time.
+		ImageView house = new ImageView(this.maison);
+		house.setFitWidth(30);
+		house.setFitHeight(25);
+		cible.getChildren().add(house);
 	}
 
 	/**
@@ -486,8 +507,12 @@ public class MonopolyController implements Observer {
         TableColumn<CasePropriete, Integer> loyer = new TableColumn<CasePropriete, Integer>("Loyer");
         loyer.setCellValueFactory(
                 new PropertyValueFactory<>("loyer"));
+        
+        TableColumn<CasePropriete, Integer> nbMaison = new TableColumn<CasePropriete, Integer>("Nombre maison");
+        nbMaison.setMinWidth(125);
+        nbMaison.setCellValueFactory(new PropertyValueFactory<>("nbMaison"));
 
-    	listPropriete.getColumns().addAll(color, nom, loyer);
+    	listPropriete.getColumns().addAll(color, nom, loyer, nbMaison);
 
         
 
@@ -506,7 +531,11 @@ public class MonopolyController implements Observer {
 	        	listPropriete.setItems(lol);
 	        }
 	    });
+
+		this.labelWhose.setText("Tour de " + this.jeu.getJoueurs(this.jeu.getCurrentJoueur()).getNom());
 		
+		
+		//test
 	}
 	
 	public Button getBtnLancer(){
@@ -517,8 +546,7 @@ public class MonopolyController implements Observer {
 	public void onClickPropriete(int index) {
 		CasePropriete caseProp = (CasePropriete) this.jeu.getPlateau().getCase(index);
 		this.labelPaye.setText("Loyer :");
-		this.labelH.setText("Prix hôtel :");
-		this.labelM.setText("Prix maison :");
+		this.labelM.setText("Nombre maison : ");
 		this.labelCasePane.setText("Propriété");
 		this.proprieteLabel.setText(caseProp.getNom());
 		// -------------------------------------------------------------------
@@ -543,10 +571,9 @@ public class MonopolyController implements Observer {
 		// ------------------------------------------------------------------
 		// Changement des différentes informations
 		this.loyerLabel.setText(Integer.toString(caseProp.getLoyer()) + "€");
-		this.prixMLabel.setText(Integer.toString(caseProp.getPrixMaison()) + "€");
-		this.prixHLabel.setText(caseProp.getPrixMaison() + "€ + 4 maisons");
+		this.prixMLabel.setText("" + caseProp.getNbMaison());
 		this.btnAcheter.setText("Acheter : " + Integer.toString(caseProp.getPrixAchat()) + "€");
-		this.hypothequeLabel.setText(Integer.toString(caseProp.getPrixHypotheque()));
+		this.hypothequeLabel.setText(Integer.toString(caseProp.getPrixHypotheque()) + "€");
 		if(caseProp.getProprietaire() == null){
 			this.labelProprio.setText("Pas de propriétaire.");
 		}
@@ -584,7 +611,6 @@ public class MonopolyController implements Observer {
 		}
 		CaseService caseService = (CaseService)this.jeu.getPlateau().getCase(index);
 		this.labelCasePane.setText("Service");
-		this.labelH.setText("");
 		this.labelM.setText("Multiplicateur : ");
 		if(caseService.getProprietaire() == null){
 			this.labelProprio.setText("Pas de propriétaire.");
@@ -596,7 +622,6 @@ public class MonopolyController implements Observer {
 		//TODO set Facture quand un joueur arrive dessus.
 		this.loyerLabel.setText("");
 		this.hypothequeLabel.setText(caseService.getPrixHypotheque() + "€");
-		this.prixHLabel.setText("");
 		//TODO set multiplicateur
 		this.prixMLabel.setText("");
 		this.couleurCase.setImage(services);
@@ -608,7 +633,6 @@ public class MonopolyController implements Observer {
 	public void onClickGare(int index){
 		CaseGare caseGare = (CaseGare) this.jeu.getPlateau().getCase(index);
 		this.proprieteLabel.setText(caseGare.getNom());
-		this.labelH.setText("");
 		if(caseGare.getProprietaire() == null){
 			this.labelProprio.setText("Pas de propriétaire.");
 		}
@@ -619,11 +643,11 @@ public class MonopolyController implements Observer {
 		//TODO set Facture quand un joueur arrive dessus.
 		this.loyerLabel.setText("");
 		this.hypothequeLabel.setText(caseGare.getPrixHypotheque() + "€");
-		this.prixHLabel.setText("");
 		//TODO set multiplicateur
 		this.labelM.setText("Prix du billet : ");
 		this.prixMLabel.setText(" " + caseGare.getLoyer() + "€");
 		this.couleurCase.setImage(services);
+		this.btnAcheter.setText("Acheter 200€");
 		this.displayBtnIfPlayerCanBuy(index);
 		this.changePane("Propriété");
 		this.currentPane = "Propriété";
@@ -637,15 +661,42 @@ public class MonopolyController implements Observer {
 	@FXML
 	public void onClickAcheter(){
 		if(this.typeBuy.equals("Propriete")){
-			this.jeu.getJoueurs(this.jeu.getCurrentJoueur()).acheterPropriete((CasePropriete) this.jeu.getPlateau().getCase(this.jeu.getJoueurs(this.jeu.getCurrentJoueur()).getPosition()));
+			int compteur = 0;
+			int compteurSameProprietaire = 0;
+			CasePropriete caseProp = (CasePropriete) this.jeu.getPlateau().getCase(this.jeu.getJoueurs(this.jeu.getCurrentJoueur()).getPosition());
+			this.jeu.getJoueurs(this.jeu.getCurrentJoueur()).acheterPropriete(caseProp);
 			this.canBuy = false;
 			this.onClickPropriete(this.jeu.getJoueurs(this.jeu.getCurrentJoueur()).getPosition());
+			for(CasePropriete caseP : caseProp.getGroupePropriete(caseProp.getGroupeCouleur())) {
+				if(caseP.getProprietaire() != null) {
+					compteur++;
+				}
+				if(caseP.getProprietaire() == this.jeu.getJoueurs(this.jeu.getCurrentJoueur())) {
+					compteurSameProprietaire++;
+				}
+			}
+			if(compteur == caseProp.getGroupePropriete(caseProp.getGroupeCouleur()).size()) {
+				for(CasePropriete caseP : caseProp.getGroupePropriete(caseProp.getGroupeCouleur())) {
+					caseP.incrementNbMaison();
+				}
+			}
+			if(compteurSameProprietaire == caseProp.getGroupePropriete(caseProp.getGroupeCouleur()).size()) {
+				for(CasePropriete caseP : caseProp.getGroupePropriete(caseProp.getGroupeCouleur())) {
+					caseP.incrementNbMaison();
+				}
+			}
 		}
 		else if (this.typeBuy.equals("Gare")){
 			this.jeu.getJoueurs(this.jeu.getCurrentJoueur()).acheterGare((CaseGare) this.jeu.getPlateau().getCase(this.jeu.getJoueurs(this.jeu.getCurrentJoueur()).getPosition()));
 			this.canBuy = false;
 			this.onClickGare(this.jeu.getJoueurs(this.jeu.getCurrentJoueur()).getPosition());
 		}
+	}
+	
+	@FXML
+	public void onClickPasAcheter() {
+		this.changePane("Enchere");
+		this.currentPane = "Enchere";
 	}
 
 	@FXML
@@ -659,47 +710,49 @@ public class MonopolyController implements Observer {
 	
 	@FXML
 	public void btnLancerDes() {
+		this.musicPlayer = new MediaPlayer(de);
+		this.musicPlayer.play();
 		for (int i = 0; i < 2; i++) {
 			jeu.getDes(i).relancerDe();
 		}
 		switch (this.jeu.getDes(0).getLancer()) {
 		case 1:
-			this.de1.setImage(new Image("/IHM/Dice1.gif"));
+			this.de1.setImage(new Image(MonopolyController.class.getResourceAsStream("Dice1.gif")));
 			break;
 		case 2:
-			this.de1.setImage(new Image("/IHM/Dice2.gif"));
+			this.de1.setImage(new Image(MonopolyController.class.getResourceAsStream("Dice2.gif")));
 			break;
 		case 3:
-			this.de1.setImage(new Image("/IHM/Dice3.gif"));
+			this.de1.setImage(new Image(MonopolyController.class.getResourceAsStream("Dice3.gif")));
 			break;
 		case 4:
-			this.de1.setImage(new Image("/IHM/Dice4.gif"));
+			this.de1.setImage(new Image(MonopolyController.class.getResourceAsStream("Dice4.gif")));
 			break;
 		case 5:
-			this.de1.setImage(new Image("/IHM/Dice5.gif"));
+			this.de1.setImage(new Image(MonopolyController.class.getResourceAsStream("Dice5.gif")));
 			break;
 		case 6:
-			this.de1.setImage(new Image("/IHM/Dice6.gif"));
+			this.de1.setImage(new Image(MonopolyController.class.getResourceAsStream("Dice6.gif")));
 			break;
 		}
 		switch (this.jeu.getDes(1).getLancer()) {
 		case 1:
-			this.de2.setImage(new Image("/IHM/Dice1.gif"));
+			this.de2.setImage(new Image(MonopolyController.class.getResourceAsStream("Dice1.gif")));
 			break;
 		case 2:
-			this.de2.setImage(new Image("/IHM/Dice2.gif"));
+			this.de2.setImage(new Image(MonopolyController.class.getResourceAsStream("Dice2.gif")));
 			break;
 		case 3:
-			this.de2.setImage(new Image("/IHM/Dice3.gif"));
+			this.de2.setImage(new Image(MonopolyController.class.getResourceAsStream("Dice3.gif")));
 			break;
 		case 4:
-			this.de2.setImage(new Image("/IHM/Dice4.gif"));
+			this.de2.setImage(new Image(MonopolyController.class.getResourceAsStream("Dice4.gif")));
 			break;
 		case 5:
-			this.de2.setImage(new Image("/IHM/Dice5.gif"));
+			this.de2.setImage(new Image(MonopolyController.class.getResourceAsStream("Dice5.gif")));
 			break;
 		case 6:
-			this.de2.setImage(new Image("/IHM/Dice6.gif"));
+			this.de2.setImage(new Image(MonopolyController.class.getResourceAsStream("Dice6.gif")));
 			break;
 		}
 		this.resLancer.setText("" + jeu.getValeurLancerDes());
@@ -717,6 +770,7 @@ public class MonopolyController implements Observer {
 	@FXML
 	public void onClickPasserTour(){
 		this.jeu.passerTour();
+		this.labelWhose.setText("Tour de " + this.jeu.getJoueurs(this.jeu.getCurrentJoueur()).getNom());
 		this.btnPasserTour.setDisable(true);
 	}
 
@@ -769,6 +823,17 @@ public class MonopolyController implements Observer {
 					.setArgent(this.jeu.getJoueurs(this.jeu.getCurrentJoueur()).getArgent() + 200);
 			break;
 		case CASE_GARE:
+			try {
+				CaseGare caseActuelle = (CaseGare) this.jeu.getPlateau().getCase(this.jeu.getJoueurs(jeu.getCurrentJoueur()).getPosition());
+				this.controllerPopup.setLabel("Vous avez payé " + caseActuelle.getLoyer() + "€ de train à " + caseActuelle.getProprietaire().getNom() + ".");
+				this.stagePopup.setTitle("Payement de train");
+				this.controllerPopup.setImgDescPayement();
+				this.stagePopup.show();
+				this.stagePopup.sizeToScene();
+				stagePopup.setAlwaysOnTop(true);
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
 			break;
 		case CASE_GARE_ACHETABLE:
 			this.onClickGare(this.jeu.getJoueurs(this.jeu.getCurrentJoueur()).getPosition());
@@ -805,21 +870,27 @@ public class MonopolyController implements Observer {
 			// TODO:Demande au joueur de buy
 			break;
 		case CASE_PROPRIETE:
-			try {
-				FXMLLoader loader = new FXMLLoader(getClass().getResource("Popup.fxml"));
-				VBox root = (VBox) loader.load();
-				PopupController controller = (PopupController) loader.getController();
 				CasePropriete caseActuelle = (CasePropriete) this.jeu.getPlateau().getCase(this.jeu.getJoueurs(jeu.getCurrentJoueur()).getPosition());
+<<<<<<< HEAD
 				controller.setLabel("Vous avez payé " + caseActuelle.getLoyer() + "€ de loyer à " + caseActuelle.getProprietaire().getNom() + ".");
 				Scene scene = new Scene(root);
 				Stage stage = new Stage();
 				stage.setScene(scene);
-				stage.setTitle("");
+				stage.setTitle("Payement de loyer");
 				stage.show();
 				stage.sizeToScene();
 			} catch(Exception e) {
 				e.printStackTrace();
 			}
+=======
+				this.controllerPopup.setLabel("Vous avez payé " + caseActuelle.getLoyer() + "€ de loyer à " + caseActuelle.getProprietaire().getNom() + ".");
+				this.stagePopup.setTitle("Payement de loyer");
+				this.controllerPopup.setImgDescPayement();
+				//this.addMaison(this.listPane.get("grid" + (this.jeu.getJoueurs(jeu.getCurrentJoueur()).getPosition() + 1)));
+				this.stagePopup.show();
+				this.stagePopup.sizeToScene();
+				stagePopup.setAlwaysOnTop(true);
+>>>>>>> 8b087ccb8a2ed60c56cd42de9c807082a9a69e7f
 		break;
 		default:
 			break;
